@@ -30,10 +30,10 @@ const CollapseMenu = (props) => {
           <li><a href="/" onClick={props.handleNavbar}>Teams</a></li>
         </NavLinks>
         <NavIcons>
-          <li><a><FontAwesomeIcon icon={faFacebookSquare} size="2x"/></a></li>
-          <li><a><FontAwesomeIcon icon={faTwitter} size="2x"/></a></li>
-          <li><a><FontAwesomeIcon icon={faInstagram} size="2x"/></a></li>
-          <li><a><FontAwesomeIcon icon={faYoutube} size="2x"/></a></li>
+          <li><a href="/"><FontAwesomeIcon icon={faFacebookSquare} size="2x"/></a></li>
+          <li><a href="/"><FontAwesomeIcon icon={faTwitter} size="2x"/></a></li>
+          <li><a href="/"><FontAwesomeIcon icon={faInstagram} size="2x"/></a></li>
+          <li><a href="/"><FontAwesomeIcon icon={faYoutube} size="2x"/></a></li>
         </NavIcons>
       </CollapseWrapper>
     );

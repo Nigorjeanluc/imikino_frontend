@@ -14,6 +14,7 @@ import BurgerMenu from './BurgerMenu';
 import CollapseMenu from './CollapseMenu';
 import LoginBtn from './LoginBtn';
 import SignUpBtn from './SignUpBtn';
+import './Navbar.scss';
 
 const Navbar = (props) => {
   const barAnimation = useSpring({
@@ -30,7 +31,7 @@ const Navbar = (props) => {
 
   return (
     <>
-      <NavBar style={barAnimation}>
+      <NavBar className="nav-font" style={barAnimation}>
         <FlexContainer>
           <Brand />
           <NavLinks style={linkAnimation}>
@@ -46,10 +47,10 @@ const Navbar = (props) => {
             <a href="/"><FontAwesomeIcon icon={faInstagram} size="2x"/></a>
             <a href="/"><FontAwesomeIcon icon={faYoutube} size="2x"/></a>
           </NavIcons>
-          <NavLinks>
+          <NavBtn>
             <LoginBtn text="Login" />
             <SignUpBtn text="SignUp"/>
-          </NavLinks>
+          </NavBtn>
           <BurgerWrapper>
             <BurgerMenu
               navbarState={props.navbarState}
@@ -73,7 +74,7 @@ const NavBar = styled(animated.nav)`
   width: 100%;
   top: 0;
   left: 0;
-  background: #2d3436;
+  background: #1b1b2f;
   z-index: 1;
   font-size: 1.4rem;
 `;
@@ -119,6 +120,32 @@ const NavIcons = styled(animated.ul)`
   margin: auto 0;
 
   & a {
+    color: #dfe6e9;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    margin: 0 1rem;
+    transition: all 300ms linear 0s;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      color: #fdcb6e;
+      border-bottom: 1px solid #fdcb6e;
+    }
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+`;
+
+const NavBtn = styled(animated.ul)`
+  justify-self: end;
+  list-style-type: none;
+  margin: auto 0;
+
+  & button {
     color: #dfe6e9;
     text-transform: uppercase;
     font-weight: 600;
