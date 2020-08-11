@@ -5,7 +5,7 @@ import './BtnLink.scss';
 function BtnLink(props) {
   return (
     <>
-      <Link className="anchor" to={props.link}>{props.text}</Link>
+      <Link className={`anchor ${props.active ? 'activee' : ''}`} to={props.link}>{props.text}</Link>
     </>
   );
 }

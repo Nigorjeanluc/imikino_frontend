@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import store from './redux/store';
+import './index.scss';
+import 'mdbreact/dist/css/mdb.css';
 
 ReactDOM.render(
   <React.StrictMode>

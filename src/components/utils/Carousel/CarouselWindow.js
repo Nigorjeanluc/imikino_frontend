@@ -38,7 +38,8 @@ function CarouselWindow(props) {
         key={item.src}
       >
         <img style={{ height: 400, width: '100%' }} src={item.src} alt={item.altText} />
-        <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+        <CarouselCaption className="carousel-text" captionText={item.caption} />
+        {/* <CarouselCaption className="carousel-text" captionText={item.caption} captionHeader={item.caption} /> */}
       </CarouselItem>
   ));
 

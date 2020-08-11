@@ -1,13 +1,17 @@
 /* eslint-disable global-require */
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { MDBRow } from 'mdbreact';
 
 import Navbar from '../../utils/navbar/Navbar';
-import GlobalStyle from '../../../styles/Global';
+// import GlobalStyle from '../../../styles/Global';
 import Title from '../../utils/Title';
 import BtnLink from '../../utils/BtnLink';
 import CarouselWindow from '../../utils/Carousel';
 import Footer from '../../utils/Footer';
+import NewsCard from '../../utils/NewsCard/NewsCard';
+import './Home.scss';
+import VideosPanel from '../../utils/VideosPanel';
 
 export class Home extends Component {
   state = { navbarOpen: false };
@@ -21,7 +25,7 @@ export class Home extends Component {
       {
         src: require('../../../assets/imgs/1.jpg'),
         altText: 'Slide 1',
-        caption: 'Slide 1'
+        caption: 'Slide 1 Slide 1 Slide 1 Slide 1 Slide 1 Slide 1 Slide 1Slide 1 Slide 1Slide 1Slide 1Slide 1Slide 1Slide 1Slide 1'
       },
       {
         src: require('../../../assets/imgs/2.jpg'),
@@ -41,28 +45,36 @@ export class Home extends Component {
     ];
     return (
       <>
-        <GlobalStyle />
         <Container fluid>
           <Navbar
             navbarState={this.state.navbarOpen}
             handleNavbar={this.handleNavbar}
           />
-          <Row style={{ marginTop: '5rem' }} className="justify-content-md-center">
+          <Row style={{ marginTop: '6rem' }} className="justify-content-md-center">
             <Col md={8}>
-              <Title text="Football News"/>
-              <Row>
-                <Col md={6}>
-                  <BtnLink link="/" text="Latest News"/>
-                </Col>
-                <Col md={6}>
-                  <BtnLink link="/" text="Today's Match"/>
-                </Col>
-              </Row>
+              <Title text="All Sport News"/>
               <Row>
                 <Col md="8">
                   <CarouselWindow items={images}/>
                 </Col>
               </Row>
+              <Row>
+                <Col md={6}>
+                  <BtnLink active link="/" text="Latest News"/>
+                </Col>
+                <Col md={6}>
+                  <BtnLink link="/" text="Today's Match"/>
+                </Col>
+              </Row>
+              <MDBRow className="cards-panel">
+                <NewsCard />
+                <NewsCard />
+                <NewsCard />
+                <NewsCard />
+                <NewsCard />
+                <NewsCard />
+              </MDBRow>
+              <VideosPanel/>
             </Col>
           </Row>
         </Container>
