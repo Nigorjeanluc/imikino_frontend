@@ -35,7 +35,7 @@ const Navbar = (props) => {
         <FlexContainer>
           <Brand />
           <NavLinks style={linkAnimation}>
-            <a href="/">Livescore</a>
+            <a href="/">Livescores</a>
             <a href="/">Transfers</a>
             <a href="/">News</a>
             <a href="/">Tables</a>

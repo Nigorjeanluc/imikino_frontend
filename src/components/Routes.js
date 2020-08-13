@@ -4,11 +4,13 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 
 import Home from './pages/Home';
+import Livescore from './pages/Livescore';
 
 function Routes() {
   return (
     <Switch>
       <Route exact path="/" component={Home} />
+      <Route exact path="/livescores" component={Livescore} />
     </Switch>
   );
 }
