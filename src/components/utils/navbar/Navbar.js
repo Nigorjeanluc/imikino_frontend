@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useSpring, animated, config } from 'react-spring';
+import { Link } from 'react-router-dom';
 import {
   faFacebookSquare,
   faTwitter,
@@ -35,11 +36,11 @@ const Navbar = (props) => {
         <FlexContainer>
           <Brand />
           <NavLinks style={linkAnimation}>
-            <a href="/">Livescores</a>
-            <a href="/">Transfers</a>
-            <a href="/">News</a>
-            <a href="/">Tables</a>
-            <a href="/">Teams</a>
+            <Link to="/livescores">Livescores</Link>
+            <Link to="/transfers">Transfers</Link>
+            <Link to="/news">News</Link>
+            <Link to="/tables">Tables</Link>
+            <Link to="/teams">Teams</Link>
           </NavLinks>
           <NavIcons>
             <a href="/"><FontAwesomeIcon icon={faFacebookSquare} size="2x"/></a>

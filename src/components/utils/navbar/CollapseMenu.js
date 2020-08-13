@@ -9,6 +9,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useSpring, animated } from 'react-spring';
+import { Link } from 'react-router-dom';
 
 const CollapseMenu = (props) => {
   const { open } = useSpring({ open: props.navbarState ? 0 : 1 });
@@ -23,11 +24,11 @@ const CollapseMenu = (props) => {
       }}
       >
         <NavLinks>
-          <li><a href="/" onClick={props.handleNavbar}>Livescore</a></li>
-          <li><a href="/" onClick={props.handleNavbar}>Transfers</a></li>
-          <li><a href="/" onClick={props.handleNavbar}>News</a></li>
-          <li><a href="/" onClick={props.handleNavbar}>Tables</a></li>
-          <li><a href="/" onClick={props.handleNavbar}>Teams</a></li>
+          <li><Link to="/livescores" onClick={props.handleNavbar}>Livescores</Link></li>
+          <li><Link to="/transfers" onClick={props.handleNavbar}>Transfers</Link></li>
+          <li><Link to="/news" onClick={props.handleNavbar}>News</Link></li>
+          <li><Link to="/tables" onClick={props.handleNavbar}>Tables</Link></li>
+          <li><Link to="/teams" onClick={props.handleNavbar}>Teams</Link></li>
         </NavLinks>
         <NavIcons>
           <li><a href="/"><FontAwesomeIcon icon={faFacebookSquare} size="2x"/></a></li>

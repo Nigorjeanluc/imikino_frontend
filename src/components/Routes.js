@@ -5,12 +5,20 @@ import { PropTypes } from 'prop-types';
 
 import Home from './pages/Home';
 import Livescore from './pages/Livescore';
+import Transfer from './pages/Transfer';
+import News from './pages/News';
+import Tables from './pages/Tables';
+import Teams from './pages/Teams';
 
 function Routes() {
   return (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/livescores" component={Livescore} />
+      <Route exact path="/transfers" component={Transfer} />
+      <Route exact path="/news" component={News} />
+      <Route exact path="/tables" component={Tables} />
+      <Route exact path="/teams" component={Teams} />
     </Switch>
   );
 }

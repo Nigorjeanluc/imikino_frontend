@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import logo from '../../../assets/logo.png';
 
@@ -12,7 +13,7 @@ const Image = styled.img`
 function Brand() {
   return (
     <div>
-      <Image src={logo} alt="Company Logo" />
+      <Link to="/"><Image src={logo} alt="Company Logo" /></Link>
     </div>
   );
 }
