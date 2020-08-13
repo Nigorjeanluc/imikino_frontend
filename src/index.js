@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -7,6 +8,7 @@ import * as serviceWorker from './serviceWorker';
 import store from './redux/store';
 import './index.scss';
 import 'mdbreact/dist/css/mdb.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 ReactDOM.render(
   <React.StrictMode>

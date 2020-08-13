@@ -33,6 +33,7 @@
     "react-social-login": "^3.4.9",
     "react-spinners": "^0.9.0",
     "react-spring": "^8.0.27",
+    "react-thumbnails-video-preview": "^1.0.1",
     "react-toastify": "^6.0.8",
     "reactstrap": "^8.5.1",
     "redux": "^4.0.5",

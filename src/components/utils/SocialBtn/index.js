@@ -1,3 +1,7 @@
-import SocialBtn from './SocialBtn';
+import FacebookSocialBtn from './FacebookSocialBtn';
+import GoogleSocialBtn from './GoogleSocialBtn';
 
-export default SocialBtn;
+export {
+  FacebookSocialBtn,
+  GoogleSocialBtn
+};
