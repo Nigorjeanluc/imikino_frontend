@@ -6,6 +6,7 @@ import { MDBRow, MDBCol, MDBBtn } from 'mdbreact';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import dotenv from 'dotenv';
 
@@ -17,6 +18,10 @@ dotenv.config();
 const fClicked = () => console.log('Clicked F');
 
 const facebookResponse = (res) => {
+  console.log(res);
+};
+
+const responseGoogle = (res) => {
   console.log(res);
 };
 
@@ -60,12 +65,18 @@ const LoginModal = (props) => (
               </MDBCol>
               <div className="fancyy"><p className="subtitle fancy"><span>or</span></p></div>
               <div className="text-center mt-6">
-                {/* <GoogleSocialBtn
-                  provider='facebook'
-                  appId='YOUR_APP_ID'
-                >
+              <GoogleLogin
+                clientId="AIzaSyCJnKOcCw7V76jSyQ-WZQnFtWb3-n41ZRU"
+                render={(renderProps) => (
+                  <GoogleSocialBtn onClick={renderProps.onClick} disabled={renderProps.disabled}>
                   <FontAwesomeIcon className="mr-1" icon={faGoogle} size="3x" /><span className="icons-text">  <span>Sign in with Google</span></span>
-                </GoogleSocialBtn> */}
+                </GoogleSocialBtn>
+                )}
+                buttonText="Login"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy={'single_host_origin'}
+              />
               </div>
               <div className="text-center mt-6">
                 <FacebookLogin
