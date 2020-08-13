@@ -6,7 +6,7 @@ import { MDBRow, MDBCol, MDBBtn } from 'mdbreact';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import FacebookLogin from 'react-facebook-login';
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import dotenv from 'dotenv';
 
 import './LoginModal.scss';
