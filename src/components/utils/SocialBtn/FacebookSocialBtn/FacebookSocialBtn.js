@@ -1,5 +1,4 @@
 import React from 'react';
-import SocialLogin from 'react-social-login';
 import { MDBBtn } from 'mdbreact';
 import './FacebookSocialBtn.scss';
 
@@ -21,4 +20,4 @@ class FaceboolSocialBtn extends React.Component {
   }
 }
 
-export default SocialLogin(FaceboolSocialBtn);
+export default FaceboolSocialBtn;

@@ -6,16 +6,18 @@ import { MDBRow, MDBCol, MDBBtn } from 'mdbreact';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import FacebookLogin from 'react-facebook-login';
+import dotenv from 'dotenv';
 
 import './LoginModal.scss';
 import { FacebookSocialBtn, GoogleSocialBtn } from '../../SocialBtn';
 
-const handleSocialLogin = (user) => {
-  console.log(user);
-};
+dotenv.config();
 
-const handleSocialLoginFailure = (err) => {
-  console.error(err);
+const fClicked = () => console.log('Clicked F');
+
+const facebookResponse = (res) => {
+  console.log(res);
 };
 
 const LoginModal = (props) => (
@@ -56,26 +58,28 @@ const LoginModal = (props) => (
 
                 <MDBBtn className="submit-btn" rounded outline color="info" type="submit">Login</MDBBtn>
               </MDBCol>
-              <div className="fancyy"><p class="subtitle fancy"><span>or</span></p></div>
+              <div className="fancyy"><p className="subtitle fancy"><span>or</span></p></div>
               <div className="text-center mt-6">
-                <GoogleSocialBtn
+                {/* <GoogleSocialBtn
                   provider='facebook'
                   appId='YOUR_APP_ID'
-                  onLoginSuccess={handleSocialLogin}
-                  onLoginFailure={handleSocialLoginFailure}
                 >
                   <FontAwesomeIcon className="mr-1" icon={faGoogle} size="3x" /><span className="icons-text">  <span>Sign in with Google</span></span>
-                </GoogleSocialBtn>
+                </GoogleSocialBtn> */}
               </div>
               <div className="text-center mt-6">
-                <FacebookSocialBtn
-                  provider='facebook'
-                  appId='YOUR_APP_ID'
-                  onLoginSuccess={handleSocialLogin}
-                  onLoginFailure={handleSocialLoginFailure}
-                >
-                  <FontAwesomeIcon className="mr-1" icon={faFacebookF} size="3x" /><span className="icons-text">  <span>Sign in with facebook</span></span>
-                </FacebookSocialBtn>
+                <FacebookLogin
+                  appId={process.env.FACEBOOK_APP_ID}
+                  autoLoad={true}
+                  fields='name, picture, email'
+                  onClick={fClicked}
+                  callback={facebookResponse}
+                  render={(renderProps) => (
+                    <FacebookSocialBtn onClick={renderProps.onClick}>
+                      <FontAwesomeIcon className="mr-1" icon={faFacebookF} size="3x" /><span className="icons-text">  <span>Sign in with facebook</span></span>
+                    </FacebookSocialBtn>
+                  )}
+                />
               </div>
             </form>
           </MDBCol>

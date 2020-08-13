@@ -1,9 +1,8 @@
 import React from 'react';
-import SocialLogin from 'react-social-login';
 import { MDBBtn } from 'mdbreact';
 import './GoogleSocialBtn.scss';
 
-class SocialButton extends React.Component {
+class GoogleSocialButton extends React.Component {
   render() {
     return (
       <MDBBtn
@@ -11,7 +10,6 @@ class SocialButton extends React.Component {
         tag="a"
         size="sm"
         gradient="peach"
-        floating
         rounded
         onClick={this.props.triggerLogin} {...this.props}
       >
@@ -21,4 +19,4 @@ class SocialButton extends React.Component {
   }
 }
 
-export default SocialLogin(SocialButton);
+export default GoogleSocialButton;
