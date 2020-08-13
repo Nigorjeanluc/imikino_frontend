@@ -69,7 +69,7 @@ const LoginModal = (props) => (
               </div>
               <div className="text-center mt-6">
                 <FacebookLogin
-                  appId={process.env.FACEBOOK_APP_ID}
+                  appId="294287228509651"
                   autoLoad={true}
                   fields='name, picture, email'
                   onClick={fClicked}
