@@ -66,7 +66,7 @@ const LoginModal = (props) => (
               <div className="fancyy"><p className="subtitle fancy"><span>or</span></p></div>
               <div className="text-center mt-6">
               <GoogleLogin
-                clientId="AIzaSyCJnKOcCw7V76jSyQ-WZQnFtWb3-n41ZRUAIzaSyDMS32fvEiBPIBp9o6PTw4SKskx22yUozU"
+                clientId="395730639240-m60eqhlsb07qf6daevrmnpsj3d1pd74o.apps.googleusercontent.com"
                 render={(renderProps) => (
                   <GoogleSocialBtn onClick={renderProps.onClick} disabled={renderProps.disabled}>
                   <FontAwesomeIcon className="mr-1" icon={faGoogle} size="3x" /><span className="icons-text">  <span>Sign in with Google</span></span>
