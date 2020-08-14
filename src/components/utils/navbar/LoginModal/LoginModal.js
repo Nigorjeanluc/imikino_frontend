@@ -65,20 +65,6 @@ const LoginModal = (props) => (
               </MDBCol>
               <div className="fancyy"><p className="subtitle fancy"><span>or</span></p></div>
               <div className="text-center mt-6">
-              <GoogleLogin
-                clientId="395730639240-m60eqhlsb07qf6daevrmnpsj3d1pd74o.apps.googleusercontent.com"
-                render={(renderProps) => (
-                  <GoogleSocialBtn onClick={renderProps.onClick} disabled={renderProps.disabled}>
-                  <FontAwesomeIcon className="mr-1" icon={faGoogle} size="3x" /><span className="icons-text">  <span>Sign in with Google</span></span>
-                </GoogleSocialBtn>
-                )}
-                buttonText="Login"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                cookiePolicy={'single_host_origin'}
-              />
-              </div>
-              <div className="text-center mt-6">
                 <FacebookLogin
                   appId="294287228509651"
                   autoLoad={true}
@@ -90,6 +76,20 @@ const LoginModal = (props) => (
                       <FontAwesomeIcon className="mr-1" icon={faFacebookF} size="3x" /><span className="icons-text">  <span>Sign in with facebook</span></span>
                     </FacebookSocialBtn>
                   )}
+                />
+              </div>
+              <div className="text-center mt-6">
+                <GoogleLogin
+                  clientId="395730639240-m60eqhlsb07qf6daevrmnpsj3d1pd74o.apps.googleusercontent.com"
+                  render={(renderProps) => (
+                    <GoogleSocialBtn onClick={renderProps.onClick} disabled={renderProps.disabled}>
+                    <FontAwesomeIcon className="mr-1" icon={faGoogle} size="3x" /><span className="icons-text">  <span>Sign in with Google</span></span>
+                  </GoogleSocialBtn>
+                  )}
+                  buttonText="Login"
+                  onSuccess={responseGoogle}
+                  onFailure={responseGoogle}
+                  cookiePolicy={'single_host_origin'}
                 />
               </div>
             </form>
