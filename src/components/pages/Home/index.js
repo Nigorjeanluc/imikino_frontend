@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { MDBRow } from 'mdbreact';
+import { MDBRow, MDBCol } from 'mdbreact';
 
 import Navbar from '../../utils/navbar/Navbar';
 // import GlobalStyle from '../../../styles/Global';
@@ -12,6 +12,7 @@ import Footer from '../../utils/Footer';
 import NewsCard from '../../utils/NewsCard/NewsCard';
 import './Home.scss';
 import VideosPanel from '../../utils/VideosPanel';
+import Gallery from '../../utils/Gallery';
 
 export class Home extends Component {
   state = { navbarOpen: false };
@@ -75,6 +76,13 @@ export class Home extends Component {
                 <NewsCard />
               </MDBRow>
               <VideosPanel/>
+              <hr className="line"/>
+              <MDBRow>
+                <MDBCol size="12">
+                  <Title text="Gallery" />
+                  <Gallery />
+                </MDBCol>
+              </MDBRow>
             </Col>
           </Row>
         </Container>
