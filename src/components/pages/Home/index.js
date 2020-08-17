@@ -13,6 +13,7 @@ import NewsCard from '../../utils/NewsCard/NewsCard';
 import './Home.scss';
 import VideosPanel from '../../utils/VideosPanel';
 import Gallery from '../../utils/Gallery';
+import Pagination from '../../utils/Pagination';
 
 export class Home extends Component {
   state = { navbarOpen: false };
@@ -60,11 +61,8 @@ export class Home extends Component {
                 </Col>
               </Row>
               <Row>
-                <Col md={6}>
+                <Col md={12}>
                   <BtnLink active link="/" text="Latest News"/>
-                </Col>
-                <Col md={6}>
-                  <BtnLink link="/" text="Today's Match"/>
                 </Col>
               </Row>
               <MDBRow className="cards-panel">
@@ -74,6 +72,9 @@ export class Home extends Component {
                 <NewsCard />
                 <NewsCard />
                 <NewsCard />
+                <Col md="12">
+                  <Pagination/>
+                </Col>
               </MDBRow>
               <VideosPanel/>
               <hr className="line"/>

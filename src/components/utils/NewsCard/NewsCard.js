@@ -1,5 +1,5 @@
 import React from 'react';
-import { MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol, MDBIcon } from 'mdbreact';
+import { MDBCard, MDBCardBody, MDBBtn, MDBCardImage, MDBCardTitle, MDBCol, MDBIcon, MDBRow } from 'mdbreact';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faFacebookF, } from '@fortawesome/fontawesome-free-brands';
 // import { faComments, faEye, faCalendarDay } from '@fortawesome/free-solid-svg-icons';
@@ -10,49 +10,50 @@ function NewsCard() {
   return (
       <MDBCol className="panel" md="4">
         <MDBCard className="panel-card" cascade>
-          <MDBCardImage
-            cascade
-            className='img-fluid'
-            overlay="white-light"
-            hover
-            // eslint-disable-next-line global-require
-            src={require('../../../assets/imgs/5.jpeg')}
-          />
-          {/* <MDBBtn
-            floating
-            tag='a'
-            className='ml-auto mr-4 lighten-3 mdb-coalor'
-            action
-          >
-            <MDBIcon icon='chevron-right'/>
-            <MDBIcon icon='chevron-right'/>
-          </MDBBtn> */}
-          <MDBCardBody>
-            <a href='#!' className='float-right activator waves-effect waves-light mr-4'>
-              <MDBIcon icon='share-alt' className='black-text' />
-            </a>
-            <MDBCardTitle>
-            Card Title Card Title Card Title Card Title Card Title Card Title Card Title Card Title
-            Card Title Card Title Card Title Card Title Card Title Card Title Card Title Card Title
-            </MDBCardTitle>
-            <hr />
-            <MDBCardText>
-              Some quick example text to build on the card title and make up the
-              bulk of the card&apos;s content.
-              Some quick example text to build on the card title and make up the
-              bulk of the card&apos;s content.
-              Some quick example text to build on the card title and make up the
-              bulk of the card&apos;s content.
-              Some quick example text to build on the card title and make up the
-              bulk of the card&apos;s content.
-            </MDBCardText>
-            <a href='#!' className='black-text d-flex justify-content-end'>
-              <h5>
-                Read more
-                <MDBIcon icon='angle-double-right' className='ml-2' />
-              </h5>
-            </a>
-          </MDBCardBody>
+          <MDBRow>
+            <MDBCol size="6" sm="6" md="12">
+              <MDBCardImage
+                cascade
+                className='img-fluid'
+                overlay="white-light"
+                hover
+                // eslint-disable-next-line global-require
+                src={require('../../../assets/imgs/5.jpeg')}
+              />
+            </MDBCol>
+            <MDBCol size="6" sm="6" md="12">
+              <MDBCardBody>
+                <a href='#!' className='float-right activator waves-effect waves-light mr-4'>
+                  <MDBIcon icon='share-alt' className='black-text' />
+                </a>
+                <MDBCardTitle>
+                Card Title Card Title Card Title Card Title Card Title Card Title Card Title Card Title
+                Card Title Card Title Card Title Card Title Card Title Card Title Card Title Card Title
+                </MDBCardTitle>
+                {/* <MDBCardText>
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card&apos;s content.
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card&apos;s content.
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card&apos;s content.
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card&apos;s content.
+                </MDBCardText> */}
+              </MDBCardBody>
+            </MDBCol>
+            <MDBCardBody>
+              <hr />
+              <MDBCol className="viewMoreContainer">
+                <a href='#!' className='black-text d-flex justify-content-end'>
+                  <MDBBtn rounded className="viewMore">
+                      Read more
+                      <MDBIcon icon='angle-double-right' className='ml-2' />
+                  </MDBBtn>
+                </a>
+              </MDBCol>
+            </MDBCardBody>
+          </MDBRow>
           {/* <MDBCardBody cascade>
             <MDBCardTitle>Card title Card title Card title Card title Card title Card title Card title</MDBCardTitle>
             <hr/>
@@ -101,6 +102,11 @@ function NewsCard() {
               <li className='list-inline-item'>
                 <a href='#!' className='white-text'>
                   <MDBIcon fab icon='twitter' className='mr-1' />5
+                </a>
+              </li>
+              <li className='list-inline-item'>
+                <a href='#!' className='white-text'>
+                  <MDBIcon fab icon='eye' className='mr-1' />5 views
                 </a>
               </li>
             </ul>

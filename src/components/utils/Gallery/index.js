@@ -2,6 +2,7 @@
 import React from 'react';
 import { MDBContainer, MDBRow, MDBCol } from 'mdbreact';
 import Lightbox from 'react-image-lightbox';
+import ImageScroller from 'react-image-scroller';
 import './index.scss';
 
 const images = [
@@ -44,72 +45,74 @@ class LightboxPage extends React.Component {
       <MDBContainer>
         <div className="mdb-lightbox no-margin">
           <MDBRow>
-            <MDBCol md="4">
-              <figure>
-                <img
-                  src={smallImages[0]}
-                  alt="Gallery"
-                  className="img-fluid"
-                  onClick={() => this.setState({ photoIndex: 0, isOpen: true })
-                  }
-                />
-              </figure>
-            </MDBCol>
-            <MDBCol md="4">
-              <figure>
-                <img
-                  src={smallImages[1]}
-                  alt="Gallery"
-                  className="img-fluid"
-                  onClick={() => this.setState({ photoIndex: 1, isOpen: true })
-                  }
-                />
-              </figure>
-            </MDBCol>
-            <MDBCol md="4">
-              <figure>
-                <img
-                  src={smallImages[2]}
-                  alt="Gallery"
-                  className="img-fluid"
-                  onClick={() => this.setState({ photoIndex: 2, isOpen: true })
-                  }
-                />
-              </figure>
-            </MDBCol>
-            <MDBCol md="4">
-              <figure>
-                <img
-                  src={smallImages[3]}
-                  alt="Gallery"
-                  className="img-fluid"
-                  onClick={() => this.setState({ photoIndex: 3, isOpen: true })
-                  }
-                />
-              </figure>
-            </MDBCol>
-            <MDBCol md="4">
-              <figure>
-                <img
-                  src={smallImages[4]}
-                  alt="Gallery"
-                  className="img-fluid"
-                  onClick={() => this.setState({ photoIndex: 4, isOpen: true })
-                  }
-                />
-              </figure>
-            </MDBCol>
-            <MDBCol md="4">
-              <figure>
-                <img
-                  src={smallImages[5]}
-                  alt="Gallery"
-                  className="img-fluid"
-                  onClick={() => this.setState({ photoIndex: 5, isOpen: true })
-                  }
-                />
-              </figure>
-            </MDBCol>
+            <ImageScroller>
+              <MDBCol md="4">
+                <figure>
+                  <img
+                    src={smallImages[0]}
+                    alt="Gallery"
+                    className="img-fluid"
+                    onClick={() => this.setState({ photoIndex: 0, isOpen: true })
+                    }
+                  />
+                </figure>
+              </MDBCol>
+              <MDBCol md="4">
+                <figure>
+                  <img
+                    src={smallImages[1]}
+                    alt="Gallery"
+                    className="img-fluid"
+                    onClick={() => this.setState({ photoIndex: 1, isOpen: true })
+                    }
+                  />
+                </figure>
+              </MDBCol>
+              <MDBCol md="4">
+                <figure>
+                  <img
+                    src={smallImages[2]}
+                    alt="Gallery"
+                    className="img-fluid"
+                    onClick={() => this.setState({ photoIndex: 2, isOpen: true })
+                    }
+                  />
+                </figure>
+              </MDBCol>
+              <MDBCol md="4">
+                <figure>
+                  <img
+                    src={smallImages[3]}
+                    alt="Gallery"
+                    className="img-fluid"
+                    onClick={() => this.setState({ photoIndex: 3, isOpen: true })
+                    }
+                  />
+                </figure>
+              </MDBCol>
+              <MDBCol md="4">
+                <figure>
+                  <img
+                    src={smallImages[4]}
+                    alt="Gallery"
+                    className="img-fluid"
+                    onClick={() => this.setState({ photoIndex: 4, isOpen: true })
+                    }
+                  />
+                </figure>
+              </MDBCol>
+              <MDBCol md="4">
+                <figure>
+                  <img
+                    src={smallImages[5]}
+                    alt="Gallery"
+                    className="img-fluid"
+                    onClick={() => this.setState({ photoIndex: 5, isOpen: true })
+                    }
+                  />
+                </figure>
+              </MDBCol>
+            </ImageScroller>
             {/* <MDBCol md="4">
               <figure>
                 <img
