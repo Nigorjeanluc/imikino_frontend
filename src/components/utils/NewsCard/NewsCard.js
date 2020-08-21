@@ -1,12 +1,13 @@
 import React from 'react';
 import { MDBCard, MDBCardBody, MDBBtn, MDBCardImage, MDBCardTitle, MDBCol, MDBIcon, MDBRow } from 'mdbreact';
+import { Link } from 'react-router-dom';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faFacebookF, } from '@fortawesome/fontawesome-free-brands';
 // import { faComments, faEye, faCalendarDay } from '@fortawesome/free-solid-svg-icons';
 
 import './NewsCard.scss';
 
-function NewsCard() {
+function NewsCard({ title, image, slug }) {
   return (
       <MDBCol className="panel" md="4">
         <MDBCard className="panel-card" cascade>
@@ -18,7 +19,7 @@ function NewsCard() {
                 overlay="white-light"
                 hover
                 // eslint-disable-next-line global-require
-                src={require('../../../assets/imgs/5.jpeg')}
+                src={`https://imikino.rw/images/news/${image}`}
               />
             </MDBCol>
             <MDBCol size="6" sm="6" md="12">
@@ -27,30 +28,19 @@ function NewsCard() {
                   <MDBIcon icon='share-alt' className='black-text' />
                 </a>
                 <MDBCardTitle>
-                Card Title Card Title Card Title Card Title Card Title Card Title Card Title Card Title
-                Card Title Card Title Card Title Card Title Card Title Card Title Card Title Card Title
+                  {title}
                 </MDBCardTitle>
-                {/* <MDBCardText>
-                  Some quick example text to build on the card title and make up the
-                  bulk of the card&apos;s content.
-                  Some quick example text to build on the card title and make up the
-                  bulk of the card&apos;s content.
-                  Some quick example text to build on the card title and make up the
-                  bulk of the card&apos;s content.
-                  Some quick example text to build on the card title and make up the
-                  bulk of the card&apos;s content.
-                </MDBCardText> */}
               </MDBCardBody>
             </MDBCol>
             <MDBCardBody>
               <hr />
               <MDBCol className="viewMoreContainer">
-                <a href='#!' className='black-text d-flex justify-content-end'>
+                <Link to={`https://imikino.rw/${slug}`} className='black-text d-flex justify-content-end'>
                   <MDBBtn rounded className="viewMore">
                       Read more
                       <MDBIcon icon='angle-double-right' className='ml-2' />
                   </MDBBtn>
-                </a>
+                </Link>
               </MDBCol>
             </MDBCardBody>
           </MDBRow>

@@ -1,8 +1,8 @@
 import axiosHelper from '../helpers/axiosHelper';
-import { apiActionsTypes } from '../actionTypes';
+import { apiActionTypes } from '../actionTypes';
 
 const apiMiddleware = ({ dispatch, getState }) => (next) => async ({ type = '', payload = {} }) => {
-  if (type !== apiActionsTypes.API_REQUEST) {
+  if (type !== apiActionTypes.API_REQUEST) {
     return next({ type, payload });
   }
   try {

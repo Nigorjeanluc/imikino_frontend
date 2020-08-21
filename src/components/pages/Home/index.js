@@ -2,7 +2,9 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { MDBRow, MDBCol } from 'mdbreact';
-
+import { connect } from 'react-redux';
+// import moment from 'moment';
+import { getAllPosts } from '../../../redux/actions/posts';
 import Navbar from '../../utils/navbar/Navbar';
 // import GlobalStyle from '../../../styles/Global';
 import Title from '../../utils/Title';
@@ -18,11 +20,22 @@ import Pagination from '../../utils/Pagination';
 export class Home extends Component {
   state = { navbarOpen: false };
 
+  componentWillMount() {
+    // eslint-disable-next-line no-unused-vars
+    const { history, getAllPosts } = this.props;
+    // const { token } = localStorage;
+    // if (!token) {
+    //   history.push('/');
+    // }
+    getAllPosts();
+  }
+
   handleNavbar = () => {
     this.setState({ navbarOpen: !this.state.navbarOpen });
   }
 
   render() {
+    const { listOfPosts } = this.props;
     const images = [
       {
         src: require('../../../assets/imgs/1.jpg'),
@@ -66,12 +79,15 @@ export class Home extends Component {
                 </Col>
               </Row>
               <MDBRow className="cards-panel">
-                <NewsCard />
-                <NewsCard />
-                <NewsCard />
-                <NewsCard />
-                <NewsCard />
-                <NewsCard />
+                {
+                  listOfPosts && listOfPosts.map((post) => <NewsCard
+                    key={post.id}
+                    title={post.title}
+                    image={post.image}
+                    slug={post.slug}
+                    views={post.views}
+                  />)
+                }
                 <Col md="12">
                   <Pagination/>
                 </Col>
@@ -93,4 +109,14 @@ export class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = ({ posts }) => ({
+  Next: posts.Next,
+  Previous: posts.Previous,
+  errors: posts.errors,
+  loading: posts.loading,
+  listOfPosts: posts.listOfPosts
+});
+
+const mapDispatchToProps = (dispatch) => ({ getAllPosts: () => dispatch(getAllPosts()), });
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
