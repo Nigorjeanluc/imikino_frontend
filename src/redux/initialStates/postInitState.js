@@ -2,7 +2,7 @@ const initState = {
   loading: false,
   message: '',
   post: {},
-  errors: {},
+  errors: '',
   getPost: {
     loading: false,
     message: '',

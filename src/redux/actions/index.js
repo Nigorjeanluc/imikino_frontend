@@ -16,6 +16,8 @@ import * as tableAction from './table';
 import * as tablesAction from './tables';
 import * as tagAction from './tag';
 import * as tagsAction from './tags';
+import * as matchAction from './match';
+import * as matchsAction from './matchs';
 
 export {
   userAction,
@@ -35,5 +37,7 @@ export {
   tableAction,
   tablesAction,
   tagAction,
-  tagsAction
+  tagsAction,
+  matchAction,
+  matchsAction
 };

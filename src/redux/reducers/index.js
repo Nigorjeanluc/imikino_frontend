@@ -16,6 +16,8 @@ import table from './table';
 import tables from './tables';
 import tag from './tag';
 import tags from './tags';
+import match from './match';
+import matchs from './matchs';
 
 export default {
   user,
@@ -35,5 +37,7 @@ export default {
   table,
   tables,
   tag,
-  tags
+  tags,
+  match,
+  matchs
 };

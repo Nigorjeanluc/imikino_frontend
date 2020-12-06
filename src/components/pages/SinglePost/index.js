@@ -22,6 +22,7 @@ import moment from 'moment';
 import ClipLoader from 'react-spinners/ClipLoader';
 import parse from 'html-react-parser';
 
+import { IMIKINO_URL_IMAGE } from '../../../redux/helpers/backendURLs';
 import { getSingle } from '../../../redux/actions/post'
 import { getTrendingPosts } from '../../../redux/actions/posts'
 import { getPostComments } from '../../../redux/actions/comments';
@@ -66,7 +67,7 @@ export class SinglePost extends Component {
                           <MDBRow>
                             <MDBView className="img-container" hover cascade waves>
                               <img
-                                src={`https://imikino.rw/images/news/${post.image}`}
+                                src={`${IMIKINO_URL_IMAGE}/news/${post.image}`}
                                 alt={post.slug}
                                 className="img-fluid"
                               />

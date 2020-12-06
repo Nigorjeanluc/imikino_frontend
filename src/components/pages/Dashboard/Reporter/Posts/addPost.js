@@ -46,6 +46,7 @@ class AddPost extends Component {
     approved: false,
     editorState: EditorState.createEmpty(),
     options: [],
+    allViews: 0
   }
 
   componentDidMount() {
@@ -138,7 +139,8 @@ class AddPost extends Component {
       sport_id,
       location_id,
       approved,
-      options
+      options,
+      allViews
     } = this.state;
     const formData = new FormData();
     formData.append('image', image, image.name);
@@ -156,6 +158,7 @@ class AddPost extends Component {
     formData.append('sport_id', sport_id);
     formData.append('location_id', location_id);
     formData.append('tags', JSON.stringify(options));
+    formData.append('allViews', allViews);
 
     const formOptions = {
       onUploadProgress: (progressEvent) => {
@@ -201,6 +204,22 @@ class AddPost extends Component {
       <Dashboard {...this.props}>
         <BreadcrumSection pageTitle="Add Post" />
         <MDBRow>
+          <MDBCol md="12">
+            {
+              getPost && getPost.errors !== '' ? (
+                <div className="alert alert-danger" role="alert">
+                  <strong>{`${getPost.errors}`}</strong>
+                </div>
+              ) : null
+            }
+            {
+              getPost && getPost.message ? (
+                <div className="alert alert-success" role="alert">
+                  <strong>{`${getPost.message}`}</strong>
+                </div>
+              ) : null
+            }
+          </MDBCol>
           <MDBCol md="12">
             <MDBCard>
               <MDBCardBody>
@@ -473,7 +492,7 @@ class AddPost extends Component {
                   </div>
                   <MDBRow>
                     <MDBCol md="12">
-                      <MDBBtn size="lg" style={{width: '100%'}} type="submit" color="indigo">Submit</MDBBtn>
+                      <MDBBtn size="lg" style={{width: '100%'}} type="submit" color="indigo">Save post</MDBBtn>
                     </MDBCol>
                   </MDBRow>
                 </form>

@@ -4,11 +4,11 @@ const initState = {
   listOfMatchs: [],
   Next: {},
   Previous: {},
-  errors: {},
+  errors: '',
   getMatchs: {
     loading: false,
     message: '',
-    errors: {}
+    errors: ''
   }
 };
 

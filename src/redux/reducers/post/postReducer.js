@@ -19,7 +19,7 @@ export default (state = post, { type, payload }) => {
           ...state.getPost,
           loading: false,
           message: payload.message,
-          errors: {}
+          errors: ''
         }
       };
     case postTypes.FETCH_POST_END:

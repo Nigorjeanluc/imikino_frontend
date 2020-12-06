@@ -44,7 +44,7 @@ class PostsPage extends Component {
     getAuthorPosts(1, 10);
 
     const { socket } = this.state;
-    socket.on('refreshLeague', (data) => {
+    socket.on('refreshPost', (data) => {
       console.log('Yes III');
       getAuthorPosts(1, 10);
     });
@@ -126,7 +126,7 @@ class PostsPage extends Component {
         <MDBRow>
           <MDBCol md="12">
             <Link to="/reporter/posts/addpost">
-              <MDBBtn color="amber" size="lg">Edit a new Post</MDBBtn>
+              <MDBBtn color="amber" size="lg">Add a new Post</MDBBtn>
             </Link>
             <hr />
           </MDBCol>

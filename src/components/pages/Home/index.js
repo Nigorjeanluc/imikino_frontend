@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import ClipLoader from 'react-spinners/ClipLoader';
 // import moment from 'moment';
+import { IMIKINO_URL_IMAGE } from '../../../redux/helpers/backendURLs';
 import { getAllPosts, getHeaderPosts, getTrendingPosts } from '../../../redux/actions/posts';
 import Navbar from '../../utils/navbar/Navbar';
 // import GlobalStyle from '../../../styles/Global';
@@ -57,7 +58,7 @@ export class Home extends Component {
     const { listOfPosts, listOfHeader, listOfTrending, Next, Previous, loading, getHeader, getPosts, getTrending } = this.props;
     const imgs = listOfHeader && listOfHeader.map(post => {
       return {
-        src: `https://imikino.rw/images/news/${post.image}`,
+        src: `${IMIKINO_URL_IMAGE}/news/${post.image}`,
         altText: `${post.slug}`,
         caption: `${post.title}`
       };

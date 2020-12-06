@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MDBCol, MDBRow, MDBBadge } from 'mdbreact';
+import { MDBCol, MDBRow, MDBBadge, MDBCard, MDBCardBody, MDBBtn } from 'mdbreact';
 import { connect } from 'react-redux';
 
 import Dashboard from '../index';
@@ -10,27 +10,31 @@ import { getAllTeams } from '../../../../../redux/actions/teams';
 import { getAllPlayers } from '../../../../../redux/actions/players';
 import { getAllSports } from '../../../../../redux/actions/sports';
 import { getAllLocations } from '../../../../../redux/actions/locations';
+import { getAllMatchs } from '../../../../../redux/actions/matchs';
 import ChartSection1 from '../../../../utils/Sections/ChartSection1';
 import TableSection from '../../../../utils/Sections/TableSection';
 import ChartSection2 from '../../../../utils/Sections/ChartSection2';
 // import MapSection from '../../../../utils/Sections/MapSection';
 import ModalSection from '../../../../utils/Sections/ModalSection';
 import AdminCardSection2 from '../../../../utils/Sections/AdminCardSection2';
+import { Link } from 'react-router-dom';
 
 class Livescore extends Component {
   componentDidMount() {
     const {
       getAllLeagues,
-      getAllTeams,
       getAllPlayers,
       getAllSports,
       getAllLocations,
+      getAllTeams,
+      getAllMatchs
     } = this.props;
     getAllLeagues(1, 2000);
     getAllTeams(1, 2000);
     getAllPlayers(1, 2000);
     getAllSports(1, 2000);
     getAllLocations(1, 2000);
+    getAllMatchs(1, 10);
   }
 
   render() {
@@ -39,8 +43,11 @@ class Livescore extends Component {
       listOfLocations,
       listOfPlayers,
       listOfSports,
-      listOfTeams
+      listOfTeams,
+      listOfMatchs
     } = this.props;
+
+    console.log(listOfMatchs);
     const totalLeagues = listOfLeagues && listOfLeagues.length ? listOfLeagues.length : 0;
     const totalLocations = listOfLocations && listOfLocations.length ? listOfLocations.length : 0;
     const totalPlayers = listOfPlayers && listOfPlayers.length ? listOfPlayers.length : 0;
@@ -49,6 +56,18 @@ class Livescore extends Component {
     return (
       <Dashboard {...this.props}>
         <BreadcrumSection pageTitle="Livescores" />
+        <MDBRow>
+          <MDBCol md="12">
+            <MDBCard>
+              <MDBCardBody>
+                <Link to='/reporter/livescores/addmatch'><MDBBtn>Add Match</MDBBtn></Link><hr />
+                {listOfMatchs && listOfMatchs.map(match => (
+                  <p key={match.id}>{match.team_one}</p>
+                ))}
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
         {/* <AdminCardSection1
           countLeagues={totalLeagues}
           countLocations={totalLocations}
@@ -69,7 +88,7 @@ class Livescore extends Component {
   }
 }
 
-const mapStateToProps = ({ leagues, sports, teams, locations, players }) => ({
+const mapStateToProps = ({ leagues, sports, teams, locations, players, matchs }) => ({
   Next: leagues.Next,
   Previous: leagues.Previous,
   errors: leagues.errors,
@@ -83,7 +102,9 @@ const mapStateToProps = ({ leagues, sports, teams, locations, players }) => ({
   listOfLocations: locations.listOfLocations,
   getLocations: locations.getLocations,
   listOfPlayers: players.listOfPlayers,
-  getPlayers: players.getPlayers
+  getPlayers: players.getPlayers,
+  listOfMatchs: matchs.listOfMatchs,
+  getMatchs: matchs.getMatchs
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -91,7 +112,8 @@ const mapDispatchToProps = (dispatch) => ({
   getAllTeams: (page, limit) => dispatch(getAllTeams(page, limit)),
   getAllPlayers: (page, limit) => dispatch(getAllPlayers(page, limit)),
   getAllSports: (page, limit) => dispatch(getAllSports(page, limit)),
-  getAllLocations: (page, limit) => dispatch(getAllLocations(page, limit))
+  getAllLocations: (page, limit) => dispatch(getAllLocations(page, limit)),
+  getAllMatchs: (page, limit) => dispatch(getAllMatchs(page, limit))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Livescore);

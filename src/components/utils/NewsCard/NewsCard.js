@@ -2,6 +2,7 @@ import React from 'react';
 import { MDBCard, MDBCardBody, MDBBtn, MDBCardImage, MDBCardTitle, MDBCol, MDBIcon, MDBRow } from 'mdbreact';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import { IMIKINO_URL_IMAGE } from '../../../redux/helpers/backendURLs';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faFacebookF, } from '@fortawesome/fontawesome-free-brands';
 // import { faComments, faEye, faCalendarDay } from '@fortawesome/free-solid-svg-icons';
@@ -22,7 +23,7 @@ function NewsCard({ history, title, image, slug, size, updated_at }) {
                   overlay="white-light"
                   hover
                   // eslint-disable-next-line global-require
-                  src={`https://imikino.rw/images/news/${image}`}
+                  src={`${IMIKINO_URL_IMAGE}/news/${image}`}
                 />
               </Link>
             </MDBCol>
