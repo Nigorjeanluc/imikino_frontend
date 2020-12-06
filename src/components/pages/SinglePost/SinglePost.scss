@@ -1,0 +1,48 @@
+$information-phone: "only screen and (min-width : 768px)";
+
+.news-panel {
+  margin-top: 20px;
+  align-content: center;
+}
+
+.body-font {
+  font-size: 12px;
+}
+
+.font-weight-bold {
+  font-size: 11px;
+  margin-top: 10px;
+}
+
+.Btn-trends {
+  font-size: 22px;
+}
+
+// .img-container {}
+
+.title-container {
+  margin-top: 20px;
+}
+
+.main-title {
+  font-size: 2em;
+  font-weight: 800;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.img-card {
+  @media #{$information-phone} {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+
+.commentsTitle {
+  margin-bottom: 10px;
+}
+
+.feedSection {
+  margin-bottom: 10px;
+}

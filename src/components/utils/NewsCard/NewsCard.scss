@@ -1,0 +1,32 @@
+$information-phone: "only screen and (min-width : 768px)";
+
+.panel {
+  margin-top: 15px;
+
+  .panel-card {
+    box-shadow: 0 5px 10px -5px;
+
+    .top {
+      padding-right: 0;
+      .img {
+        height: 130px;
+        width: 100%;
+      }
+    }
+    .bottom {
+      height: 120px;
+      padding-left: 0;
+      padding-top: 10px;
+      @media #{$information-phone} {
+        height: 90px;
+      }
+      .titleCard {
+        @media #{$information-phone} {
+          font-size: 11px;
+        }
+        font-size: 13px;
+        justify-content: left;
+      }
+    }
+  }
+}

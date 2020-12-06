@@ -1,0 +1,39 @@
+.anchor {
+  display: block;
+  background: none;
+  padding: 12px 10px;
+  border: 2px solid black;
+  color: black;
+  border-radius: 0;
+  margin: 10px;
+  height: 44px;
+  font-family: "Russo One";
+  font-size: 22px;
+  font-weight: 100;
+  line-height: 15px;
+  text-decoration: none;
+}
+
+.activee {
+  display: block;
+  padding: 12px 10px;
+  margin: 10px;
+  height: 44px;
+  font-family: "Russo One";
+  font-size: 22px;
+  font-weight: 100;
+  line-height: 15px;
+  background-color: #1f4068;
+  border: none;
+  color: white;
+  text-decoration: none;
+}
+.activee:hover {
+  color: white !important;
+}
+
+.anchor:hover{
+  border: 2px solid #1f4068;
+  color: #1f4068;
+  text-decoration: none;
+}

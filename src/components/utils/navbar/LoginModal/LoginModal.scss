@@ -1,0 +1,77 @@
+.icons-text {
+  margin-left: 10;
+  font-size: 10px;
+
+  span {
+    line-height: 24px;
+  }
+
+  .login-icons {
+    justify-content: center;
+  }
+}
+
+.alert-text {
+  font-size: 14px;
+}
+
+.subtitle {
+  margin-top: 20px;
+  margin: 0 0 2em 0;
+}
+.fancyy {
+  margin-top: 20px;
+  margin-bottom: -25px;
+}
+.fancy {
+  line-height: 0.2;
+  text-align: center;
+  font-size: 26px;
+  color: rgba(0, 0, 0, 0.404);
+}
+.fancy span {
+  display: inline-block;
+  position: relative;  
+}
+.fancy span:before,
+.fancy span:after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  border-top: 2px solid rgba(0, 0, 0, 0.404);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.404);
+  top: 0;
+  width: 100px;
+}
+.fancy span:before {
+  right: 100%;
+  margin-right: 15px;
+}
+.fancy span:after {
+  left: 100%;
+  margin-left: 15px;
+}
+
+.form-style {
+  label {
+    font-size: 20px;
+  }
+
+  input {
+    font-size: 16px;
+    height: 30px;
+    padding: 20px 15px;
+  }
+
+  .error-text {
+    font-size: 14px;
+    margin-bottom: -10px;
+  }
+
+  .submit-btn{
+    border-radius: 20px;
+    margin-top: 15px;
+    width: 98%;
+    font-size: 14px;
+  }
+}
