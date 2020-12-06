@@ -12,7 +12,7 @@ export const deleteLeague = (id) => (dispatch) => {
       token: localStorage.token,
       header: 'multipart/form-data'
     },
-    url: `${LOCAL_URL}/admin/leagues/${id}`,
+    url: `${BASIC_URL}/admin/leagues/${id}`,
     onStart: leagueTypes.DELETE_LEAGUE_START,
     onEnd: leagueTypes.DELETE_LEAGUE_END,
     onSuccess: leagueTypes.DELETE_LEAGUE_SUCCESS,

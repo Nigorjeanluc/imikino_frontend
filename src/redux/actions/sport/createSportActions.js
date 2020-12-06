@@ -10,7 +10,7 @@ export const createSport = (name) => (dispatch) => {
     method: 'post',
     data: { name },
     httpOptions: { token: localStorage.token },
-    url: `${LOCAL_URL}/admin/sports`,
+    url: `${BASIC_URL}/admin/sports`,
     onStart: sportTypes.CREATE_SPORT_START,
     onEnd: sportTypes.CREATE_SPORT_END,
     onSuccess: sportTypes.CREATE_SPORT_SUCCESS,

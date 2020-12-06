@@ -10,7 +10,7 @@ export const createLocation = (name) => (dispatch) => {
     method: 'post',
     data: { name },
     httpOptions: { token: localStorage.token },
-    url: `${LOCAL_URL}/admin/locations`,
+    url: `${BASIC_URL}/admin/locations`,
     onStart: locationTypes.CREATE_LOCATION_START,
     onEnd: locationTypes.CREATE_LOCATION_END,
     onSuccess: locationTypes.CREATE_LOCATION_SUCCESS,

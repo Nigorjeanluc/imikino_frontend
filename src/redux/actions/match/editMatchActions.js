@@ -11,7 +11,7 @@ export const editMatch = (id, data, options) => (dispatch) => {
       header: 'multipart/form-data',
       options
     },
-    url: `${LOCAL_URL}/reporter/matchs/${id}`,
+    url: `${BASIC_URL}/reporter/matchs/${id}`,
     onStart: matchTypes.UPDATE_MATCH_START,
     onEnd: matchTypes.UPDATE_MATCH_END,
     onSuccess: matchTypes.UPDATE_MATCH_SUCCESS,

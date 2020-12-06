@@ -5,7 +5,7 @@ import { apiAction } from '../../helpers';
 const getTrendingPosts = () => (dispatch) => dispatch(apiAction({
   method: 'get',
   httpOptions: { token: localStorage.token },
-  url: `${LOCAL_URL}/trending`,
+  url: `${BASIC_URL}/trending`,
   onStart: postsTypes.FETCH_TRENDING_POSTS_START,
   onEnd: postsTypes.FETCH_TRENDING_POSTS_END,
   onSuccess: postsTypes.FETCH_TRENDING_POSTS_SUCCESS,

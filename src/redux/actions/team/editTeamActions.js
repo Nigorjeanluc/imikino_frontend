@@ -11,7 +11,7 @@ export const editTeam = (id, data, options) => (dispatch) => {
       header: 'multipart/form-data',
       options
     },
-    url: `${LOCAL_URL}/admin/teams/${id}`,
+    url: `${BASIC_URL}/admin/teams/${id}`,
     onStart: teamTypes.UPDATE_TEAM_START,
     onEnd: teamTypes.UPDATE_TEAM_END,
     onSuccess: teamTypes.UPDATE_TEAM_SUCCESS,

@@ -5,7 +5,7 @@ import { apiAction } from '../../helpers';
 const getAllLocations = (page = 1, limit = 10) => (dispatch) => dispatch(apiAction({
   method: 'get',
   httpOptions: { token: localStorage.token },
-  url: `${LOCAL_URL}/admin/locations?page=${page}&limit=${limit}`,
+  url: `${BASIC_URL}/admin/locations?page=${page}&limit=${limit}`,
   onStart: locationsTypes.FETCH_LOCATIONS_START,
   onEnd: locationsTypes.FETCH_LOCATIONS_END,
   onSuccess: locationsTypes.FETCH_LOCATIONS_SUCCESS,

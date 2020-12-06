@@ -5,7 +5,7 @@ import { apiAction } from '../../helpers';
 const fetchTag = (id) => (dispatch) => dispatch(apiAction({
   method: 'get',
   httpOptions: { token: localStorage.token },
-  url: `${LOCAL_URL}/tags/${id}`,
+  url: `${BASIC_URL}/tags/${id}`,
   onStart: tagTypes.FETCH_TAG_START,
   onEnd: tagTypes.FETCH_TAG_END,
   onSuccess: tagTypes.FETCH_TAG_SUCCESS,

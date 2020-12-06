@@ -10,7 +10,7 @@ export const editSport = (id, name) => (dispatch) => {
     method: 'patch',
     data: { name },
     httpOptions: { token: localStorage.token },
-    url: `${LOCAL_URL}/admin/sports/${id}`,
+    url: `${BASIC_URL}/admin/sports/${id}`,
     onStart: sportTypes.UPDATE_SPORT_START,
     onEnd: sportTypes.UPDATE_SPORT_END,
     onSuccess: sportTypes.UPDATE_SPORT_SUCCESS,

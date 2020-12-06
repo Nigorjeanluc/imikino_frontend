@@ -5,7 +5,7 @@ import { apiAction } from '../../helpers';
 const getPlayer = (id) => (dispatch) => dispatch(apiAction({
   method: 'get',
   httpOptions: { token: localStorage.token },
-  url: `${LOCAL_URL}/admin/players/${id}`,
+  url: `${BASIC_URL}/admin/players/${id}`,
   onStart: playerTypes.FETCH_PLAYER_START,
   onEnd: playerTypes.FETCH_PLAYER_END,
   onSuccess: playerTypes.FETCH_PLAYER_SUCCESS,

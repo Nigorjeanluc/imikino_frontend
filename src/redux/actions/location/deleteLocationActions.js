@@ -9,7 +9,7 @@ export const deleteLocation = (id) => (dispatch) => {
   return dispatch(apiAction({
     method: 'delete',
     httpOptions: { token: localStorage.token },
-    url: `${LOCAL_URL}/admin/locations/${id}`,
+    url: `${BASIC_URL}/admin/locations/${id}`,
     onStart: locationTypes.DELETE_LOCATION_START,
     onEnd: locationTypes.DELETE_LOCATION_END,
     onSuccess: locationTypes.DELETE_LOCATION_SUCCESS,

@@ -11,7 +11,7 @@ export const createPlayer = (data, options) => (dispatch) => {
       header: 'multipart/form-data',
       options
     },
-    url: `${LOCAL_URL}/admin/leagues`,
+    url: `${BASIC_URL}/admin/leagues`,
     onStart: leagueTypes.CREATE_LEAGUE_START,
     onEnd: leagueTypes.CREATE_LEAGUE_END,
     onSuccess: leagueTypes.CREATE_LEAGUE_SUCCESS,

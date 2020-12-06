@@ -11,7 +11,7 @@ export const editPlayer = (id, data, options) => (dispatch) => {
       header: 'multipart/form-data',
       options
     },
-    url: `${LOCAL_URL}/admin/players/${id}`,
+    url: `${BASIC_URL}/admin/players/${id}`,
     onStart: playerTypes.UPDATE_PLAYER_START,
     onEnd: playerTypes.UPDATE_PLAYER_END,
     onSuccess: playerTypes.UPDATE_PLAYER_SUCCESS,

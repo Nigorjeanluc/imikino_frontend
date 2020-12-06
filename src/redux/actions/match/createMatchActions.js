@@ -9,7 +9,7 @@ export const createMatch = (data) => (dispatch) => {
     httpOptions: {
       token: localStorage.token,
     },
-    url: `${LOCAL_URL}/reporter/matchs`,
+    url: `${BASIC_URL}/reporter/matchs`,
     onStart: matchTypes.CREATE_MATCH_START,
     onEnd: matchTypes.CREATE_MATCH_END,
     onSuccess: matchTypes.CREATE_MATCH_SUCCESS,

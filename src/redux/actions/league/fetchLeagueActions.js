@@ -5,7 +5,7 @@ import { apiAction } from '../../helpers';
 const fetchLeague = (id) => (dispatch) => dispatch(apiAction({
   method: 'get',
   httpOptions: { token: localStorage.token },
-  url: `${LOCAL_URL}/admin/leagues/${id}`,
+  url: `${BASIC_URL}/admin/leagues/${id}`,
   onStart: leagueTypes.FETCH_LEAGUE_START,
   onEnd: leagueTypes.FETCH_LEAGUE_END,
   onSuccess: leagueTypes.FETCH_LEAGUE_SUCCESS,

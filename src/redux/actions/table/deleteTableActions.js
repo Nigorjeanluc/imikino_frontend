@@ -9,7 +9,7 @@ export const deleteTable = (id) => (dispatch) => {
   return dispatch(apiAction({
     method: 'delete',
     httpOptions: { token: localStorage.token },
-    url: `${LOCAL_URL}/admin/tables/${id}`,
+    url: `${BASIC_URL}/admin/tables/${id}`,
     onStart: tableTypes.DELETE_TABLE_START,
     onEnd: tableTypes.DELETE_TABLE_END,
     onSuccess: tableTypes.DELETE_TABLE_SUCCESS,

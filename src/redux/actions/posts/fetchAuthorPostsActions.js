@@ -5,7 +5,7 @@ import { apiAction } from '../../helpers';
 const getAllPosts = (page = 1, limit = 12) => (dispatch) => dispatch(apiAction({
   method: 'get',
   httpOptions: { token: localStorage.token },
-  url: `${LOCAL_URL}/reporter/posts?page=${page}&limit=${limit}`,
+  url: `${BASIC_URL}/reporter/posts?page=${page}&limit=${limit}`,
   onStart: postsTypes.FETCH_POSTS_START,
   onEnd: postsTypes.FETCH_POSTS_END,
   onSuccess: postsTypes.FETCH_POSTS_SUCCESS,

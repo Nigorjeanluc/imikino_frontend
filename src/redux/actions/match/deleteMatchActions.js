@@ -12,7 +12,7 @@ export const deleteMatch = (slug) => (dispatch) => {
       token: localStorage.token,
       header: 'multipart/form-data'
     },
-    url: `${LOCAL_URL}/reporter/matchs/${slug}`,
+    url: `${BASIC_URL}/reporter/matchs/${slug}`,
     onStart: matchTypes.DELETE_MATCH_START,
     onEnd: matchTypes.DELETE_MATCH_END,
     onSuccess: matchTypes.DELETE_MATCH_SUCCESS,

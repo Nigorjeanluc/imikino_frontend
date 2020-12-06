@@ -11,7 +11,7 @@ export const createPost = (data, options) => (dispatch) => {
       header: 'multipart/form-data',
       options
     },
-    url: `${LOCAL_URL}/reporter/posts`,
+    url: `${BASIC_URL}/reporter/posts`,
     onStart: postTypes.CREATE_POST_START,
     onEnd: postTypes.CREATE_POST_END,
     onSuccess: postTypes.CREATE_POST_SUCCESS,

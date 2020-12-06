@@ -12,7 +12,7 @@ export const deletePlayer = (id) => (dispatch) => {
       token: localStorage.token,
       header: 'multipart/form-data'
     },
-    url: `${LOCAL_URL}/admin/players/${id}`,
+    url: `${BASIC_URL}/admin/players/${id}`,
     onStart: playerTypes.DELETE_PLAYER_START,
     onEnd: playerTypes.DELETE_PLAYER_END,
     onSuccess: playerTypes.DELETE_PLAYER_SUCCESS,

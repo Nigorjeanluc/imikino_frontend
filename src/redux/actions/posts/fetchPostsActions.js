@@ -5,7 +5,7 @@ import { apiAction } from '../../helpers';
 const getAllMatchs = (page = 1, limit = 12) => (dispatch) => dispatch(apiAction({
   method: 'get',
   httpOptions: { token: localStorage.token },
-  url: `${LOCAL_URL}/news?page=${page}&limit=${limit}`,
+  url: `${BASIC_URL}/news?page=${page}&limit=${limit}`,
   onStart: matchsTypes.FETCH_MATCHS_START,
   onEnd: matchsTypes.FETCH_MATCHS_END,
   onSuccess: matchsTypes.FETCH_MATCHS_SUCCESS,

@@ -11,7 +11,7 @@ export const createTeam = (data, options) => (dispatch) => {
       header: 'multipart/form-data',
       options
     },
-    url: `${LOCAL_URL}/admin/teams`,
+    url: `${BASIC_URL}/admin/teams`,
     onStart: teamTypes.CREATE_TEAM_START,
     onEnd: teamTypes.CREATE_TEAM_END,
     onSuccess: teamTypes.CREATE_TEAM_SUCCESS,

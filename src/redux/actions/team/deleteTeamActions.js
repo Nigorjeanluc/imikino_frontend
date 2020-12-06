@@ -12,7 +12,7 @@ export const deleteTeam = (id) => (dispatch) => {
       token: localStorage.token,
       header: 'multipart/form-data'
     },
-    url: `${LOCAL_URL}/admin/teams/${id}`,
+    url: `${BASIC_URL}/admin/teams/${id}`,
     onStart: teamTypes.DELETE_TEAM_START,
     onEnd: teamTypes.DELETE_TEAM_END,
     onSuccess: teamTypes.DELETE_TEAM_SUCCESS,

@@ -5,7 +5,7 @@ import { apiAction } from '../../helpers';
 const getHeaderPosts = (page = 1, limit = 6) => (dispatch) => dispatch(apiAction({
   method: 'get',
   httpOptions: { token: localStorage.token },
-  url: `${LOCAL_URL}/news?page=${page}&limit=${limit}`,
+  url: `${BASIC_URL}/news?page=${page}&limit=${limit}`,
   onStart: postsTypes.FETCH_HEADER_POSTS_START,
   onEnd: postsTypes.FETCH_HEADER_POSTS_END,
   onSuccess: postsTypes.FETCH_HEADER_POSTS_SUCCESS,

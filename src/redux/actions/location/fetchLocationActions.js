@@ -5,7 +5,7 @@ import { apiAction } from '../../helpers';
 const getLocation = (id) => (dispatch) => dispatch(apiAction({
   method: 'get',
   httpOptions: { token: localStorage.token },
-  url: `${LOCAL_URL}/admin/locations/${id}`,
+  url: `${BASIC_URL}/admin/locations/${id}`,
   onStart: locationTypes.FETCH_LOCATION_START,
   onEnd: locationTypes.FETCH_LOCATION_END,
   onSuccess: locationTypes.FETCH_LOCATION_SUCCESS,

@@ -10,7 +10,7 @@ export const createTable = (league_id, data) => (dispatch) => {
     method: 'post',
     data,
     httpOptions: { token: localStorage.token },
-    url: `${LOCAL_URL}/admin/tables/${league_id}`,
+    url: `${BASIC_URL}/admin/tables/${league_id}`,
     onStart: tableTypes.CREATE_TABLE_START,
     onEnd: tableTypes.CREATE_TABLE_END,
     onSuccess: tableTypes.CREATE_TABLE_SUCCESS,

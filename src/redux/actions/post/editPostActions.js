@@ -11,7 +11,7 @@ export const editPost = (id, data, options) => (dispatch) => {
       header: 'multipart/form-data',
       options
     },
-    url: `${LOCAL_URL}/reporter/posts/${id}`,
+    url: `${BASIC_URL}/reporter/posts/${id}`,
     onStart: postTypes.UPDATE_POST_START,
     onEnd: postTypes.UPDATE_POST_END,
     onSuccess: postTypes.UPDATE_POST_SUCCESS,

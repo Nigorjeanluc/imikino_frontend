@@ -5,7 +5,7 @@ import { apiAction } from '../../helpers';
 const getAllLeagues = (page, limit) => (dispatch) => dispatch(apiAction({
   method: 'get',
   httpOptions: { token: localStorage.token },
-  url: `${LOCAL_URL}/admin/leagues?page=${page}&limit=${limit}`,
+  url: `${BASIC_URL}/admin/leagues?page=${page}&limit=${limit}`,
   onStart: leaguesTypes.FETCH_LEAGUES_START,
   onEnd: leaguesTypes.FETCH_LEAGUES_END,
   onSuccess: leaguesTypes.FETCH_LEAGUES_SUCCESS,

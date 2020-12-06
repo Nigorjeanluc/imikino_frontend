@@ -11,7 +11,7 @@ export const editLeague = (id, data, options) => (dispatch) => {
       header: 'multipart/form-data',
       options
     },
-    url: `${LOCAL_URL}/admin/leagues/${id}`,
+    url: `${BASIC_URL}/admin/leagues/${id}`,
     onStart: leagueTypes.UPDATE_LEAGUE_START,
     onEnd: leagueTypes.UPDATE_LEAGUE_END,
     onSuccess: leagueTypes.UPDATE_LEAGUE_SUCCESS,

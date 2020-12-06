@@ -9,7 +9,7 @@ export const deleteSport = (id) => (dispatch) => {
   return dispatch(apiAction({
     method: 'delete',
     httpOptions: { token: localStorage.token },
-    url: `${LOCAL_URL}/admin/sports/${id}`,
+    url: `${BASIC_URL}/admin/sports/${id}`,
     onStart: sportTypes.DELETE_SPORT_START,
     onEnd: sportTypes.DELETE_SPORT_END,
     onSuccess: sportTypes.DELETE_SPORT_SUCCESS,

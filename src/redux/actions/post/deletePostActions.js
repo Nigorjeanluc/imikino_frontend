@@ -12,7 +12,7 @@ export const deletePost = (slug) => (dispatch) => {
       token: localStorage.token,
       header: 'multipart/form-data'
     },
-    url: `${LOCAL_URL}/reporter/posts/${slug}`,
+    url: `${BASIC_URL}/reporter/posts/${slug}`,
     onStart: postTypes.DELETE_POST_START,
     onEnd: postTypes.DELETE_POST_END,
     onSuccess: postTypes.DELETE_POST_SUCCESS,

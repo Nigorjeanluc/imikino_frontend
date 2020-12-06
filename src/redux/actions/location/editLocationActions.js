@@ -10,7 +10,7 @@ export const editLocation = (id, name) => (dispatch) => {
     method: 'patch',
     data: { name },
     httpOptions: { token: localStorage.token },
-    url: `${LOCAL_URL}/admin/locations/${id}`,
+    url: `${BASIC_URL}/admin/locations/${id}`,
     onStart: locationTypes.UPDATE_LOCATION_START,
     onEnd: locationTypes.UPDATE_LOCATION_END,
     onSuccess: locationTypes.UPDATE_LOCATION_SUCCESS,

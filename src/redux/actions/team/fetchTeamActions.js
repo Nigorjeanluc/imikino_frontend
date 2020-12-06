@@ -5,7 +5,7 @@ import { apiAction } from '../../helpers';
 const getTeam = (id) => (dispatch) => dispatch(apiAction({
   method: 'get',
   httpOptions: { token: localStorage.token },
-  url: `${LOCAL_URL}/admin/teams/${id}`,
+  url: `${BASIC_URL}/admin/teams/${id}`,
   onStart: teamTypes.FETCH_TEAM_START,
   onEnd: teamTypes.FETCH_TEAM_END,
   onSuccess: teamTypes.FETCH_TEAM_SUCCESS,

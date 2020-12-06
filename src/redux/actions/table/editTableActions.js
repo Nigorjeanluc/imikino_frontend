@@ -10,7 +10,7 @@ export const editTable = (id, data) => (dispatch) => {
     method: 'patch',
     data,
     httpOptions: { token: localStorage.token },
-    url: `${LOCAL_URL}/admin/tables/${id}`,
+    url: `${BASIC_URL}/admin/tables/${id}`,
     onStart: tableTypes.UPDATE_TABLE_START,
     onEnd: tableTypes.UPDATE_TABLE_END,
     onSuccess: tableTypes.UPDATE_TABLE_SUCCESS,
