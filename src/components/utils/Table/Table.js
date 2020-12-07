@@ -22,7 +22,7 @@ const Table = (props) => {
     <>
     <MDBCard className="leagueTable">
       <MDBCardHeader className="tablesss">
-        <h1><img src={`${IMIKINO_URL_IMAGE}/leagues/${league.image}`} alt={league.id} /> {league.name}</h1>
+        <h1><img src={`${BACKEND_URL_IMAGE}/leagues/${league.image}`} alt={league.id} /> {league.name}</h1>
       </MDBCardHeader>
       <MDBCardBody>
         <MDBTable>
@@ -44,7 +44,7 @@ const Table = (props) => {
             league.tables && league.tables.map(table => (
                             <tr style={{height: '50px'}} key={table.id}>
                               <td style={{fontSize: '16px'}}>
-                                <img className='img-responsive' style={{width: '25px', height: '25px'}} src={`${SOCKET_URL}/uploads/teams/${table.team_image}`}  alt="tableImg"/> {table.team_name}
+                                <img className='img-responsive' style={{width: '25px', height: '25px'}} src={`${BACKEND_URL_IMAGE}/teams/${table.team_image}`}  alt="tableImg"/> {table.team_name}
                               </td>
                               <td style={{fontSize: '16px'}}>{table.Pg}</td>
                               <td style={{fontSize: '16px'}}>{table.W}</td>
