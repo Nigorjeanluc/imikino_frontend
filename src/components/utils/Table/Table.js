@@ -52,7 +52,7 @@ const Table = (props) => {
                               <td style={{fontSize: '16px'}}>{table.L}</td>
                               <td style={{fontSize: '16px'}}>{table.GF}</td>
                               <td style={{fontSize: '16px'}}>{table.GA}</td>
-                              <td style={{fontSize: '16px'}}>{table.GA}</td>
+                              <td style={{fontSize: '16px'}}>{table.GD}</td>
                               <td style={{fontSize: '16px'}}>{table.PTS}</td>
                             </tr>
                           ))

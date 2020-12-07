@@ -220,7 +220,7 @@ class TablesPage extends Component {
                               <td style={{fontSize: '16px'}}>{table.L}</td>
                               <td style={{fontSize: '16px'}}>{table.GF}</td>
                               <td style={{fontSize: '16px'}}>{table.GA}</td>
-                              <td style={{fontSize: '16px'}}>{table.GA}</td>
+                              <td style={{fontSize: '16px'}}>{table.GD}</td>
                               <td style={{fontSize: '16px'}}>{table.PTS}</td>
                               <td style={{fontSize: '16px'}}>{moment(table.updated_at).startOf('hour').fromNow()}</td>
                               <td>
