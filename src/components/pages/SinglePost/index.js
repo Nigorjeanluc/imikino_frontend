@@ -22,7 +22,7 @@ import moment from 'moment';
 import ClipLoader from 'react-spinners/ClipLoader';
 import parse from 'html-react-parser';
 
-import { IMIKINO_URL_IMAGE } from '../../../redux/helpers/backendURLs';
+import { IMIKINO_URL_IMAGE, LOCAL_URL_IMAGE } from '../../../redux/helpers/backendURLs';
 import { getSingle } from '../../../redux/actions/post'
 import { getTrendingPosts } from '../../../redux/actions/posts'
 import { getPostComments } from '../../../redux/actions/comments';

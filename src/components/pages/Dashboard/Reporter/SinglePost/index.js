@@ -13,7 +13,12 @@ import Dashboard from '../index';
 import BreadcrumSection from '../../../../utils/Sections/BreadcrumSection';
 import AdminCardSection1 from '../../../../utils/Sections/AdminCardSection1';
 
-import {SOCKET_URL} from '../../../../../redux/helpers/backendURLs';
+import {
+  SOCKET_URL,
+  LOCAL_URL_IMAGE,
+  IMIKINO_URL_IMAGE,
+  BACKEND_URL_IMAGE
+} from '../../../../../redux/helpers/backendURLs';
 
 import { getSingle, editPost } from '../../../../../redux/actions/post';
 import { getPostComments } from '../../../../../redux/actions/comments';
@@ -258,7 +263,7 @@ class Frontpage2 extends Component {
                     width: '100%',
                     height: '350px',
                     marginBottom: '20px'
-                  }} src={`${SOCKET_URL}/uploads/news/${post.image}`} alt="News Image" />
+                  }} src={`${BACKEND_URL_IMAGE}/news/${post.image}`} alt="News Image" />
                 </div>
                 ) : null }
                 <MDBRow

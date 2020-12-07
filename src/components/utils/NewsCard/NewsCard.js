@@ -2,7 +2,7 @@ import React from 'react';
 import { MDBCard, MDBCardBody, MDBBtn, MDBCardImage, MDBCardTitle, MDBCol, MDBIcon, MDBRow } from 'mdbreact';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import { IMIKINO_URL_IMAGE } from '../../../redux/helpers/backendURLs';
+import { IMIKINO_URL_IMAGE, LOCAL_URL_IMAGE } from '../../../redux/helpers/backendURLs';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faFacebookF, } from '@fortawesome/fontawesome-free-brands';
 // import { faComments, faEye, faCalendarDay } from '@fortawesome/free-solid-svg-icons';

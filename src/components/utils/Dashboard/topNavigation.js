@@ -7,9 +7,11 @@ class TopNavigation extends Component {
     }
 
     onClick = () => {
+        const { toggler } = this.props;
         this.setState({
             collapse: !this.state.collapse,
         });
+        toggler();
     }
 
     toggle = () => {

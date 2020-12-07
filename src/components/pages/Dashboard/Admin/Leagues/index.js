@@ -15,7 +15,12 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import openSocket from 'socket.io-client';
 
-import {SOCKET_URL} from '../../../../../redux/helpers/backendURLs';
+import {
+  SOCKET_URL,
+  LOCAL_URL_IMAGE,
+  IMIKINO_URL_IMAGE,
+  BACKEND_URL_IMAGE
+} from '../../../../../redux/helpers/backendURLs';
 
 import Dashboard from '../index';
 import BreadcrumSection from '../../../../utils/Sections/BreadcrumSection';
@@ -159,7 +164,7 @@ class LeaguesPage extends Component {
                             <tr key={league.id}>
                               <td style={{fontSize: '16px'}}>{league.id}</td>
                               <td style={{fontSize: '16px'}}>
-                                <img className='img-responsive' src={`${SOCKET_URL}/uploads/leagues/${league.image}`}  alt="leagueImg"/> {league.name}
+                                <img className='img-responsive' src={`${BACKEND_URL_IMAGE}/leagues/${league.image}`}  alt="leagueImg"/> {league.name}
                               </td>
                               <td style={{fontSize: '16px'}}>{moment(league.updated_at).startOf('hour').fromNow()}</td>
                               <td>

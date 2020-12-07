@@ -1,15 +1,15 @@
-import { matchsActionTypes as matchsTypes } from '../../actionTypes';
+import { postsActionTypes as postsTypes } from '../../actionTypes';
 import { LOCAL_URL, BASIC_URL } from '../../helpers/backendURLs';
 import { apiAction } from '../../helpers';
 
-const getAllMatchs = (page = 1, limit = 12) => (dispatch) => dispatch(apiAction({
+const getAllPosts = (page = 1, limit = 12) => (dispatch) => dispatch(apiAction({
   method: 'get',
   httpOptions: { token: localStorage.token },
   url: `${BASIC_URL}/news?page=${page}&limit=${limit}`,
-  onStart: matchsTypes.FETCH_MATCHS_START,
-  onEnd: matchsTypes.FETCH_MATCHS_END,
-  onSuccess: matchsTypes.FETCH_MATCHS_SUCCESS,
-  onFailure: matchsTypes.FETCH_MATCHS_FAILURE
+  onStart: postsTypes.FETCH_POSTS_START,
+  onEnd: postsTypes.FETCH_POSTS_END,
+  onSuccess: postsTypes.FETCH_POSTS_SUCCESS,
+  onFailure: postsTypes.FETCH_POSTS_FAILURE
 }));
 
-export default getAllMatchs;
+export default getAllPosts;

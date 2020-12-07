@@ -34,6 +34,8 @@ class AddMatch extends Component {
     started: false,
     paused: false,
     socket: openSocket(SOCKET_URL),
+    date: null,
+    time: null,
   }
 
   componentDidMount() {
@@ -70,6 +72,16 @@ class AddMatch extends Component {
     this.setState({ stadium: event.target.value })
   }
 
+  handleChangeDate = (event) => {
+    this.setState({ date: event.target.value })
+    console.log(event.target.value, "Date");
+  }
+
+  handleChangeTime = (event) => {
+    this.setState({ time: event.target.value })
+    console.log(event.target.value, "Time");
+  }
+
   handleSubmit = (event) => {
     event.preventDefault();
     const { createMatch } = this.props;
@@ -82,6 +94,8 @@ class AddMatch extends Component {
       started,
       paused,
       league_id,
+      date,
+      time,
       socket,
     } = this.state;
 
@@ -90,10 +104,10 @@ class AddMatch extends Component {
       team_two,
       location_id,
       stadium,
-      starting_time,
+      starting_time: `${date} ${time}`,
       started,
       paused,
-      league_id: parseInt(league_id, 10),
+      league_id: league_id,
     });
   }
 
@@ -247,11 +261,33 @@ class AddMatch extends Component {
                           id="stadium"
                         />
                       </MDBCol>
+                      <MDBCol md="6">
+                        <label>Starting date</label>
+                        <input
+                          type="date"
+                          className="form-control"
+                          onChange={this.handleChangeDate}
+                          value={this.state.date}
+                          name="date"
+                          id="time"
+                        />
+                      </MDBCol>
+                      <MDBCol md="6">
+                        <label>Starting time</label>
+                        <input
+                          type="time"
+                          className="form-control"
+                          onChange={this.handleChangeTime}
+                          value={this.state.time}
+                          name="time"
+                          id="time"
+                        />
+                      </MDBCol>
                     </MDBRow>
                   </div>
                   <MDBRow>
                     <MDBCol md="12">
-                      <MDBBtn size="lg" style={{width: '100%'}} type="submit" color="indigo">Save post</MDBBtn>
+                      <MDBBtn size="lg" style={{width: '100%'}} type="submit" color="indigo">Save Match</MDBBtn>
                     </MDBCol>
                   </MDBRow>
                 </form>

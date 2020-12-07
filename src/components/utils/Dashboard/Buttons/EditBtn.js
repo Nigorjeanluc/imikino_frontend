@@ -17,17 +17,15 @@ export class EditBtnLocation extends Component {
     name: ''
   }
 
-  componentDidMount () {
-    const { fetchLocation, identify, location } = this.props;
-    if(this.state.modal) {
-      fetchLocation(identify);
+  componentWillMount () {
+    const { fetchLocation, location, identify} = this.props;
+    fetchLocation(identify);
       this.setState({
-        name: location.name
+        name: location.name,
       })
-    }
   }
   
-  toggle = () => {
+  toggle = async () => {
     this.setState({
       modal: !this.state.modal
     });

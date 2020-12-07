@@ -18,6 +18,10 @@ import tag from './tag';
 import tags from './tags';
 import match from './match';
 import matchs from './matchs';
+import goal from './goal';
+import goals from './goals';
+import card from './card';
+import cards from './cards';
 
 export default {
   user,
@@ -39,5 +43,9 @@ export default {
   tag,
   tags,
   match,
-  matchs
+  matchs,
+  goal,
+  goals,
+  card,
+  cards
 };

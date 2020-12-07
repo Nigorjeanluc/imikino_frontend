@@ -15,7 +15,12 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import openSocket from 'socket.io-client';
 
-import {SOCKET_URL} from '../../../../../redux/helpers/backendURLs';
+import {
+  SOCKET_URL,
+  LOCAL_URL_IMAGE,
+  IMIKINO_URL_IMAGE,
+  BACKEND_URL_IMAGE
+} from '../../../../../redux/helpers/backendURLs';
 
 import Dashboard from '../index';
 import BreadcrumSection from '../../../../utils/Sections/BreadcrumSection';
@@ -207,7 +212,7 @@ class TablesPage extends Component {
                           listOfTables && listOfTables.map(table => (
                             <tr style={{height: '50px'}} key={table.id}>
                               <td style={{fontSize: '16px'}}>
-                                <img className='img-responsive' style={{width: '25px', height: '25px'}} src={`${SOCKET_URL}/uploads/teams/${table.team.image}`}  alt="tableImg"/> {table.team.name}
+                                <img className='img-responsive' style={{width: '25px', height: '25px'}} src={`${BACKEND_URL_IMAGE}/teams/${table.team.image}`}  alt="tableImg"/> {table.team.name}
                               </td>
                               <td style={{fontSize: '16px'}}>{table.Pg}</td>
                               <td style={{fontSize: '16px'}}>{table.W}</td>

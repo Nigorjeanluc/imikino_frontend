@@ -3,15 +3,16 @@ const HEROKU_URL = 'https://imikino-bn.herokuapp.com';
 const LOCAL_URL = 'http://localhost:4005/api';
 const SOCKET_URL = 'http://localhost:4005';
 const LOCAL_URL_IMAGE = 'http://localhost:4005/uploads';
-const IMIKINO_URL_IMAGE = 'https://imikino.rw/images'
+const IMIKINO_URL_IMAGE = 'https://imikino.rw/images';
+const BACKEND_URL_IMAGE = 'https://imikino.rw/images';
 
 // const LOCAL_URL = 'http://localhost:4000/api';
 // const HEROKU_URL = 'http://localhost:4000';
 
-const facebookAuth = `${LOCAL_URL}/auth/facebook`;
-const googleAuth = `${LOCAL_URL}/auth/google`;
-const LOGIN_URL = `${LOCAL_URL}/auth/signin`;
-const LOGOUT_URL = `${LOCAL_URL}/auth/logout`;
+const facebookAuth = `${BASIC_URL}/auth/facebook`;
+const googleAuth = `${BASIC_URL}/auth/google`;
+const LOGIN_URL = `${BASIC_URL}/auth/signin`;
+const LOGOUT_URL = `${BASIC_URL}/auth/logout`;
 
 export {
   LOCAL_URL,
@@ -24,4 +25,5 @@ export {
   SOCKET_URL,
   LOCAL_URL_IMAGE,
   IMIKINO_URL_IMAGE,
+  BACKEND_URL_IMAGE,
 };

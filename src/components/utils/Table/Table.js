@@ -8,7 +8,12 @@ import {
   MDBTableHead,
   MDBTableBody
  } from 'mdbreact';
-import { SOCKET_URL } from '../../../redux/helpers/backendURLs';
+import {
+  SOCKET_URL,
+  LOCAL_URL_IMAGE,
+  BACKEND_URL_IMAGE,
+  IMIKINO_URL_IMAGE
+} from '../../../redux/helpers/backendURLs';
 import './Table.scss';
 
 const Table = (props) => {
@@ -17,7 +22,7 @@ const Table = (props) => {
     <>
     <MDBCard className="leagueTable">
       <MDBCardHeader className="tablesss">
-        <h1><img src={`${SOCKET_URL}/uploads/leagues/${league.image}`} alt={league.id} /> {league.name}</h1>
+        <h1><img src={`${IMIKINO_URL_IMAGE}/leagues/${league.image}`} alt={league.id} /> {league.name}</h1>
       </MDBCardHeader>
       <MDBCardBody>
         <MDBTable>

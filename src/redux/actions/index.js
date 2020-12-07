@@ -18,6 +18,10 @@ import * as tagAction from './tag';
 import * as tagsAction from './tags';
 import * as matchAction from './match';
 import * as matchsAction from './matchs';
+import * as goalAction from './goal';
+import * as goalsAction from './goals';
+import * as cardAction from './card';
+import * as cardsAction from './cards';
 
 export {
   userAction,
@@ -39,5 +43,9 @@ export {
   tagAction,
   tagsAction,
   matchAction,
-  matchsAction
+  matchsAction,
+  goalAction,
+  goalsAction,
+  cardAction,
+  cardsAction
 };

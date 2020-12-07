@@ -15,7 +15,12 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import openSocket from 'socket.io-client';
 
-import {SOCKET_URL} from '../../../../../redux/helpers/backendURLs';
+import {
+  SOCKET_URL,
+  LOCAL_URL_IMAGE,
+  IMIKINO_URL_IMAGE,
+  BACKEND_URL_IMAGE
+} from '../../../../../redux/helpers/backendURLs';
 
 import Dashboard from '../index';
 import BreadcrumSection from '../../../../utils/Sections/BreadcrumSection';
@@ -158,7 +163,7 @@ class TeamsPage extends Component {
                             <tr key={team.id}>
                               <td style={{fontSize: '16px'}}>{team.id}</td>
                               <td style={{fontSize: '16px'}}>
-                                <img className='img-responsive' src={`${SOCKET_URL}/uploads/teams/${team.image}`}  alt="teamImg"/> {team.name}
+                                <img className='img-responsive' src={`${BACKEND_URL_IMAGE}/teams/${team.image}`}  alt="teamImg"/> {team.name}
                               </td>
                               <td style={{fontSize: '16px'}}>{moment(team.updated_at).startOf('hour').fromNow()}</td>
                               <td>

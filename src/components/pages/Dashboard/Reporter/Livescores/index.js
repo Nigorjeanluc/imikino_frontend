@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import { MDBCol, MDBRow, MDBBadge, MDBCard, MDBCardBody, MDBBtn } from 'mdbreact';
 import { connect } from 'react-redux';
+import moment from 'moment';
+
+import {
+  SOCKET_URL,
+  LOCAL_URL_IMAGE,
+  IMIKINO_URL_IMAGE,
+  BACKEND_URL_IMAGE
+} from '../../../../../redux/helpers/backendURLs';
 
 import Dashboard from '../index';
 import BreadcrumSection from '../../../../utils/Sections/BreadcrumSection';
@@ -34,7 +42,7 @@ class Livescore extends Component {
     getAllPlayers(1, 2000);
     getAllSports(1, 2000);
     getAllLocations(1, 2000);
-    getAllMatchs(1, 10);
+    getAllMatchs(1, 40);
   }
 
   render() {
@@ -62,7 +70,28 @@ class Livescore extends Component {
               <MDBCardBody>
                 <Link to='/reporter/livescores/addmatch'><MDBBtn>Add Match</MDBBtn></Link><hr />
                 {listOfMatchs && listOfMatchs.map(match => (
-                  <p key={match.id}>{match.team_one}</p>
+                  <div key={match.id}>
+                    <MDBRow>
+                      <MDBCol md="9">
+                        <p style={{textAlign: 'center'}}>
+                          <img style={{width: '30px', height: '30px'}} src={`${BACKEND_URL_IMAGE}/teams/${match.team_1 && match.team_1.image}`} alt={match.team_1 && match.team_1.name} />
+                          <span style={{fontSize: '12px', fontWeight: '800'}}>  {match.team_1 && match.team_1.name}</span><span style={{fontSize: '22px'}}> vs </span> 
+                          <img style={{width: '30px', height: '30px'}} src={`${BACKEND_URL_IMAGE}/teams/${match.team_2 && match.team_2.image}`} alt={match.team_2 && match.team_2.name} />
+                          <span style={{fontSize: '12px', fontWeight: '800'}}>  {match.team_2 && match.team_2.name}</span>
+                        </p>
+                        <p style={{textAlign: 'center'}}>
+                          <span></span>
+                          <span></span>
+                        </p>
+                        <p style={{textAlign: 'center'}}>
+                          Starting {moment(match.starting_time, "YYYYMMDD hh:mm:ss").fromNow()}
+                        </p>
+                      </MDBCol>
+                      <MDBCol md="3">
+                        <MDBBtn color="unique">Add Goal or Card</MDBBtn>
+                      </MDBCol>
+                    </MDBRow>
+                  </div>
                 ))}
               </MDBCardBody>
             </MDBCard>
