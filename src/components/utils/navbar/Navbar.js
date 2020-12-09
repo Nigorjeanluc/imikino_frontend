@@ -43,7 +43,7 @@ const Navbar = (props) => {
           <Brand />
           <NavLinks style={linkAnimation}>
             <Link to="/">Amakuru</Link>
-            <Link to="/transfers">Transfers</Link>
+            <Link to="/transfers">Igura n'igurisha</Link>
             <Link to="/tables">Urutonde</Link>
             <Link to="/teams">Amakipe</Link>
             <Link to="/livescores">Livescores</Link>

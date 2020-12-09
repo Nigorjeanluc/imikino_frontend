@@ -89,7 +89,7 @@ export class Transfer extends Component {
           />
           <Row style={{ marginTop: '6rem' }} className="justify-content-md-center">
             <Col md={8}>
-              <Title text="Recent transfers news"/>
+              <Title text="IGURA N'IGURISHA"/>
               <MDBRow className="cards-panel">
                 {mainJsx}
                 <MDBCol md="12">

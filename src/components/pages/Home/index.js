@@ -140,7 +140,7 @@ export class Home extends Component {
           />
           <Row style={{ marginTop: '6rem' }} className="justify-content-md-center">
             <Col md={8}>
-              <Title text="All Sport News"/>
+              {/* <Title text="INKURU ZIGEZWEHO"/> */}
               <Row>
                 <Col md="12">
                   { headerJsx }
@@ -148,7 +148,7 @@ export class Home extends Component {
               </Row>
               <Row>
                 <Col md={12}>
-                  <BtnLink active link="/" text="Latest News"/>
+                  <BtnLink active link="/" text="INKURU ZIGEZWEHO"/>
                 </Col>
               </Row>
               <MDBRow className="cards-panel">
@@ -175,7 +175,7 @@ export class Home extends Component {
               <VideosPanel/>
               <MDBRow>
                 <MDBCol>
-                  <Title text="Trending News" />
+                  <Title text="INKURU ZIKUNZWE" />
                 </MDBCol>
               </MDBRow>
               <MDBRow className="cards-panel">
