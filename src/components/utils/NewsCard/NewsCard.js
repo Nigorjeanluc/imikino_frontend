@@ -9,8 +9,7 @@ import { IMIKINO_URL_IMAGE, LOCAL_URL_IMAGE } from '../../../redux/helpers/backe
 
 import './NewsCard.scss';
 
-function NewsCard({ history, title, image, slug, size, updated_at }) {
-  console.log(history);
+function NewsCard({ title, image, slug, size, updated_at }) {
   return (
       <MDBCol className="panel" sm="12" md={`${size}`}>
         <MDBCard className="panel-card" cascade>

@@ -42,10 +42,10 @@ const Navbar = (props) => {
         <FlexContainer>
           <Brand />
           <NavLinks style={linkAnimation}>
-            <Link to="/">News</Link>
+            <Link to="/">Amakuru</Link>
             <Link to="/transfers">Transfers</Link>
-            <Link to="/tables">Tables</Link>
-            <Link to="/teams">Teams</Link>
+            <Link to="/tables">Urutonde</Link>
+            <Link to="/teams">Amakipe</Link>
             <Link to="/livescores">Livescores</Link>
           </NavLinks>
           <NavIcons>
