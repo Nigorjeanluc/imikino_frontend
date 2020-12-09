@@ -80,7 +80,7 @@ function NewsCard({ history, title, image, slug, size, updated_at }) {
               <li className='list-inline-item pr-2 white-text'>
                 <MDBIcon far icon='clock' /> { moment(updated_at, "YYYYMMDD").fromNow() }
               </li>
-              <li className='list-inline-item pr-2'>
+              {/* <li className='list-inline-item pr-2'>
                 <a href='#!' className='white-text'>
                   <MDBIcon far icon='comments' className='mr-1' />
                   12
@@ -96,7 +96,7 @@ function NewsCard({ history, title, image, slug, size, updated_at }) {
                 <a href='#!' className='white-text'>
                   <MDBIcon fab icon='twitter' className='mr-1' />5
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </MDBCard>
