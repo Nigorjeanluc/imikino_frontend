@@ -157,16 +157,18 @@ export class SinglePost extends Component {
 
     const trends = listOfTrending && listOfTrending.map((news, index) => (
       <Fragment key={index}>
-        <NewsCard
-          key={news.id}
-          title={news.title}
-          image={news.image}
-          slug={`${news.slug}`}
-          allViews={news.allViews}
-          updated_at={news.updated_at}
-          size={12}
-          history={history}
-        />
+        <a href={`${news.slug}`}>
+          <NewsCard
+            key={news.id}
+            title={news.title}
+            image={news.image}
+            slug={`${news.slug}`}
+            allViews={news.allViews}
+            updated_at={news.updated_at}
+            size={12}
+            history={history}
+          />
+        </a>
         {/* <Col>
           <MDBBtn tag="a" size="md" gradient="blue">
             {news.allViews} Views

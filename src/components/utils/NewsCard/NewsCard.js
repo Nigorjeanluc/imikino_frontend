@@ -16,7 +16,7 @@ function NewsCard({ history, title, image, slug, size, updated_at }) {
         <MDBCard className="panel-card" cascade>
           <MDBRow>
             <MDBCol className="top" size="7" sm="7" md="7">
-              <Link to={`${slug}`} className='black-text' replace>
+              <a href={`${slug}`} className='black-text'>
                 <MDBCardImage
                   cascade
                   className='img'
@@ -25,7 +25,7 @@ function NewsCard({ history, title, image, slug, size, updated_at }) {
                   // eslint-disable-next-line global-require
                   src={`${IMIKINO_URL_IMAGE}/news/${image}`}
                 />
-              </Link>
+              </a>
             </MDBCol>
             <MDBCol className="bottom" size="5" sm="5" md="5">
                 <MDBCardBody className="titleBody">
@@ -33,7 +33,7 @@ function NewsCard({ history, title, image, slug, size, updated_at }) {
                     <MDBIcon icon='share-alt' className='black-text' />
                   </a>
                   <MDBCardTitle className="titleCard">
-                    <Link className='black-text justify-content-start' to={`${slug}`}>{title}</Link>
+                    <a className='black-text justify-content-start' to={`${slug}`}>{title}</a>
                     {/* <Link to={`${slug}`} className='black-text d-flex justify-content-end'>
                       <MDBBtn size="sm" rounded className="viewMore">
                           Read more
