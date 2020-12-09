@@ -28,12 +28,16 @@ function NewsCard({ history, title, image, slug, size, updated_at }) {
               </a>
             </MDBCol>
             <MDBCol className="bottom" size="5" sm="5" md="5">
-                <MDBCardBody className="titleBody">
-                  <a href='#!' className='float-right activator waves-effect waves-light mr-4'>
+                <MDBCardBody style={{paddingTop: '5px'}} className="titleBody">
+                  {/* <a href='#!' className='float-right activator waves-effect waves-light mr-4'>
                     <MDBIcon icon='share-alt' className='black-text' />
-                  </a>
+                  </a> */}
                   <MDBCardTitle className="titleCard">
-                    <a className='black-text justify-content-start' to={`${slug}`}>{title}</a>
+                    <a className='black-text justify-content-start' href={`${slug}`}>
+                      {title.length < 60 ? `${title} >>` :
+                        (`${title.substring(0, 60)} >>`)
+                      }
+                    </a>
                     {/* <Link to={`${slug}`} className='black-text d-flex justify-content-end'>
                       <MDBBtn size="sm" rounded className="viewMore">
                           Read more

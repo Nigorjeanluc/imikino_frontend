@@ -82,7 +82,7 @@ export class SinglePost extends Component {
                           </MDBRow>
                         </MDBCard>
                         <div className="text-center">
-                              <h2 className="font-weight-bold">
+                              <h2 style={{fontSize: '12px'}} className="font-weight-bold">
                                 {post.title}
                               </h2>
                               <p>

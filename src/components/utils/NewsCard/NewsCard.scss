@@ -22,7 +22,7 @@ $information-phone: "only screen and (min-width : 768px)";
       }
       .titleCard {
         @media #{$information-phone} {
-          font-size: 11px;
+          font-size: 13px;
         }
         font-size: 13px;
         justify-content: left;
