@@ -11,13 +11,10 @@ function VideosPanel() {
       <MDBCol size="12"><Title text="Videos" /></MDBCol>
       <MDBCol className="vid-wrapper" size="12">
         <ReactPlayer url={[
-          'https://www.youtube.com/watch?v=-Rr3rG4cccM',
-          'https://www.youtube.com/watch?v=o_17s8yUrB8',
-          'https://www.youtube.com/watch?v=NnvemSKn5Nw',
-          'https://www.youtube.com/watch?v=zAMMUqtSsjM',
-          'https://www.youtube.com/watch?v=PdgjdLESoiU'
+          'https://www.youtube.com/watch?v=UZnTPDy-znE',
+          'https://www.youtube.com/watch?v=bUrGf6Fhi4s',
         ]}
-        width='100%'
+        width='50%'
         height='100%'
         style={{ marginBottom: '15px' }}
         controls

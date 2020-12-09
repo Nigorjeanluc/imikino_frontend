@@ -104,6 +104,7 @@ export class Home extends Component {
           slug={post.slug}
           views={post.views}
           updated_at={post.updated_at}
+          size={"6"}
         />) : (
         <div style={{ textAlign: 'center', marginTop: 50 }}>
           <h1>You have not yet requested a trip.</h1>
@@ -162,7 +163,7 @@ export class Home extends Component {
                 <Col md="4">
                   <TwitterTimelineEmbed
                     sourceType="profile"
-                    screenName="imikinoRw"
+                    screenName="jeanlucmargot"
                     options={{height: 1200}}
                   />
                 </Col>
@@ -174,7 +175,14 @@ export class Home extends Component {
                 </MDBCol>
               </MDBRow>
               <MDBRow className="cards-panel">
-                {mainTrendingJsx}
+                <MDBCol md="8">
+                  <MDBRow>
+                    {mainTrendingJsx}
+                  </MDBRow>
+                </MDBCol>
+                <MDBCol md="4">
+                  <img style={{width: '100%', height: '100%'}} alt="banner" src={require('../../../assets/imgs/banner.png')} />
+                </MDBCol>
               </MDBRow>
             </Col>
           </Row>
