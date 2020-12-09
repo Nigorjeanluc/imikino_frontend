@@ -6,7 +6,13 @@ $information-phone: "only screen and (min-width : 768px)";
 }
 
 .body-font {
-  font-size: 12px;
+  font-size: 16px;
+  text-align: justify;
+
+  img {
+    width: 100%;
+    height: auto
+  }
 }
 
 .font-weight-bold {
@@ -22,6 +28,33 @@ $information-phone: "only screen and (min-width : 768px)";
 
 .title-container {
   margin-top: 20px;
+}
+
+.icons-list {
+  justify-self: end;
+  list-style-type: none;
+  margin: 10px 0;
+  text-align: center;
+
+  li {
+    display: inline;
+  }
+
+  & a {
+    color: #1b1b2f;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    margin: 0 1rem;
+    transition: all 300ms linear 0s;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      color: #287ece;
+      border-bottom: 1px solid #fdcb6e;
+    }
+  }
 }
 
 .main-title {

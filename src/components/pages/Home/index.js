@@ -164,7 +164,9 @@ export class Home extends Component {
                   <TwitterTimelineEmbed
                     sourceType="profile"
                     screenName="jeanlucmargot"
-                    options={{height: 1200}}
+                    options={{height: 1100}}
+                    noScrollbar={true}
+                    theme="dark"
                   />
                 </Col>
               </MDBRow>

@@ -1,6 +1,13 @@
 /* eslint-disable global-require */
 import React, { Component, Fragment } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import {
+  faFacebookSquare,
+  faTwitter,
+  faWhatsapp
+} from '@fortawesome/fontawesome-free-brands';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { Link } from 'react-router-dom';
 import {
   MDBContainer,
@@ -85,23 +92,11 @@ export class SinglePost extends Component {
                                 </a>
                                 , {moment(post.updated_at).startOf('hour').fromNow()}
                               </p>
-                              <MDBBtn color="primary" className="btn-fb waves-light" rounded>
-                                <MDBIcon fab icon="facebook-f" className="pr-2" />
-                                Facebook
-                              </MDBBtn>
-                              <MDBBtn color="info" className="btn-tw waves-light">
-                                <MDBIcon fab icon="twitter" className="pr-2" />
-                                Twitter
-                              </MDBBtn>
-                              <MDBBtn color="danger" className="btn-gplus waves-light">
-                                <MDBIcon fab icon="google-plus-g" className="pr-2" />
-                                Google
-                              </MDBBtn>
-                              <MDBBtn color="default" className="waves-light">
-                                <span className="counter">{post.comments && post.comments.length} </span>
-                                <MDBIcon icon="comments" className="pr-2" />
-                                Comments
-                              </MDBBtn>
+                              <ul className="icons-list">
+                                <li><a href="/"><FontAwesomeIcon icon={faFacebookSquare} size="3x"/></a></li>
+                                <li><a href="/"><FontAwesomeIcon icon={faTwitter} size="3x"/></a></li>
+                                <li><a href="/"><FontAwesomeIcon icon={faWhatsapp} size="3x"/></a></li>
+                              </ul>
                         </div>
                         <MDBContainer className="mt-5">
                           {parse(`<div class="body-font">${post.body}</div>`)}
