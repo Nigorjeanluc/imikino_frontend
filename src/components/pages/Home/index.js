@@ -84,7 +84,7 @@ export class Home extends Component {
           size={"6"}
         />) : (
         <div style={{ textAlign: 'center', marginTop: 50 }}>
-          <h1>You have not yet requested a trip.</h1>
+          <h1>You have not post yet.</h1>
         </div>
       );
     

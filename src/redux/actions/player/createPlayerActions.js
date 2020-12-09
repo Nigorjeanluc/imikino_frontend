@@ -1,8 +1,11 @@
-import { leagueActionTypes as leagueTypes } from '../../actionTypes';
+import openSocket from 'socket.io-client';
+import { playerActionTypes as playerTypes } from '../../actionTypes';
 import { LOCAL_URL, BASIC_URL, SOCKET_URL } from '../../helpers/backendURLs';
 import { apiAction } from '../../helpers';
 
 export const createPlayer = (data, options) => (dispatch) => {
+  const connectIO = openSocket(SOCKET_URL);
+  connectIO.emit('createPlayer');
   return dispatch(apiAction({
     method: 'post',
     data,
@@ -11,10 +14,10 @@ export const createPlayer = (data, options) => (dispatch) => {
       header: 'multipart/form-data',
       options
     },
-    url: `${BASIC_URL}/admin/leagues`,
-    onStart: leagueTypes.CREATE_LEAGUE_START,
-    onEnd: leagueTypes.CREATE_LEAGUE_END,
-    onSuccess: leagueTypes.CREATE_LEAGUE_SUCCESS,
-    onFailure: leagueTypes.CREATE_LEAGUE_FAILURE
+    url: `${BASIC_URL}/admin/players`,
+    onStart: playerTypes.CREATE_PLAYER_START,
+    onEnd: playerTypes.CREATE_PLAYER_END,
+    onSuccess: playerTypes.CREATE_PLAYER_SUCCESS,
+    onFailure: playerTypes.CREATE_PLAYER_FAILURE
   }));
 };

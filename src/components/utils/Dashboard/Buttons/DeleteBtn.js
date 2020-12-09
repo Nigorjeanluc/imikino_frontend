@@ -31,6 +31,7 @@ export class DeleteBtn extends Component {
         outline
         color="danger"
         onClick={this.toggle}
+        className="livescoreBtn"
       >
         <MDBIcon size="2x" icon="trash"/>
       </MDBBtn>

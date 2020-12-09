@@ -41,6 +41,7 @@ class AddPost extends Component {
     image4Txt: '',
     location_id: 0,
     sport_id: 0,
+    isTransfer: false,
     socket: openSocket(SOCKET_URL),
     content: '',
     approved: false,
@@ -82,6 +83,10 @@ class AddPost extends Component {
 
   handleChangeSport = (event) => {
     this.setState({ sport_id: event.target.value });
+  }
+
+  handleChangeTransfer = (event) => {
+    this.setState({ isTransfer: event.target.value });
   }
 
   handleChangeImage = (event) => {
@@ -139,6 +144,7 @@ class AddPost extends Component {
       sport_id,
       location_id,
       approved,
+      isTransfer,
       options,
       allViews
     } = this.state;
@@ -153,6 +159,7 @@ class AddPost extends Component {
     if (image3) formData.append('image3_txt', image3Txt);
     if (image4) formData.append('image4_txt', image4Txt);
     formData.append('approved', approved);
+    formData.append('isTransfer', isTransfer);
     formData.append('title', title);
     formData.append('body', content);
     formData.append('sport_id', sport_id);
@@ -208,7 +215,7 @@ class AddPost extends Component {
             {
               getPost && getPost.errors !== '' ? (
                 <div className="alert alert-danger" role="alert">
-                  <strong>{`${getPost.errors}`}</strong>
+                  <strong>{`${getPost.error}`}</strong>
                 </div>
               ) : null
             }
@@ -284,7 +291,7 @@ class AddPost extends Component {
                         marginBottom: '20px'
                       }}
                     >
-                      <MDBCol md="6">
+                      <MDBCol md="4">
                         <label htmlFor="location">Select location</label>
                         <div>
                           <select
@@ -301,7 +308,7 @@ class AddPost extends Component {
                           </select>
                         </div>
                       </MDBCol>
-                      <MDBCol md="6">
+                      <MDBCol md="4">
                         <label htmlFor="sport">Select sport</label>
                         <div>
                           <select
@@ -317,6 +324,19 @@ class AddPost extends Component {
                             ))}
                           </select>
                         </div>
+                      </MDBCol>
+                      <MDBCol md="4">
+                        <label htmlFor="transfer">Is Post tranfer related</label>
+                        <select
+                            onChange={this.handleChangeTransfer}
+                            value={this.state.isTransfer}
+                            style={{height: '30px', fontSize: '14px'}}
+                            className="browser-default custom-select"
+                            name="transfer"
+                        >
+                          <option value={false}>NO</option>
+                          <option value={true}>YES</option>
+                        </select>
                       </MDBCol>
                     </MDBRow>
                     <Editor

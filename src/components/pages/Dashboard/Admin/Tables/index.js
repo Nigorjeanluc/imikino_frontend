@@ -34,16 +34,16 @@ import EditBtnTable from '../../../../utils/Dashboard/Buttons/EditBtnTable';
 class TablesPage extends Component {
   state = {
     uploadPercentage: 0,
-    pts: null,
-    gd: null,
-    ga: null,
-    gf: null,
-    l: null,
-    w: null,
-    d: null,
-    pg: null,
-    image: null,
-    team_id: null,
+    pts: 0,
+    gd: 0,
+    ga: 0,
+    gf: 0,
+    l: 0,
+    w: 0,
+    d: 0,
+    pg: 0,
+    image: 0,
+    team_id: 0,
     socket: openSocket(SOCKET_URL)
   }
 
@@ -224,7 +224,7 @@ class TablesPage extends Component {
                               <td style={{fontSize: '16px'}}>{table.PTS}</td>
                               <td style={{fontSize: '16px'}}>{moment(table.updated_at).startOf('hour').fromNow()}</td>
                               <td>
-                                <EditBtnTable identify={table.id} name={table.team.name} {...this.props} />
+                                <EditBtnTable identify={table.id} tableData={table} {...this.props} />
                                 <DeleteBtn title="table" delete={() => this.deleteLeag(table.id)} />
                               </td>
                             </tr>

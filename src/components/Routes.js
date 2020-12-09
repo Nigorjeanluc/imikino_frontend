@@ -23,6 +23,7 @@ import SportsPage from './pages/Dashboard/Admin/Sports';
 import LocationsPage from './pages/Dashboard/Admin/Locations';
 import TablesPage from './pages/Dashboard/Admin/Tables';
 import AddMatch from './pages/Dashboard/Reporter/Livescores/addMatch';
+import AddGoalCard from './pages/Dashboard/Reporter/Livescores/addGoalCard';
 
 function Routes() {
   return (
@@ -41,6 +42,7 @@ function Routes() {
       <Route exact path="/reporter/posts/addpost" component={AddPost} />
       <Route exact path="/reporter/livescores" component={Livescores} />
       <Route exact path="/reporter/livescores/addmatch" component={AddMatch} />
+      <Route exact path="/reporter/livescores/addmatch/:id" component={AddGoalCard} />
       <Route exact path="/reporter/posts/:slug" component={ReporterSinglePost} />
 
       

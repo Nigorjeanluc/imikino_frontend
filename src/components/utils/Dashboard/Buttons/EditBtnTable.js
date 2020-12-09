@@ -29,16 +29,17 @@ export class EditBtnTable extends Component {
   }
 
   componentDidMount () {
-    const { fetchTable, identify, table, match } = this.props;
-    if(this.state.modal) {
-      fetchTable(match.params.league_id);
-      this.setState({
-        team_id: table.team_id,
-        pg: table.Pg,
-        pts: table.PTS,
-        ga: table.GA
-      })
-    }
+    const { fetchTable, identify, table, match, tableData } = this.props;
+    this.setState({
+      pts: tableData.PTS,
+      gd: tableData.GD,
+      ga: tableData.GA,
+      gf: tableData.GF,
+      l: tableData.L,
+      w: tableData.W,
+      d: tableData.D,
+      pg: tableData.Pg,
+    });
   }
   
   toggle = () => {
@@ -85,7 +86,7 @@ export class EditBtnTable extends Component {
   // }
 
   handleSubmit = (event) => {
-    const { editTable, match, identify } = this.props;
+    const { editTable, match, identify, tableData } = this.props;
     const {
       pg,
       pts,
@@ -96,9 +97,8 @@ export class EditBtnTable extends Component {
       l,
       d
     } = this.state;
-    console.log(this.state)
     editTable(match.params.league_id, {
-      team_id: identify,
+      team_id: tableData.team.id,
       Pg: pg,
       PTS: pts,
       GA: ga,
@@ -124,8 +124,7 @@ export class EditBtnTable extends Component {
   // }
 
   render() {
-    const { getTable, identify, name, table } = this.props;
-    console.log(table);
+    const { getTable, identify, tableData } = this.props;
     return (
     <>
       <MDBBtn
@@ -160,7 +159,7 @@ export class EditBtnTable extends Component {
                         name="team_id"
                         disabled={true}
                       >
-                        <option value={identify}>{name}</option>
+                        <option value={tableData.team.id}>{tableData.team.name}</option>
                       </select>
                     </div>
                     <MDBRow>

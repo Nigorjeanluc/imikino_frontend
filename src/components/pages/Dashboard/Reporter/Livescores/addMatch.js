@@ -121,7 +121,8 @@ class AddMatch extends Component {
       getLeagues,
       getTags,
       getPost,
-      getTeams
+      getTeams,
+      getMatch
     } = this.props;
 
     const {
@@ -141,16 +142,16 @@ class AddMatch extends Component {
         <MDBRow>
           <MDBCol md="12">
             {
-              getPost && getPost.errors !== '' ? (
+              getMatch && getMatch.errors !== '' ? (
                 <div className="alert alert-danger" role="alert">
-                  <strong>{`${getPost.errors}`}</strong>
+                  <strong>{`${getMatch.errors}`}</strong>
                 </div>
               ) : null
             }
             {
-              getPost && getPost.message ? (
+              getMatch && getMatch.message ? (
                 <div className="alert alert-success" role="alert">
-                  <strong>{`${getPost.message}`}</strong>
+                  <strong>{`${getMatch.message}`}</strong>
                 </div>
               ) : null
             }
@@ -159,7 +160,7 @@ class AddMatch extends Component {
             <MDBCard>
               <MDBCardBody>
                 {
-                  getPost && getPost.loading === true ? (
+                  getMatch && getMatch.loading === true ? (
                     <MDBProgress value={this.state.uploadPercentage} className="my-2" >
                       {this.state.uploadPercentage}%
                     </MDBProgress>
@@ -300,7 +301,7 @@ class AddMatch extends Component {
   }
 }
 
-const mapStateToProps = ({ sports, locations, tags, post, teams, leagues }) => ({
+const mapStateToProps = ({ sports, locations, tags, post, teams, leagues, match }) => ({
   listOfSports: sports.listOfSports,
   getSports: sports.getSports,
   listOfLocations: locations.listOfLocations,
@@ -312,7 +313,9 @@ const mapStateToProps = ({ sports, locations, tags, post, teams, leagues }) => (
   listOfLeagues: leagues.listOfLeagues,
   getLeagues: leagues.getLeagues,
   post: post.post,
-  getPost: post.getPost
+  getPost: post.getPost,
+  match: match.match,
+  getMatch: match.getMatch
 });
 
 const mapDispatchToProps = (dispatch) => ({

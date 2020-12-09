@@ -5,7 +5,7 @@ import { apiAction } from '../../helpers';
 
 export const deleteGoal = (slug) => (dispatch) => {
   const connectIO = openSocket(SOCKET_URL);
-  connectIO.emit('createGoal');
+  connectIO.emit('createMatch');
   return dispatch(apiAction({
     method: 'delete',
     httpOptions: {

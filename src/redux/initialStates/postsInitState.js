@@ -4,6 +4,7 @@ const initState = {
   listOfPosts: [],
   listOfHeader: [],
   listOfTrending: [],
+  listOfTransfer: [],
   Next: {},
   Previous: {},
   errors: {},
@@ -18,6 +19,11 @@ const initState = {
     errors: {}
   },
   getTrending: {
+    loading: false,
+    message: '',
+    errors: {}
+  },
+  getTransfer: {
     loading: false,
     message: '',
     errors: {}

@@ -78,7 +78,7 @@ class PlayersPage extends Component {
     formData.append('image',image, image.name);
     formData.append('name',name);
     formData.append('description',description);
-    formData.append('team_id',team_id);
+    formData.append('teamId',team_id);
 
     const options = {
       onUploadProgress: (progressEvent) => {

@@ -3,16 +3,15 @@ import { cardActionTypes as cardTypes } from '../../actionTypes';
 import { LOCAL_URL, BASIC_URL, SOCKET_URL } from '../../helpers/backendURLs';
 import { apiAction } from '../../helpers';
 
-export const deleteCard = (slug) => (dispatch) => {
+export const deleteCard = (id) => (dispatch) => {
   const connectIO = openSocket(SOCKET_URL);
-  connectIO.emit('createCard');
+  connectIO.emit('createMatch');
   return dispatch(apiAction({
-    method: 'card',
+    method: 'delete',
     httpOptions: {
-      token: localStorage.token,
-      header: 'multipart/form-data'
+      token: localStorage.token
     },
-    url: `${BASIC_URL}/reporter/cards/${slug}`,
+    url: `${BASIC_URL}/reporter/cards/${id}`,
     onStart: cardTypes.DELETE_CARD_START,
     onEnd: cardTypes.DELETE_CARD_END,
     onSuccess: cardTypes.DELETE_CARD_SUCCESS,
