@@ -98,7 +98,10 @@ export class SinglePost extends Component {
                                 <li><a href="/"><FontAwesomeIcon icon={faWhatsapp} size="3x"/></a></li>
                               </ul>
                         </div>
-                        <MDBContainer className="mt-5">
+                        <MDBContainer style={{
+                          paddingRight: '0px !important',
+                          paddingLeft: '0px !important'
+                        }} className="mt-5">
                           {parse(`<div class="body-font">${post.body}</div>`)}
                         </MDBContainer>
                         { listOfComments && (

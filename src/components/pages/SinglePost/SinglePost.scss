@@ -3,11 +3,14 @@ $information-phone: "only screen and (min-width : 768px)";
 .news-panel {
   margin-top: 20px;
   align-content: center;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
 }
 
 .body-font {
   font-size: 16px;
   // text-align: justify;
+  padding: 0;
 
   img {
     width: 100%;
