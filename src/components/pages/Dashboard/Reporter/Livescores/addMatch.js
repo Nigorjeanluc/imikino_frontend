@@ -11,7 +11,7 @@ import {
 import { connect } from 'react-redux';
 import openSocket from 'socket.io-client';
 
-import {SOCKET_URL} from '../../../../../redux/helpers/backendURLs';
+import {SOCKET_URL, HEROKU_URL} from '../../../../../redux/helpers/backendURLs';
 
 import Dashboard from '../index';
 import BreadcrumSection from '../../../../utils/Sections/BreadcrumSection';
@@ -33,7 +33,7 @@ class AddMatch extends Component {
     starting_time: null,
     started: false,
     paused: false,
-    socket: openSocket(SOCKET_URL),
+    socket: openSocket(HEROKU_URL),
     date: null,
     time: null,
   }

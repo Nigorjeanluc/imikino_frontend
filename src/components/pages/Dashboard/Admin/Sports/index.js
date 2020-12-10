@@ -18,7 +18,8 @@ import {
   SOCKET_URL,
   LOCAL_URL_IMAGE,
   IMIKINO_URL_IMAGE,
-  BACKEND_URL_IMAGE
+  BACKEND_URL_IMAGE,
+  HEROKU_URL
 } from '../../../../../redux/helpers/backendURLs';
 
 import Dashboard from '../index';
@@ -31,7 +32,7 @@ import EditBtnSport from '../../../../utils/Dashboard/Buttons/EditBtnSport';
 class SportsPage extends Component {
   state = {
     name: '',
-    socket: openSocket(SOCKET_URL)
+    socket: openSocket(HEROKU_URL)
   }
   
   componentDidMount() {
@@ -135,7 +136,7 @@ class SportsPage extends Component {
                               <td style={{fontSize: '16px'}}>{sport.name}</td>
                               <td style={{fontSize: '16px'}}>{moment(sport.updated_at).startOf('hour').fromNow()}</td>
                               <td>
-                                <EditBtnSport identify={sport.id} />
+                                <EditBtnSport identify={sport.id} sportData={sport} />
                                 <DeleteBtn title="sport" delete={() => this.deleteSpo(sport.id)} />
                               </td>
                             </tr>

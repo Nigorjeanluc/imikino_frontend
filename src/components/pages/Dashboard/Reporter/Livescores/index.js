@@ -34,7 +34,7 @@ import './index.scss';
 
 class Livescore extends Component {
   state = {
-    socket: openSocket(SOCKET_URL)
+    socket: openSocket(HEROKU_URL)
   }
   componentDidMount() {
     const {

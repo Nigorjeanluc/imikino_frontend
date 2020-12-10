@@ -19,7 +19,8 @@ import {
   SOCKET_URL,
   LOCAL_URL_IMAGE,
   IMIKINO_URL_IMAGE,
-  BACKEND_URL_IMAGE
+  BACKEND_URL_IMAGE,
+  HEROKU_URL
 } from '../../../../../redux/helpers/backendURLs';
 
 import Dashboard from '../index';
@@ -37,7 +38,7 @@ class TeamsPage extends Component {
     image: null,
     team_id: 0,
     description: '',
-    socket: openSocket(SOCKET_URL)
+    socket: openSocket(HEROKU_URL)
   }
 
   componentDidMount() {
@@ -167,7 +168,7 @@ class TeamsPage extends Component {
                               </td>
                               <td style={{fontSize: '16px'}}>{moment(team.updated_at).startOf('hour').fromNow()}</td>
                               <td>
-                                <EditBtnTeam identify={team.id} {...this.props} />
+                                <EditBtnTeam identify={team.id} teamData={team} {...this.props} />
                                 <DeleteBtn title="team" delete={() => this.deleteLeag(team.id)} />
                               </td>
                             </tr>

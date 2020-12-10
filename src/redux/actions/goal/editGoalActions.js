@@ -1,5 +1,5 @@
 import { goalActionTypes as goalTypes } from '../../actionTypes';
-import { LOCAL_URL, BASIC_URL, SOCKET_URL } from '../../helpers/backendURLs';
+import { LOCAL_URL, BASIC_URL, SOCKET_URL, HEROKU_URL } from '../../helpers/backendURLs';
 import { apiAction } from '../../helpers';
 
 export const editGoal = (id, data, options) => (dispatch) => {

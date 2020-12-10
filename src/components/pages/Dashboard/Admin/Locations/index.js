@@ -18,7 +18,8 @@ import {
   SOCKET_URL,
   LOCAL_URL_IMAGE,
   IMIKINO_URL_IMAGE,
-  BACKEND_URL_IMAGE
+  BACKEND_URL_IMAGE,
+  HEROKU_URL
 } from '../../../../../redux/helpers/backendURLs';
 import Dashboard from '../index';
 import BreadcrumSection from '../../../../utils/Sections/BreadcrumSection';
@@ -35,7 +36,7 @@ import EditBtnLocation from '../../../../utils/Dashboard/Buttons/EditBtn';
 class LocationsPage extends Component {
   state = {
     name: '',
-    socket: openSocket(SOCKET_URL)
+    socket: openSocket(HEROKU_URL)
   }
 
   componentDidMount() {
@@ -139,7 +140,7 @@ class LocationsPage extends Component {
                               <td style={{fontSize: '16px'}}>{location.name}</td>
                               <td style={{fontSize: '16px'}}>{moment(location.updated_at).startOf('hour').fromNow()}</td>
                               <td>
-                                <EditBtnLocation identify={location.id} />
+                                <EditBtnLocation identify={location.id} locationData={location} />
                                 <DeleteBtn title="location" delete={() => this.deleteLoc(location.id)} />
                               </td>
                             </tr>

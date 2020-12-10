@@ -11,7 +11,7 @@ import {
 import { connect } from 'react-redux';
 import openSocket from 'socket.io-client';
 
-import {SOCKET_URL} from '../../../../redux/helpers/backendURLs';
+import {SOCKET_URL, HEROKU_URL} from '../../../../redux/helpers/backendURLs';
 
 import { editPlayer, fetchPlayer } from '../../../../redux/actions/player';
 import { getAllTeams } from '../../../../redux/actions/teams';
@@ -24,17 +24,18 @@ export class EditBtnPlayer extends Component {
     image: '',
     team_id: 0,
     description: '',
-    socket: openSocket(SOCKET_URL)
+    socket: openSocket(HEROKU_URL)
   }
 
   componentDidMount () {
-    const { fetchPlayer, identify, player } = this.props;
-    if(this.state.modal) {
-      fetchPlayer(identify);
-      this.setState({
-        name: player.name
-      })
-    }
+    const { fetchPlayer, identify, player, playerData } = this.props;
+    console.log(playerData);
+    this.setState({
+      name: playerData.name,
+      image: playerData.image,
+      team_id: playerData.team.id,
+      description: playerData.description
+    })
   }
   
   toggle = () => {
@@ -64,9 +65,12 @@ export class EditBtnPlayer extends Component {
     event.preventDefault();
     const { editPlayer, identify } = this.props;
     const { image, name, description, team_id, socket } = this.state;
-    console.log(this.state);
     const formData = new FormData();
-    formData.append('image',image, image.name);
+    if (image.name) {
+      formData.append('image', image, image.name);
+    } else {
+      formData.append('image', image);
+    }
     formData.append('name',name);
     formData.append('description',description);
     formData.append('team_id',team_id);
@@ -132,7 +136,9 @@ export class EditBtnPlayer extends Component {
                       />
                       <label className="custom-file-label" htmlFor="image">
                         {
-                          this.state.image ? this.state.image.name : 'Choose image'
+                          this.state.image && this.state.image.name ? this.state.image.name : (
+                            this.state.image && !this.state.image.name ? this.state.image : 'Choose image'
+                          )
                         }
                       </label>
                     </div>
@@ -146,7 +152,6 @@ export class EditBtnPlayer extends Component {
                       value={this.state.name}
                       type="text"
                       name="name"
-                      value={player.name}
                       className="form-control"
                       id="player"
                     />

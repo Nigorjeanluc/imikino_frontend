@@ -11,7 +11,7 @@ import {
 import { connect } from 'react-redux';
 import openSocket from 'socket.io-client';
 
-import {SOCKET_URL} from '../../../../redux/helpers/backendURLs';
+import {SOCKET_URL, HEROKU_URL} from '../../../../redux/helpers/backendURLs';
 
 import { editTeam, fetchTeam } from '../../../../redux/actions/team';
 import { getAllTeams } from '../../../../redux/actions/teams';
@@ -22,17 +22,15 @@ export class EditBtnTeam extends Component {
     modal: false,
     name: '',
     image: '',
-    socket: openSocket(SOCKET_URL)
+    socket: openSocket(HEROKU_URL)
   }
 
   componentDidMount () {
-    const { fetchTeam, identify, team } = this.props;
-    if(this.state.modal) {
-      fetchTeam(identify);
-      this.setState({
-        name: team.name
-      })
-    }
+    const { fetchTeam, identify, team, teamData  } = this.props;
+    this.setState({
+      name: teamData.name,
+      image: teamData.image
+    })
   }
   
   toggle = () => {
@@ -55,7 +53,11 @@ export class EditBtnTeam extends Component {
     const { image, name, socket } = this.state;
     console.log(this.state);
     const formData = new FormData();
-    formData.append('image',image, image.name);
+    if (image.name) {
+      formData.append('image', image, image.name);
+    } else {
+      formData.append('image', image);
+    }
     formData.append('name',name);
 
     const options = {
@@ -119,7 +121,9 @@ export class EditBtnTeam extends Component {
                       />
                       <label className="custom-file-label" htmlFor="image">
                         {
-                          this.state.image ? this.state.image.name : 'Choose image'
+                          this.state.image && this.state.image.name ? this.state.image.name : (
+                            this.state.image && !this.state.image.name ? this.state.image : 'Choose image'
+                          )
                         }
                       </label>
                     </div>
@@ -133,7 +137,6 @@ export class EditBtnTeam extends Component {
                       value={this.state.name}
                       type="text"
                       name="name"
-                      value={team.name}
                       className="form-control"
                       id="team"
                     />

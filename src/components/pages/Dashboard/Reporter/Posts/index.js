@@ -21,7 +21,8 @@ import {
   SOCKET_URL,
   LOCAL_URL_IMAGE,
   IMIKINO_URL_IMAGE,
-  BACKEND_URL_IMAGE
+  BACKEND_URL_IMAGE,
+  HEROKU_URL
 } from '../../../../../redux/helpers/backendURLs';
 
 import Dashboard from '../index';
@@ -39,7 +40,7 @@ class PostsPage extends Component {
     image: null,
     team_id: 0,
     description: '',
-    socket: openSocket(SOCKET_URL)
+    socket: openSocket(HEROKU_URL)
   }
 
   componentDidMount() {

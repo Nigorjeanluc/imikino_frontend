@@ -16,7 +16,7 @@ import { EditorState, ContentState, convertToRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
 
-import {SOCKET_URL} from '../../../../../redux/helpers/backendURLs';
+import {SOCKET_URL, HEROKU_URL} from '../../../../../redux/helpers/backendURLs';
 
 import Dashboard from '../index';
 import BreadcrumSection from '../../../../utils/Sections/BreadcrumSection';
@@ -42,7 +42,7 @@ class AddPost extends Component {
     location_id: 0,
     sport_id: 0,
     isTransfer: false,
-    socket: openSocket(SOCKET_URL),
+    socket: openSocket(HEROKU_URL),
     content: '',
     approved: false,
     editorState: EditorState.createEmpty(),

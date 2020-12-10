@@ -17,7 +17,8 @@ import {
   SOCKET_URL,
   LOCAL_URL_IMAGE,
   IMIKINO_URL_IMAGE,
-  BACKEND_URL_IMAGE
+  BACKEND_URL_IMAGE,
+  HEROKU_URL
 } from '../../../../../redux/helpers/backendURLs';
 
 import { getSingle, editPost } from '../../../../../redux/actions/post';
@@ -50,7 +51,7 @@ class Frontpage2 extends Component {
     image4Txt: '',
     location_id: 0,
     sport_id: 0,
-    socket: openSocket(SOCKET_URL),
+    socket: openSocket(HEROKU_URL),
     content: '',
     approved: false,
     isTransfer: false,

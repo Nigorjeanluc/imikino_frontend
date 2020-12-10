@@ -1,10 +1,10 @@
 import openSocket from 'socket.io-client';
 import { sportActionTypes as sportTypes } from '../../actionTypes';
-import { LOCAL_URL, BASIC_URL, SOCKET_URL } from '../../helpers/backendURLs';
+import { LOCAL_URL, BASIC_URL, SOCKET_URL, HEROKU_URL } from '../../helpers/backendURLs';
 import { apiAction } from '../../helpers';
 
 export const createSport = (name) => (dispatch) => {
-  const connectIO = openSocket(SOCKET_URL);
+  const connectIO = openSocket(HEROKU_URL);
   connectIO.emit('createSport');
   return dispatch(apiAction({
     method: 'post',

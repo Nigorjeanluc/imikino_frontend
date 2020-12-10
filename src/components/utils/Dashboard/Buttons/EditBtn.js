@@ -18,11 +18,10 @@ export class EditBtnLocation extends Component {
   }
 
   componentWillMount () {
-    const { fetchLocation, location, identify} = this.props;
-    fetchLocation(identify);
-      this.setState({
-        name: location.name,
-      })
+    const { fetchLocation, location, identify, locationData } = this.props;
+    this.setState({
+      name: locationData.name
+    });
   }
   
   toggle = async () => {

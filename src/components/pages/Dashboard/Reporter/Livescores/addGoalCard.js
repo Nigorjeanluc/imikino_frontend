@@ -9,7 +9,8 @@ import {
   SOCKET_URL,
   LOCAL_URL_IMAGE,
   IMIKINO_URL_IMAGE,
-  BACKEND_URL_IMAGE
+  BACKEND_URL_IMAGE,
+  HEROKU_URL
 } from '../../../../../redux/helpers/backendURLs';
 
 import Dashboard from '../index';
@@ -44,7 +45,7 @@ class AddGoalCard extends Component {
     player_id: 0,
     isGoalPlayerToggled: false,
     isCardPlayerToggled: false,
-    socket: openSocket(SOCKET_URL),
+    socket: openSocket(HEROKU_URL),
   }
 
   componentDidMount() {

@@ -14,11 +14,15 @@ import { editSport, fetchSport } from '../../../../redux/actions/sport';
 export class EditBtnSport extends Component {
   state = {
     modal: false,
-    name: ''
+    name: null
   }
 
   componentDidMount () {
-    const { fetchSport, identify, sport } = this.props;
+    const { fetchSport, identify, sport, sportData } = this.props;
+    this.setState({
+      name: sportData.name
+    });
+
     if(this.state.modal) {
       fetchSport(identify);
       this.setState({

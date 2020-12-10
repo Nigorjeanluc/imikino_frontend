@@ -1,11 +1,12 @@
 import { userActionTypes as userTypes } from '../../actionTypes';
-import { apiAction, backendURLs } from '../../helpers';
+import { apiAction } from '../../helpers';
+import { LOCAL_URL, BASIC_URL } from '../../helpers/backendURLs';
 
 export default (payload = {}) => (dispatch) => dispatch(apiAction({
   method: 'post',
   httpOptions: { token: localStorage.token },
   data: { ...payload },
-  url: `${backendURLs.LOCAL_URL}/signup`,
+  url: `${BASIC_URL}/signup`,
   onStart: userTypes.SIGNUP_USER_START,
   onEnd: userTypes.SIGNUP_USER_END,
   onSuccess: userTypes.SIGNUP_USER_SUCCESS,
