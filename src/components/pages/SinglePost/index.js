@@ -2,11 +2,17 @@
 import React, { Component, Fragment } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import {
+  faFacebook,
   faFacebookSquare,
   faTwitter,
   faWhatsapp
 } from '@fortawesome/fontawesome-free-brands';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton
+} from 'react-share';
 
 import { Link } from 'react-router-dom';
 import {
@@ -40,6 +46,7 @@ import Footer from '../../utils/Footer';
 import './SinglePost.scss';
 import Title from '../../utils/Title';
 import NewsCard from '../../utils/NewsCard';
+import HelmetMetaData from '../../utils/HelmetMetaData';
 
 export class SinglePost extends Component {
   state = {
@@ -68,6 +75,11 @@ export class SinglePost extends Component {
 
     const jsx = post && (
       <>
+      <HelmetMetaData
+        title={post.title}
+        image={post.image}
+        description={post.body}
+      ></HelmetMetaData>
                         
                         <h2 className="main-title">{post.title}</h2>
                         <MDBCard className="img-card" reverse>
@@ -93,7 +105,15 @@ export class SinglePost extends Component {
                                 , {moment(post.updated_at).startOf('hour').fromNow()}
                               </p>
                               <ul className="icons-list">
-                                <li><a href="/"><FontAwesomeIcon icon={faFacebookSquare} size="3x"/></a></li>
+                                <li>
+                                  <FacebookShareButton
+                                    url={`${IMIKINO_URL_IMAGE}/${post.slug}`}
+                                    quote={post.title}
+                                    hashtag="imikino.rw"
+                                  >
+                                    <FontAwesomeIcon icon={faFacebook} size="3x"/>
+                                  </FacebookShareButton>
+                                  </li>
                                 <li><a href="/"><FontAwesomeIcon icon={faTwitter} size="3x"/></a></li>
                                 <li><a href="/"><FontAwesomeIcon icon={faWhatsapp} size="3x"/></a></li>
                               </ul>
