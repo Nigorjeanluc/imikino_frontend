@@ -5,7 +5,7 @@ import {IMIKINO_URL_IMAGE, BACKEND_URL_IMAGE} from '../../../redux/helpers/backe
 
 export default function HelmetMetaData(props) {
   let location = useLocation();
-  let currentUrl = "http://imikino.rw" + location.pathname;
+  let currentUrl = "http://imikino.herokuapp.com" + location.pathname;
   let quote = props.quote !== undefined ? props.quote : "";
   let title = props.title !== undefined ? `Imikino.rw | ${props.title}` : "Imikino.rw - The Sport World is yours to explore";
   let image = props.image !== undefined ? props.image : "https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/118464444_895490777523953_6899795143075920813_o.jpg?_nc_cat=102&ccb=2&_nc_sid=e3f864&_nc_eui2=AeEfg_oFtPNNSi1x-b8jR_icmQqV4J4DQzSZCpXgngNDNLlOr00Y5SzDuqK3wsJqURCxI876CeLAfBmALYVtOl7Q&_nc_ohc=VOhuLoN0n0YAX-IJfx7&_nc_ht=scontent-amt2-1.xx&oh=8696731806e8c3190d9477e902b4b98c&oe=5FF7EEAE";
