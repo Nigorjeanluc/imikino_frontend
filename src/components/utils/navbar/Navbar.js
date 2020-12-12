@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useSpring, animated, config } from 'react-spring';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import {
   faFacebookSquare,
   faTwitter,
@@ -10,6 +10,8 @@ import {
   faYoutube
 } from '@fortawesome/fontawesome-free-brands';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { fetchUser } from '../../../redux/actions/user';
 
 import Brand from './Brand';
 import BurgerMenu from './BurgerMenu';
@@ -20,6 +22,18 @@ import Profile from './Profile';
 import './Navbar.scss';
 
 const Navbar = (props) => {
+  const userData = useSelector(({
+    user
+  }) => ({
+    loading: user.loading,
+    errors: user.errors,
+    profile: user.profile,
+    getUser: user.getUser,
+  }));
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchUser());
+  }, [dispatch]);
   const barAnimation = useSpring({
     from: { transform: 'translate3d(0, -10rem, 0)' },
     transform: 'translate3d(0, 0, 0)',
@@ -31,11 +45,10 @@ const Navbar = (props) => {
     delay: 800,
     config: config.wobbly,
   });
-  const { profile, loading, errors, message } = props;
 
   const { user, token } = localStorage;
 
-  console.log(user, "User");
+  // console.log(user, "User");
   return (
     <>
       <NavBar className="nav-font" style={barAnimation}>
@@ -56,7 +69,7 @@ const Navbar = (props) => {
           </NavIcons>
           <NavBtn>
             {
-              localStorage.token ? (
+              userData.profile && token ? (
                 <Profile role={JSON.parse(user).role} img={JSON.parse(user).profileImg} name={JSON.parse(user).name}/>
               ) : (
                 <React.Fragment>
@@ -83,20 +96,8 @@ const Navbar = (props) => {
 };
 
 // export default LoginModal;
-const mapStateToProps = ({
-  user: {
-    token,
-    login: { profile, errors, message, loading }
-  }
-}) => ({
-  token,
-  errors,
-  message,
-  loading,
-  profile
-});
 
-export default connect(mapStateToProps)(Navbar);
+export default Navbar;
 
 const NavBar = styled(animated.nav)`
   position: fixed;

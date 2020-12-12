@@ -1,4 +1,5 @@
-const userInitialState = {token: '',
+const userInitialState = {
+  token: '',
   login: {
     loading: false,
     user: {},

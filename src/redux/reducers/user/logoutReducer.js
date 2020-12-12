@@ -12,6 +12,7 @@ export default (state, { type, payload }) => {
       return {
         ...state,
         token: undefined,
+        profile: undefined,
         logout: { ...state.logout, errors: '', message: payload.message }
       };
     case userActionTypes.LOGOUT_USER_FAILURE:

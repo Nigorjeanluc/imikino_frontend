@@ -11,6 +11,8 @@ export default (state, { type, payload }) => {
       console.log(state)
       return {
         ...state,
+        loading: false,
+        message: payload.message,
         signup: { ...state.signup, loading: false },
         profile: { ...state.profile },
         errors: {...state.errors}
@@ -20,9 +22,9 @@ export default (state, { type, payload }) => {
       localStorage.token = payload.data.token;
       return {
         ...state,
-        token: payload.data.token,
+        token: {...payload.data.token},
         signup: { loading: false, message: payload.message, errors: '' },
-        profile: payload.data.user
+        profile: {...payload.data.user}
       };
     case userActionTypes.SIGNUP_USER_FAILURE:
       return {

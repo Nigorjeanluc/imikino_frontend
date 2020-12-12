@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import {
   faFacebookSquare,
@@ -7,6 +7,9 @@ import {
   faYoutube
 } from '@fortawesome/fontawesome-free-brands';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useDispatch, useSelector } from "react-redux";
+
+import { fetchUser } from '../../../redux/actions/user';
 
 import { useSpring, animated } from 'react-spring';
 import { Link } from 'react-router-dom';
@@ -15,6 +18,18 @@ import SignUpBtn from './SignUpBtn';
 import Profile from './Profile';
 
 const CollapseMenu = (props) => {
+  const userData = useSelector(({
+    user
+  }) => ({
+    loading: user.loading,
+    errors: user.errors,
+    profile: user.profile,
+    getUser: user.getUser,
+  }));
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchUser());
+  }, [dispatch]);
   const { open } = useSpring({ open: props.navbarState ? 0 : 1 });
   const { user, token } = localStorage;
 
@@ -42,8 +57,8 @@ const CollapseMenu = (props) => {
         </NavIcons>
         <NavBtn>
           {
-            localStorage.token ? (
-              <Profile img={JSON.parse(user).profileImg} name={JSON.parse(user).name}/>
+            userData.profile && localStorage.token ? (
+              <Profile role={JSON.parse(user).role} img={JSON.parse(user).profileImg} name={JSON.parse(user).name}/>
             ) : (
               <React.Fragment>
                 <LoginBtn text="Login" />
