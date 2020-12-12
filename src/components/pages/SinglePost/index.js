@@ -77,7 +77,7 @@ export class SinglePost extends Component {
       <>
       <HelmetMetaData
         title={post.title}
-        image={post.image}
+        image={`${IMIKINO_URL_IMAGE}/news/${post.image}`}
         description={post.body}
       ></HelmetMetaData>
                         
