@@ -40,6 +40,7 @@ import { getSingle } from '../../../redux/actions/post'
 import { getTrendingPosts } from '../../../redux/actions/posts'
 import { getPostComments } from '../../../redux/actions/comments';
 import Navbar from '../../utils/navbar/Navbar';
+import Scroll from '../../utils/BackToTop';
 // import GlobalStyle from '../../../styles/Global';
 // import Title from '../../utils/Title';
 import Footer from '../../utils/Footer';
@@ -218,6 +219,7 @@ export class SinglePost extends Component {
     return (
       <>
         <Container fluid>
+          <Scroll showBelow={250} />
           <Navbar
             navbarState={this.state.navbarOpen}
             handleNavbar={this.handleNavbar}

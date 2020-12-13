@@ -8,6 +8,7 @@ import Navbar from '../../utils/navbar/Navbar';
 // import GlobalStyle from '../../../styles/Global';
 import Table from '../../utils/Table';
 import Footer from '../../utils/Footer';
+import Scroll from '../../utils/BackToTop';
 // import { getFrontPageAllTables } from '../../../redux/actions/tables';
 import { getAllLeagues2 } from '../../../redux/actions/leagues';
 import './Tables.scss';
@@ -34,6 +35,7 @@ export class Tables extends Component {
     return (
       <>
         <Container fluid>
+          <Scroll showBelow={250} />
           <Navbar
             navbarState={this.state.navbarOpen}
             handleNavbar={this.handleNavbar}

@@ -12,6 +12,7 @@ import Navbar from '../../utils/navbar/Navbar';
 // import GlobalStyle from '../../../styles/Global';
 import Title from '../../utils/Title';
 import BtnLink from '../../utils/BtnLink';
+import Scroll from '../../utils/BackToTop';
 import CarouselWindow from '../../utils/Carousel';
 import Footer from '../../utils/Footer';
 import NewsCard from '../../utils/NewsCard/NewsCard';
@@ -134,6 +135,7 @@ export class Home extends Component {
     return (
       <>
         <Container fluid>
+          <Scroll showBelow={250} />
           <Navbar
             navbarState={this.state.navbarOpen}
             handleNavbar={this.handleNavbar}

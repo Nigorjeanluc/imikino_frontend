@@ -21,6 +21,7 @@ import TeamsPage from './pages/Dashboard/Admin/Teams';
 import PlayersPage from './pages/Dashboard/Admin/Players';
 import SportsPage from './pages/Dashboard/Admin/Sports';
 import LocationsPage from './pages/Dashboard/Admin/Locations';
+import VideosPage from './pages/Dashboard/Admin/Videos';
 import TablesPage from './pages/Dashboard/Admin/Tables';
 import AddMatch from './pages/Dashboard/Reporter/Livescores/addMatch';
 import AddGoalCard from './pages/Dashboard/Reporter/Livescores/addGoalCard';
@@ -35,6 +36,7 @@ function Routes() {
       <Route exact path="/admin/players" component={PlayersPage} />
       <Route exact path="/admin/sports" component={SportsPage} />
       <Route exact path="/admin/locations" component={LocationsPage} />
+      <Route exact path="/admin/videos" component={VideosPage} />
       <Route exact path="/admin/tables/:league_id" component={TablesPage} />
 
       <Route exact path="/reporter/dashboard" component={Frontpage2} />

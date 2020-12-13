@@ -40,6 +40,10 @@ class Frontpage2 extends Component {
     id: 0,
     title: '',
     originalImage: null,
+    originalImage1: null,
+    originalImage2: null,
+    originalImage3: null,
+    originalImage4: null,
     image: null,
     image1: null,
     image2: null,
@@ -53,10 +57,14 @@ class Frontpage2 extends Component {
     sport_id: 0,
     socket: openSocket(HEROKU_URL),
     content: '',
+    content2: '',
+    content3: '',
     approved: false,
     isTransfer: false,
     isTitleToggled: false,
     editorState: EditorState.createEmpty(),
+    editorState2: EditorState.createEmpty(),
+    editorState3: EditorState.createEmpty(),
     options: [],
     allViews: 0
   }
@@ -81,6 +89,8 @@ class Frontpage2 extends Component {
     const { post } = this.props;
 
     if (post && post.id) this.convertToEditor(post.body);
+    if (post && post.id) this.convertToEditor2(post.body2);
+    if (post && post.id) this.convertToEditor3(post.body3);
 
     this.setState({
       title: post.title,
@@ -89,7 +99,14 @@ class Frontpage2 extends Component {
       options: post.tags,
       id: post.slug,
       isTransfer: post.isTransfer,
+      content: post.body,
+      content2: post.body2,
+      content3: post.body3,
       originalImage: post.image,
+      originalImage1: post.image1,
+      originalImage2: post.image2,
+      originalImage3: post.image3,
+      originalImage4: post.image4
     })
   }
 
@@ -104,10 +121,46 @@ class Frontpage2 extends Component {
     }
   }
 
+  convertToEditor2 = (html) => {
+    const contentBlock = htmlToDraft(html);
+    if (contentBlock) {
+      const contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);
+      const editorState2 = EditorState.createWithContent(contentState);
+      this.setState({
+        editorState2
+      });
+    }
+  }
+
+  convertToEditor3 = (html) => {
+    const contentBlock = htmlToDraft(html);
+    if (contentBlock) {
+      const contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);
+      const editorState3 = EditorState.createWithContent(contentState);
+      this.setState({
+        editorState3
+      });
+    }
+  }
+
   onEditorStateChange = (editorState) => {
     this.setState({
       editorState,
       content: draftToHtml(convertToRaw(editorState.getCurrentContent()))
+    });
+  }
+
+  onEditorStateChange2 = (editorState2) => {
+    this.setState({
+      editorState2,
+      content2: draftToHtml(convertToRaw(editorState2.getCurrentContent()))
+    });
+  }
+
+  onEditorStateChange3 = (editorState3) => {
+    this.setState({
+      editorState3,
+      content3: draftToHtml(convertToRaw(editorState3.getCurrentContent()))
     });
   }
 
@@ -140,6 +193,8 @@ class Frontpage2 extends Component {
       title,
       socket,
       content,
+      content2,
+      content3,
       image1,
       image1Txt,
       image2,
@@ -155,18 +210,40 @@ class Frontpage2 extends Component {
       options,
       allViews,
       originalImage,
+      originalImage1,
+      originalImage2,
+      originalImage3,
+      originalImage4,
       id
     } = this.state;
+    console.log(content, "Body");
+    console.log(content2, "Boddy2");
     const formData = new FormData();
     if (image) {
       formData.append('image', image, image.name);
     } else {
       formData.append('image', originalImage);
     }
-    if (image1) formData.append('image1', image1, image1.name);
-    if (image2) formData.append('image2', image2, image2.name);
-    if (image3) formData.append('image3', image3, image3.name);
-    if (image4) formData.append('image4', image4, image4.name);
+    if (image1) {
+      formData.append('image1', image1, image1.name);
+    } else {
+      formData.append('image1', originalImage1);
+    }
+    if (image2) {
+      formData.append('image2', image2, image2.name);
+    } else {
+      formData.append('image2', originalImage2);
+    }
+    if (image3) {
+      formData.append('image3', image3, image3.name);
+    } else {
+      formData.append('image3', originalImage3);
+    }
+    if (image4) {
+      formData.append('image4', image4, image4.name);
+    } else {
+      formData.append('image4', originalImage4);
+    }
     if (image1) formData.append('image1_txt', image1Txt);
     if (image2) formData.append('image2_txt', image2Txt);
     if (image3) formData.append('image3_txt', image3Txt);
@@ -175,6 +252,8 @@ class Frontpage2 extends Component {
     formData.append('isTransfer', isTransfer);
     formData.append('title', title);
     formData.append('body', content);
+    formData.append('body2', content2);
+    formData.append('body3', content3);
     formData.append('sport_id', sport_id);
     formData.append('location_id', location_id);
     formData.append('tags', JSON.stringify(options));
@@ -208,6 +287,8 @@ class Frontpage2 extends Component {
     } = this.props;
     const {
       editorState,
+      editorState2,
+      editorState3,
       isTitleToggled,
       options,
       location_id,
@@ -365,6 +446,47 @@ class Frontpage2 extends Component {
                   wrapperClassName="wrapperClassName"
                   editorClassName="editorClassName"
                   onEditorStateChange={this.onEditorStateChange}
+                  wrapperStyle={{
+                    backgroundColor: 'white',
+                    marginBottom: '20px'
+                  }}
+                  toolbarStyle={{
+                    backgroundColor: 'black',
+                    marginBottom: 0
+                  }}
+                  editorStyle={{
+                    height: '400px',
+                    border: '2px solid black',
+                    backgroundColor: 'white',
+                    padding: '10px',
+                    marginTop: 0
+                  }}
+                />
+                <MDBRow>
+                  <MDBCol md="12">
+                    {post && post.id ? (
+                      <img style={{
+                        width: '100%',
+                        height: '350px',
+                        marginBottom: '20px'
+                      }} src={`${BACKEND_URL_IMAGE}/news/${post.image1}`} alt="News Image" />
+                    ) : null }
+                  </MDBCol>
+                </MDBRow>
+                <Editor
+                  // toolbarHidden
+                  // toolbar={{
+                  //   inline: { inDropdown: true },
+                  //   list: { inDropdown: true },
+                  //   textAlign: { inDropdown: true },
+                  //   link: { inDropdown: true },
+                  //   history: { inDropdown: true },
+                  // }}
+                  editorState={editorState2}
+                  toolbarClassName="toolbarClassName"
+                  wrapperClassName="wrapperClassName"
+                  editorClassName="editorClassName"
+                  onEditorStateChange={this.onEditorStateChange2}
                   wrapperStyle={{
                     backgroundColor: 'white',
                     marginBottom: '20px'

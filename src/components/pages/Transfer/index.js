@@ -14,6 +14,7 @@ import Title from '../../utils/Title';
 import Footer from '../../utils/Footer';
 import NewsCard from '../../utils/NewsCard';
 import Pagination from '../../utils/Pagination';
+import Scroll from '../../utils/BackToTop';
 import './Transfer.scss';
 
 export class Transfer extends Component {
@@ -83,6 +84,7 @@ export class Transfer extends Component {
     return (
       <>
         <Container fluid>
+          <Scroll showBelow={250} />
           <Navbar
             navbarState={this.state.navbarOpen}
             handleNavbar={this.handleNavbar}

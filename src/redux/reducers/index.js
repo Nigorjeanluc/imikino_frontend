@@ -22,6 +22,8 @@ import goal from './goal';
 import goals from './goals';
 import card from './card';
 import cards from './cards';
+import video from './video';
+import videos from './videos';
 
 export default {
   user,
@@ -47,5 +49,7 @@ export default {
   goal,
   goals,
   card,
-  cards
+  cards,
+  video,
+  videos
 };

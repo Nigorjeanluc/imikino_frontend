@@ -207,7 +207,16 @@ class Livescore extends Component {
                         <div key={card.id}>
                           <p>
                             <img style={{width: '20px', height: '20px'}} src={`${BACKEND_URL_IMAGE}/players/${card.player && card.player.image}`} alt={card.player && card.player.name} /> 
-                            <span>{card.player && card.player.name}  {card.team && card.team.id}</span>
+                            <span>
+                                { card.card_type === 'RED' ?
+                                  <img style={{width: '20px', height: '20px'}} src={require('../../../../../assets/red-card.png')} alt="card" />
+                                  : null
+                               }
+                               { card.card_type === 'YELLOW' ?
+                                 <img style={{width: '20px', height: '20px'}} src={require('../../../../../assets/yellow-card.png')} alt="card" />
+                                 : null
+                              } {card.player && card.player.name}  {card.team && card.team.id}
+                            </span>
                           </p>
                           <p>
                             Minute: {card.card_time} <sup>'</sup>
@@ -228,7 +237,16 @@ class Livescore extends Component {
                         <div key={card.id}>
                           <p>
                             <img style={{width: '20px', height: '20px'}} src={`${BACKEND_URL_IMAGE}/players/${card.player && card.player.image}`} alt={card.player && card.player.name} /> 
-                            <span>{card.player && card.player.name}  {card.team && card.team.id}</span>
+                            <span>
+                                { card.card_type === 'RED' ?
+                                  <img style={{width: '20px', height: '20px'}} src={require('../../../../../assets/red-card.png')} alt="card" />
+                                  : null
+                               }
+                               { card.card_type === 'YELLOW' ?
+                                 <img style={{width: '20px', height: '20px'}} src={require('../../../../../assets/yellow-card.png')} alt="card" />
+                                 : null
+                              } {card.player && card.player.name}  {card.team && card.team.id}
+                            </span>
                           </p>
                           <p>
                             Minute: {card.card_time} <sup>'</sup>

@@ -15,6 +15,7 @@ import './Match.scss';
 
 const Match = (props) => {
   const {match} = props;
+  console.log(match, "Match");
   return (
   <MDBCol className="livescoreCard" md="12">
     <MDBCard>
@@ -41,7 +42,20 @@ const Match = (props) => {
               {match && match.started ? (
                 <span style={{fontSize: '24px'}}>{match.goals && match.goals.filter(goal => ((goal.team && goal.team.id) === match.team_one)).length} : {match.goals && match.goals.filter(goal => ((goal.team && goal.team.id) === match.team_two)).length}</span>
               ) : <span style={{fontSize: '22px'}}> vs </span>}
-              
+              {match && match.started ? match.cards.map(card =>
+                  <><span key={card.id}>
+                    {
+                      card.card_type === 'RED' ?
+                      <img style={{width: '20px', height: '20px'}} src={require('../../../assets/red-card.png')} alt="card" />
+                      : null
+                    }
+                    { 
+                      card.card_type === 'YELLOW' ?
+                      <img style={{width: '20px', height: '20px'}} src={require('../../../assets/yellow-card.png')} alt="card" />
+                      : null
+                    } {card.player && card.player.name}  {card.team && card.team.id}
+                  </span><br/></>
+                ) : null}
             </MDBCol>
             <MDBCol
               md="5"

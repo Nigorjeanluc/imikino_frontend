@@ -22,6 +22,8 @@ import * as goalAction from './goal';
 import * as goalsAction from './goals';
 import * as cardAction from './card';
 import * as cardsAction from './cards';
+import * as videoAction from './video';
+import * as videosAction from './videos';
 
 export {
   userAction,
@@ -47,5 +49,7 @@ export {
   goalAction,
   goalsAction,
   cardAction,
-  cardsAction
+  cardsAction,
+  videoAction,
+  videosAction
 };

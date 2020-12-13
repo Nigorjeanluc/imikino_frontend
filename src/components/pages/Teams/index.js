@@ -11,6 +11,7 @@ import Navbar from '../../utils/navbar/Navbar';
 import Title from '../../utils/Title';
 import Team from '../../utils/Team';
 import Footer from '../../utils/Footer';
+import Scroll from '../../utils/BackToTop';
 import './Teams.scss';
 
 export class Teams extends Component {
@@ -30,6 +31,7 @@ export class Teams extends Component {
     return (
       <>
         <Container fluid>
+          <Scroll showBelow={250} />
           <Navbar
             navbarState={this.state.navbarOpen}
             handleNavbar={this.handleNavbar}

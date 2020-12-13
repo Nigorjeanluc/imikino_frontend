@@ -8,6 +8,7 @@ import Navbar from '../../utils/navbar/Navbar';
 import Title from '../../utils/Title';
 import Footer from '../../utils/Footer';
 import NewsCard from '../../utils/NewsCard';
+import Scroll from '../../utils/BackToTop';
 import './News.scss';
 
 export class News extends Component {
@@ -21,6 +22,7 @@ export class News extends Component {
     return (
       <>
         <Container fluid>
+          <Scroll showBelow={250} />
           <Navbar
             navbarState={this.state.navbarOpen}
             handleNavbar={this.handleNavbar}

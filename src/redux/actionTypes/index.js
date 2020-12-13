@@ -23,6 +23,8 @@ import * as matchsActionTypes from './matchsActionTypes';
 import * as matchActionTypes from './matchActionTypes';
 import * as tagsActionTypes from './tagsActionTypes';
 import * as tagActionTypes from './tagActionTypes';
+import * as videosActionTypes from './videosActionTypes';
+import * as videoActionTypes from './videoActionTypes';
 
 export {
   apiActionTypes,
@@ -49,5 +51,7 @@ export {
   tagActionTypes,
   tagsActionTypes,
   matchActionTypes,
-  matchsActionTypes
+  matchsActionTypes,
+  videoActionTypes,
+  videosActionTypes
 };

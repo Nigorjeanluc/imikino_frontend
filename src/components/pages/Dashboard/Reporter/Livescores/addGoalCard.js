@@ -41,6 +41,7 @@ class AddGoalCard extends Component {
   state = {
     goal_time: 0,
     card_time: 0,
+    card_type: 'RED',
     team_id: 0,
     player_id: 0,
     isGoalPlayerToggled: false,
@@ -128,6 +129,12 @@ class AddGoalCard extends Component {
     })
   }
 
+  handleCardType = (event) => {
+    this.setState({
+      card_type: event.target.value
+    })
+  }
+
   handleCardTime = (event) => {
     console.log(event.target.value);
     this.setState({
@@ -157,13 +164,19 @@ class AddGoalCard extends Component {
     const {
       team_id,
       player_id,
-      card_time
+      card_time,
+      card_type
     } =this.state;
+
+    console.log(card_type, "Card");
+
+    console.log(card_type, "Card Type");
     createCard({
       match_id: livescore.id,
       team_id,
       player_id,
-      card_time
+      card_time,
+      card_type
     })
   }
 
@@ -311,8 +324,16 @@ class AddGoalCard extends Component {
                         {livescore.cards && livescore.cards.length > 0 && livescore.cards.filter(card => ((card.team && card.team.id) === livescore.team_one)).map(card => (
                           <div key={card.id}>
                             <p>
-                              <img style={{width: '20px', height: '20px'}} src={`${BACKEND_URL_IMAGE}/players/${card.player && card.player.image}`} alt={card.player && card.player.name} /> 
-                              <span>{card.player && card.player.name}  {card.team && card.team.id}</span>
+                              <span>
+                                { card.card_type === 'RED' ?
+                                  <img style={{width: '20px', height: '20px'}} src={require('../../../../../assets/red-card.png')} alt="card" />
+                                  : null
+                               }
+                               { card.card_type === 'YELLOW' ?
+                                 <img style={{width: '20px', height: '20px'}} src={require('../../../../../assets/yellow-card.png')} alt="card" />
+                                 : null
+                              } {card.player && card.player.name}  {card.team && card.team.id}
+                               </span>
                             </p>
                             <p>
                               Minute: {card.card_time} <sup>'</sup>
@@ -332,8 +353,16 @@ class AddGoalCard extends Component {
                         {livescore.cards && livescore.cards.length > 0 && livescore.cards.filter(card => ((card.team && card.team.id) === livescore.team_two)).map(card => (
                           <div key={card.id}>
                             <p>
-                              <img style={{width: '20px', height: '20px'}} src={`${BACKEND_URL_IMAGE}/players/${card.player && card.player.image}`} alt={card.player && card.player.name} /> 
-                              <span>{card.player && card.player.name}  {card.team && card.team.id}</span>
+                              <span>
+                                { card.card_type === 'RED' ?
+                                  <img style={{width: '20px', height: '20px'}} src={require('../../../../../assets/red-card.png')} alt="card" />
+                                  : null
+                               }
+                               { card.card_type === 'YELLOW' ?
+                                 <img style={{width: '20px', height: '20px'}} src={require('../../../../../assets/yellow-card.png')} alt="card" />
+                                 : null
+                              } {card.player && card.player.name}  {card.team && card.team.id}
+                              </span>
                             </p>
                             <p>
                               Minute: {card.card_time} <sup>'</sup>
@@ -482,6 +511,11 @@ class AddGoalCard extends Component {
                         />
                       </>
                     )}
+                    <label>Card Type</label>
+                    <select value={this.state.card_type} className="form-control" onChange={this.handleCardType}>
+                      <option value="RED">RED CARD</option>
+                      <option value="YELLOW">YELLOW CARD</option>
+                    </select>
                     <label>Card Time</label>
                     <input
                       type="number"

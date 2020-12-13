@@ -44,8 +44,12 @@ class AddPost extends Component {
     isTransfer: false,
     socket: openSocket(HEROKU_URL),
     content: '',
+    content2: '',
+    content3: '',
     approved: false,
     editorState: EditorState.createEmpty(),
+    editorState2: EditorState.createEmpty(),
+    editorState3: EditorState.createEmpty(),
     options: [],
     allViews: 0
   }
@@ -66,6 +70,20 @@ class AddPost extends Component {
     this.setState({
       editorState,
       content: draftToHtml(convertToRaw(editorState.getCurrentContent()))
+    });
+  }
+  
+  onEditorStateChange2 = (editorState2) => {
+    this.setState({
+      editorState2,
+      content2: draftToHtml(convertToRaw(editorState2.getCurrentContent()))
+    });
+  }
+
+  onEditorStateChange3 = (editorState3) => {
+    this.setState({
+      editorState3,
+      content3: draftToHtml(convertToRaw(editorState3.getCurrentContent()))
     });
   }
 
@@ -133,6 +151,8 @@ class AddPost extends Component {
       title,
       socket,
       content,
+      content2,
+      content3,
       image1,
       image1Txt,
       image2,
@@ -162,6 +182,8 @@ class AddPost extends Component {
     formData.append('isTransfer', isTransfer);
     formData.append('title', title);
     formData.append('body', content);
+    formData.append('body2', content2);
+    formData.append('body3', content3);
     formData.append('sport_id', sport_id);
     formData.append('location_id', location_id);
     formData.append('tags', JSON.stringify(options));
@@ -196,7 +218,9 @@ class AddPost extends Component {
     } = this.props;
 
     const {
-      editorState
+      editorState,
+      editorState2,
+      editorState3
     } = this.state;
 
     const options = listOfTags && listOfTags.map(tag => {
@@ -326,7 +350,7 @@ class AddPost extends Component {
                         </div>
                       </MDBCol>
                       <MDBCol md="4">
-                        <label htmlFor="transfer">Is Post tranfer related</label>
+                        <label htmlFor="transfer">Is Post transfer related</label>
                         <select
                             onChange={this.handleChangeTransfer}
                             value={this.state.isTransfer}
@@ -362,7 +386,7 @@ class AddPost extends Component {
                         marginBottom: 0
                       }}
                       editorStyle={{
-                        height: '400px',
+                        height: '200px',
                         border: '2px solid black',
                         backgroundColor: 'white',
                         padding: '10px',
@@ -404,6 +428,36 @@ class AddPost extends Component {
                         />
                       </MDBCol>
                     </MDBRow>
+                    <Editor
+                      // toolbarHidden
+                      // toolbar={{
+                      //   inline: { inDropdown: true },
+                      //   list: { inDropdown: true },
+                      //   textAlign: { inDropdown: true },
+                      //   link: { inDropdown: true },
+                      //   history: { inDropdown: true },
+                      // }}
+                      editorState={editorState2}
+                      toolbarClassName="toolbarClassName"
+                      wrapperClassName="wrapperClassName"
+                      editorClassName="editorClassName"
+                      onEditorStateChange={this.onEditorStateChange2}
+                      wrapperStyle={{
+                        backgroundColor: 'white',
+                        marginBottom: '20px'
+                      }}
+                      toolbarStyle={{
+                        backgroundColor: 'black',
+                        marginBottom: 0
+                      }}
+                      editorStyle={{
+                        height: '200px',
+                        border: '2px solid black',
+                        backgroundColor: 'white',
+                        padding: '10px',
+                        marginTop: 0
+                      }}
+                    />
                     <MDBRow>
                       <MDBCol md="6">
                         <label htmlFor="image3">Post Image 3</label>
@@ -439,6 +493,36 @@ class AddPost extends Component {
                         />
                       </MDBCol>
                     </MDBRow>
+                    <Editor
+                      // toolbarHidden
+                      // toolbar={{
+                      //   inline: { inDropdown: true },
+                      //   list: { inDropdown: true },
+                      //   textAlign: { inDropdown: true },
+                      //   link: { inDropdown: true },
+                      //   history: { inDropdown: true },
+                      // }}
+                      editorState={editorState3}
+                      toolbarClassName="toolbarClassName"
+                      wrapperClassName="wrapperClassName"
+                      editorClassName="editorClassName"
+                      onEditorStateChange={this.onEditorStateChange3}
+                      wrapperStyle={{
+                        backgroundColor: 'white',
+                        marginBottom: '20px'
+                      }}
+                      toolbarStyle={{
+                        backgroundColor: 'black',
+                        marginBottom: 0
+                      }}
+                      editorStyle={{
+                        height: '200px',
+                        border: '2px solid black',
+                        backgroundColor: 'white',
+                        padding: '10px',
+                        marginTop: 0
+                      }}
+                    />
                     <MDBRow>
                       <MDBCol md="6">
                         <label htmlFor="image4">Post Image 4</label>

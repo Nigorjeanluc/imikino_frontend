@@ -22,6 +22,8 @@ import card from './cardInitState';
 import cards from './cardsInitState';
 import match from './matchInitState';
 import matchs from './matchsInitState';
+import video from './videoInitState';
+import videos from './videosInitState';
 
 export default {
   user,
@@ -47,5 +49,7 @@ export default {
   card,
   cards,
   match,
-  matchs
+  matchs,
+  video,
+  videos
 };

@@ -10,6 +10,7 @@ import { getAllMatchs } from '../../../redux/actions/matchs';
 import Title from '../../utils/Title';
 import Match from '../../utils/Match';
 import Footer from '../../utils/Footer';
+import Scroll from '../../utils/BackToTop';
 import './Livescore.scss';
 
 export class Livescore extends Component {
@@ -29,6 +30,7 @@ export class Livescore extends Component {
     return (
       <>
         <Container fluid>
+          <Scroll showBelow={250} />
           <Navbar
             navbarState={this.state.navbarOpen}
             handleNavbar={this.handleNavbar}
