@@ -124,6 +124,16 @@ export class SinglePost extends Component {
                           paddingLeft: '0px !important'
                         }} className="mt-5">
                           {parse(`<div class="body-font">${post.body}</div>`)}
+                          {post.image1 ? (
+                          <MDBView className="img-container" hover cascade waves>
+                            <img
+                              src={`${IMIKINO_URL_IMAGE}/news/${post.image1}`}
+                              alt={post.slug}
+                              className="img-fluid"
+                            />
+                          </MDBView>
+                          ) : null}
+                          {post.body2 ? parse(`<div class="body-font">${post.body2}</div>`) : null}
                         </MDBContainer>
                         { listOfComments && (
                         <MDBCard

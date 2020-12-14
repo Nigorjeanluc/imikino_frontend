@@ -28,14 +28,13 @@ const VideosPanel = () => {
       <MDBCol size="12"><Title text="Videos" /></MDBCol>
       <MDBCol md="7" className="vid-wrapper" size="12">
         <ReactPlayer url={
-          videoData.listOfVideos.length > 0 ? videoData.listOfVideos : [
+          videoData.listOfVideos.length > 0 ? videoData.listOfVideos.map(video => video.video_link) : [
             'https://www.youtube.com/watch?v=UZnTPDy-znE',
             'https://www.youtube.com/watch?v=bUrGf6Fhi4s',
           ]
         }
           width='100%'
           height='405px'
-          style={{ marginBottom: '15px' }}
           controls
         />
       </MDBCol>

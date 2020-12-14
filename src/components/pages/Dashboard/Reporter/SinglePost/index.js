@@ -353,7 +353,7 @@ class Frontpage2 extends Component {
                     width: '100%',
                     height: '350px',
                     marginBottom: '20px'
-                  }} src={`${BACKEND_URL_IMAGE}/news/${post.image}`} alt="News Image" />
+                  }} src={`${LOCAL_URL_IMAGE}/news/${post.image}`} alt="News Image" />
                 </div>
                 ) : null }
                 <MDBRow
@@ -469,7 +469,7 @@ class Frontpage2 extends Component {
                         width: '100%',
                         height: '350px',
                         marginBottom: '20px'
-                      }} src={`${BACKEND_URL_IMAGE}/news/${post.image1}`} alt="News Image" />
+                      }} src={`${LOCAL_URL_IMAGE}/news/${post.image1}`} alt="News Image" />
                     ) : null }
                   </MDBCol>
                 </MDBRow>
