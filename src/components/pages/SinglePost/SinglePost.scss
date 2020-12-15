@@ -87,3 +87,34 @@ $information-phone: "only screen and (min-width : 768px)";
 .feedSection {
   margin-bottom: 10px;
 }
+
+.labels {
+  display: flex;
+  align-items: flex-start;
+
+  .userImg {
+    margin-right: 15px;
+  }
+
+  .userDetails {
+    margin-top: 10px;
+    span {
+      display: block;
+    }
+  }
+}
+
+.commentForm {
+  div {
+    margin-top: 10px;
+
+    input {
+      height: 30px;
+    }
+  }
+}
+
+.commentArea {
+  background-color: rgba(128, 128, 128, 0.623);
+  padding: 8px;
+}

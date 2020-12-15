@@ -1,6 +1,7 @@
 import user from './user';
 import posts from './posts';
 import post from './post';
+import comment from './comment';
 import comments from './comments';
 import league from './league';
 import leagues from './leagues';
@@ -29,6 +30,7 @@ export default {
   user,
   posts,
   post,
+  comment,
   comments,
   league,
   leagues,

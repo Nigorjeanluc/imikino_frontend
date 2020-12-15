@@ -1,6 +1,7 @@
 import user from './userInitState';
 import posts from './postsInitState';
 import post from './postInitState';
+import comment from './commentInitState';
 import comments from './commentsInitState';
 import league from './leagueInitState';
 import leagues from './leaguesInitState';
@@ -29,6 +30,7 @@ export default {
   user,
   posts,
   post,
+  comment,
   comments,
   league,
   leagues,

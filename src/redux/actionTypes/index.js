@@ -2,6 +2,7 @@ import * as apiActionTypes from './apiActionTypes';
 import * as userActionTypes from './userActionTypes';
 import * as postsActionTypes from './postsActionTypes';
 import * as postActionTypes from './postActionTypes';
+import * as commentActionTypes from './commentActionTypes';
 import * as commentsActionTypes from './commentsActionTypes';
 import * as leaguesActionTypes from './leaguesActionTypes';
 import * as leagueActionTypes from './leagueActionTypes';
@@ -31,6 +32,7 @@ export {
   userActionTypes,
   postsActionTypes,
   postActionTypes,
+  commentActionTypes,
   commentsActionTypes,
   leaguesActionTypes,
   leagueActionTypes,

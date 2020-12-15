@@ -1,6 +1,7 @@
 import * as userAction from './user';
 import * as postsAction from './posts';
 import * as postAction from './post';
+import * as commentAction from './comment';
 import * as commentsAction from './comments';
 import * as leagueAction from './league';
 import * as leaguesAction from './leagues';
@@ -29,6 +30,7 @@ export {
   userAction,
   postsAction,
   postAction,
+  commentAction,
   commentsAction,
   leagueAction,
   leaguesAction,

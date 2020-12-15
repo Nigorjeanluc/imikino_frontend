@@ -36,9 +36,10 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import parse from 'html-react-parser';
 
 import { IMIKINO_URL_IMAGE, LOCAL_URL_IMAGE } from '../../../redux/helpers/backendURLs';
-import { getSingle } from '../../../redux/actions/post'
-import { getTrendingPosts } from '../../../redux/actions/posts'
+import { getSingle } from '../../../redux/actions/post';
+import { getTrendingPosts } from '../../../redux/actions/posts';
 import { getPostComments } from '../../../redux/actions/comments';
+import { createComment } from '../../../redux/actions/comment';
 import Navbar from '../../utils/navbar/Navbar';
 import Scroll from '../../utils/BackToTop';
 // import GlobalStyle from '../../../styles/Global';
@@ -52,6 +53,10 @@ import HelmetMetaData from '../../utils/HelmetMetaData';
 export class SinglePost extends Component {
   state = {
     navbarOpen: false,
+    amazina: '',
+    email: '',
+    phone: '',
+    message: '',
   };
 
   componentDidMount () {
@@ -69,6 +74,49 @@ export class SinglePost extends Component {
   handleTrends = (slug) => {
     const { getSingle } = this.props;
     getSingle(slug);
+  }
+
+  handleAmazina = (event) => {
+    this.setState({
+      amazina: event.target.value
+    });
+  }
+
+  handleEmail = (event) => {
+    this.setState({
+      email: event.target.value
+    });
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { match, post, createComment } = this.props;
+    const {
+      amazina,
+      email,
+      phone,
+      message
+    } =this.state;
+
+    createComment(match.params.slug, {
+      name: amazina,
+      email,
+      phone,
+      comment: message,
+    })
+  }
+
+  
+  handlePhone = (event) => {
+    this.setState({
+      phone: event.target.value
+    });
+  }
+
+  handleMessage = (event) => {
+    this.setState({
+      message: event.target.value
+    });
   }
 
   render() {
@@ -134,39 +182,49 @@ export class SinglePost extends Component {
                           </MDBView>
                           ) : null}
                           {post.body2 ? parse(`<div class="body-font">${post.body2}</div>`) : null}
+                          {post.image2 ? (
+                          <MDBView className="img-container" hover cascade waves>
+                            <img
+                              src={`${IMIKINO_URL_IMAGE}/news/${post.image2}`}
+                              alt={post.slug}
+                              className="img-fluid"
+                            />
+                          </MDBView>
+                          ) : null}
+                          {post.body3 ? parse(`<div class="body-font">${post.body3}</div>`) : null}
                         </MDBContainer>
-                        { listOfComments && (
+                        { listOfComments && listOfComments.length > 0 && (
                         <MDBCard
                           className="mt-5 my-5 px-5 pt-4"
                           style={{ fontWeight: 600 }}
                         >
                           <MDBCardBody className="py-0">
                             <MDBRow>
-                              <div className="commentsTitle">
+                              <div className="col-md-12 commentsTitle">
                                 <h2>Comments</h2>
                               </div>
-                              <div className="mdb-feed feedSection">
+                              <div className="col-md-12 mdb-feed feedSection">
                                 { listOfComments.map((comment) => (
-                                  <div key={comment.id} className="news feedSection">
-                                    <div className="label">
-                                      <img
-                                        style={{
-                                          width: 50,
-                                          height: 50,
-                                          marginBottom: 20
-                                        }}
-                                        src={ comment.user && comment.user.profileImg ? comment.user.profileImg : require('../../../assets/logo.png')}
-                                        alt=""
-                                        className="rounded-circle z-depth-1-half"
-                                      />
+                                  <div key={comment.id} className="news feedSection commentArea">
+                                    <div className="labels">
+                                      <div className="userImg">
+                                        <img
+                                          style={{
+                                            width: 50,
+                                            height: 50,
+                                            marginBottom: 20
+                                          }}
+                                          src={ comment.user && comment.user.profileImg ? comment.user.profileImg : require('../../../assets/logo.png')}
+                                          alt=""
+                                          className="rounded-circle z-depth-1-half"
+                                        />
+                                      </div>
+                                      <div className="userDetails">
+                                        <span>{` ${comment.name}`}</span>
+                                        <span>{moment(comment.created_at).fromNow()}</span>
+                                      </div>
                                     </div>
                                     <div className="excerpt">
-                                      <div className="brief">
-                                        <a href="#!" className="name">
-                                          {comment.name}
-                                        </a> added you as a friend
-                                        <div className="date">7 hours ago</div>
-                                      </div>
                                       <div style={{marginTop: 10}} className="added-text">
                                         {comment.comment}
                                       </div>
@@ -177,6 +235,65 @@ export class SinglePost extends Component {
                             </MDBRow>
                           </MDBCardBody>
                         </MDBCard>)}
+                        <MDBCard>
+                          <MDBCardBody>
+                            <h2 className="text-center">Gira icyo ubivugaho</h2><hr />
+                            <form onSubmit={this.handleSubmit}>
+                            <MDBRow className="commentForm">
+                              <MDBCol md="12">
+                                <label>Amazina</label>
+                                <input
+                                  type="text"
+                                  placeholder="Andika amazina yawe hano"
+                                  className="form-control"
+                                  onChange={this.handleAmazina}
+                                  value={this.state.amazina}
+                                />
+                              </MDBCol>
+                              <MDBCol md="6">
+                                <label>Email</label>
+                                <input
+                                  type="text"
+                                  placeholder="Andika Email yawe hano"
+                                  className="form-control"
+                                  onChange={this.handleEmail}
+                                  value={this.state.email}
+                                />
+                              </MDBCol>
+                              <MDBCol md="6">
+                                <label>Telephone</label>
+                                <input
+                                  type="text"
+                                  placeholder="Andika telephone yawe hano"
+                                  className="form-control"
+                                  onChange={this.handlePhone}
+                                  value={this.state.phone}
+                                />
+                              </MDBCol>
+                              <MDBCol md="12">
+                                <label>Message</label>
+                                <textarea
+                                  rows="5"
+                                  className="form-control"
+                                  placeholder="Andika ubutumwa byawe hano"
+                                  onChange={this.handleMessage}
+                                  value={this.state.message}
+                                />
+                              </MDBCol>
+                              <MDBCol md="12">
+                                <MDBBtn
+                                  size="lg"
+                                  style={{width: '100%', marginBottom: '20px'}}
+                                  type="submit"
+                                  color="dark-green"
+                                >
+                                  Ohereza ubutumwa bwawe
+                                </MDBBtn>
+                              </MDBCol>
+                            </MDBRow>
+                            </form>
+                          </MDBCardBody>
+                        </MDBCard>
       </>
     )
 
@@ -259,7 +376,7 @@ export class SinglePost extends Component {
                           // border: "none",
                           // boxShadow: "none"
                         }}>
-                          <MDBCol><MDBCard className="panel-card" cascade><Title text="Trending News" /></MDBCard></MDBCol></Row>
+                          <MDBCol><MDBCard className="panel-card" cascade><Title text="INKURU ZIKUNZWE" /></MDBCard></MDBCol></Row>
                         <Row>{trends}</Row>
                       </MDBCard>
                     </MDBCol>
@@ -288,7 +405,8 @@ const mapStateToProps = ({ post, posts, comments }) => ({
 const mapDispatchToProps = (dispatch) => ({
   getSingle: (slug) => dispatch(getSingle(slug)),
   getTrendingPosts: () => dispatch(getTrendingPosts()),
-  getPostComments: (slug) => dispatch(getPostComments(slug))
+  getPostComments: (slug) => dispatch(getPostComments(slug)),
+  createComment: (slug, data) => dispatch(createComment(slug, data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SinglePost);
