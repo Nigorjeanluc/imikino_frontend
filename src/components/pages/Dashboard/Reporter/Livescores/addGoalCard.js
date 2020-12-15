@@ -512,7 +512,7 @@ class AddGoalCard extends Component {
                       </>
                     )}
                     <label>Card Type</label>
-                    <select value={this.state.card_type} className="form-control" onChange={this.handleCardType}>
+                    <select defaultValue={this.state.card_type} className="form-control" onChange={this.handleCardType}>
                       <option value="RED">RED CARD</option>
                       <option value="YELLOW">YELLOW CARD</option>
                     </select>

@@ -242,7 +242,7 @@ class PlayersPage extends Component {
                     <div>
                       <select
                         onChange={this.handleChangeTeam}
-                        value={this.state.team_id}
+                        defaultValue={this.state.team_id}
                         style={{height: '30px', fontSize: '14px'}}
                         className="browser-default custom-select"
                         name="team_id"

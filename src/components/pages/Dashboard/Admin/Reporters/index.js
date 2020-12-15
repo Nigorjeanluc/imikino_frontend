@@ -26,6 +26,7 @@ import BreadcrumSection from '../../../../utils/Sections/BreadcrumSection';
 import { getAllReporters } from '../../../../../redux/actions/users';
 import {
   createUser,
+  deleteUser
 } from '../../../../../redux/actions/user';
 import Pagination from '../../../../utils/Pagination';
 import DeleteBtn from '../../../../utils/Dashboard/Buttons/DeleteBtn';
@@ -33,7 +34,11 @@ import EditBtnUser from '../../../../utils/Dashboard/Buttons/EditBtn';
 
 class UsersPage extends Component {
   state = {
-    video_link: '',
+    name: '',
+    email: '',
+    role: 'REPORTER',
+    password: '',
+    confirm: '',
     socket: openSocket(HEROKU_URL)
   }
 
@@ -49,13 +54,42 @@ class UsersPage extends Component {
     });
   }
 
-  handleChange = (event) => {
-    this.setState({ video_link: event.target.value});
+  handleChangeName = (event) => {
+    this.setState({ name: event.target.value});
+  }
+
+  handleChangeEmail = (event) => {
+    this.setState({ email: event.target.value});
+  }
+  
+  handleChangeRole = (event) => {
+    this.setState({ role: event.target.value});
+  }
+  
+  handleChangePassword = (event) => {
+    this.setState({ password: event.target.value});
+  }
+  
+  handleChangeConfirm = (event) => {
+    this.setState({ confirm: event.target.value});
   }
 
   handleSubmit = (event) => {
     const { createUser } = this.props;
-    createUser({ video_link: this.state.video_link });
+    const {
+      name,
+      email,
+      role,
+      password,
+      confirm
+    } = this.state;
+    createUser({
+      name,
+      profileImg: 'none',
+      email,
+      role,
+      password
+    });
     event.preventDefault();
   }
 
@@ -80,7 +114,7 @@ class UsersPage extends Component {
 
   render() {
     const {
-      listOfUsers,
+      listOfReporters,
       getUser,
       Next,
       Previous
@@ -126,20 +160,24 @@ class UsersPage extends Component {
                         <tr>
                           <th>#</th>
                           <th>Name</th>
-                          <th>Time</th>
+                          <th>Email</th>
+                          <th>Role</th>
+                          <th>Created At</th>
                           <th>Control</th>
                         </tr>
                       </MDBTableHead>
                       <MDBTableBody>
                         {
-                          listOfUsers && listOfUsers.map(video => (
-                            <tr key={video.id}>
-                              <td style={{fontSize: '16px'}}>{video.id}</td>
-                              <td style={{fontSize: '16px'}}>{video.video_link}</td>
-                              <td style={{fontSize: '16px'}}>{moment(video.updated_at).startOf('hour').fromNow()}</td>
+                          listOfReporters && listOfReporters.map(reporter => (
+                            <tr key={reporter.id}>
+                              <td>{reporter.id}</td>
+                              <td>{reporter.name}</td>
+                              <td>{reporter.email}</td>
+                              <td>{reporter.role}</td>
+                              <td>{moment(reporter.updated_at).startOf('hour').fromNow()}</td>
                               <td>
-                                {/* <EditBtnUser identify={video.id} videoData={video} /> */}
-                                <DeleteBtn title="video" delete={() => this.deleteLoc(video.id)} />
+                                {/* <EditBtnUser identify={reporter.id} reporterData={reporter} /> */}
+                                <DeleteBtn title="reporter" delete={() => this.deleteLoc(reporter.id)} />
                               </td>
                             </tr>
                           ))
@@ -153,19 +191,56 @@ class UsersPage extends Component {
           <MDBCol style={{fontSize: '16px'}} md="6" className="mb-4">
             <MDBCard>
               <MDBCardHeader>
-                <h4>Add User</h4>
+                <h4>Add Reporter</h4>
               </MDBCardHeader>
               <MDBCardBody>
                 <form onSubmit={this.handleSubmit}>
                   <div className="form-group">
-                    <label htmlFor="video">User video_link</label>
+                    <label htmlFor="video">Reporter Name</label>
                     <input
                       style={{
                         height: '30px'
                       }}
-                      onChange={this.handleChange}
-                      value={this.state.video_link}
+                      onChange={this.handleChangeName}
+                      value={this.state.name}
                       type="text"
+                      className="form-control"
+                      id="video"
+                    />
+                    <label htmlFor="video">Reporter Email</label>
+                    <input
+                      style={{
+                        height: '30px'
+                      }}
+                      onChange={this.handleChangeEmail}
+                      value={this.state.email}
+                      type="text"
+                      className="form-control"
+                      id="video"
+                    />
+                    <label>Role</label>
+                    <select defaultValue={this.state.role} className="form-control" disabled>
+                      <option value="REPORTER" selected>Reporter</option>
+                    </select>
+                    <label htmlFor="video">Password</label>
+                    <input
+                      style={{
+                        height: '30px'
+                      }}
+                      onChange={this.handleChangePassword}
+                      value={this.state.password}
+                      type="password"
+                      className="form-control"
+                      id="video"
+                    />
+                    <label htmlFor="video">Confirm Password</label>
+                    <input
+                      style={{
+                        height: '30px'
+                      }}
+                      onChange={this.handleChangeConfirm}
+                      value={this.state.confirm}
+                      type="password"
                       className="form-control"
                       id="video"
                     />
@@ -196,6 +271,7 @@ const mapStateToProps = ({ users, user }) => ({
 const mapDispatchToProps = (dispatch) => ({
   getAllReporters: (page, limit) => dispatch(getAllReporters(page, limit)),
   createUser: (data) => dispatch(createUser(data)),
+  deleteUser: (id) => dispatch(deleteUser(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UsersPage);
