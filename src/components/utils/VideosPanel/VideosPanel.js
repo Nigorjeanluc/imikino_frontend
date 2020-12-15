@@ -26,19 +26,20 @@ const VideosPanel = () => {
   return (
     <MDBRow className="video-panel">
       <MDBCol size="12"><Title text="Videos" /></MDBCol>
-      <MDBCol md="7" className="vid-wrapper" size="12">
-        <ReactPlayer url={
-          videoData.listOfVideos.length > 0 ? videoData.listOfVideos.map(video => video.video_link) : [
-            'https://www.youtube.com/watch?v=UZnTPDy-znE',
-            'https://www.youtube.com/watch?v=bUrGf6Fhi4s',
-          ]
-        }
-          width='100%'
-          height='405px'
-          controls
-        />
-      </MDBCol>
-      <MDBCol style={{padding: '15px 15px 15px 0'}} md="5">
+      {
+        videoData && videoData.listOfVideos ? (
+          <MDBCol md="12" className="vid-wrapper">
+            <ReactPlayer url={
+              videoData.listOfVideos.length > 0 && videoData.listOfVideos.map(video => video.video_link)
+            }
+              width='100%'
+              height='100%'
+              controls
+            />
+          </MDBCol>
+        ) : null
+      }
+      {/* <MDBCol style={{padding: '15px 15px 15px 0'}} md="5">
         {videoData.listOfVideos.length > 0 ? videoData.listOfVideos.map(video => (
           <div key={video.id}>
             <iframe src={video.video_link}
@@ -86,7 +87,7 @@ const VideosPanel = () => {
             </div>
           </>
         )}
-      </MDBCol>
+      </MDBCol> */}
     </MDBRow>
   );
 }
