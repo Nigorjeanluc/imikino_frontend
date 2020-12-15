@@ -1,4 +1,5 @@
 import * as userAction from './user';
+import * as usersAction from './users';
 import * as postsAction from './posts';
 import * as postAction from './post';
 import * as commentAction from './comment';
@@ -28,6 +29,7 @@ import * as videosAction from './videos';
 
 export {
   userAction,
+  usersAction,
   postsAction,
   postAction,
   commentAction,

@@ -1,5 +1,6 @@
 import * as apiActionTypes from './apiActionTypes';
 import * as userActionTypes from './userActionTypes';
+import * as usersActionTypes from './usersActionTypes';
 import * as postsActionTypes from './postsActionTypes';
 import * as postActionTypes from './postActionTypes';
 import * as commentActionTypes from './commentActionTypes';
@@ -30,6 +31,7 @@ import * as videoActionTypes from './videoActionTypes';
 export {
   apiActionTypes,
   userActionTypes,
+  usersActionTypes,
   postsActionTypes,
   postActionTypes,
   commentActionTypes,

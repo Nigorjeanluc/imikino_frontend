@@ -1,4 +1,5 @@
 import user from './userInitState';
+import users from './usersInitState';
 import posts from './postsInitState';
 import post from './postInitState';
 import comment from './commentInitState';
@@ -28,6 +29,7 @@ import videos from './videosInitState';
 
 export default {
   user,
+  users,
   posts,
   post,
   comment,

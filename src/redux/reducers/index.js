@@ -1,4 +1,5 @@
 import user from './user';
+import users from './users';
 import posts from './posts';
 import post from './post';
 import comment from './comment';
@@ -28,6 +29,7 @@ import videos from './videos';
 
 export default {
   user,
+  users,
   posts,
   post,
   comment,

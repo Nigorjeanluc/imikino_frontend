@@ -52,6 +52,12 @@ const SideNavigation = () => {
                         Videos
                     </MDBListGroupItem>
                 </NavLink>
+                <NavLink to="/admin/reporters" activeClassName="activeClass">
+                    <MDBListGroupItem>
+                        <MDBIcon icon="map-marker-alt" className="mr-3"/>
+                        Reporters
+                    </MDBListGroupItem>
+                </NavLink>
             </MDBListGroup>
         </div>
     );
