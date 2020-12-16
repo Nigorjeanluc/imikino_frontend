@@ -121,22 +121,22 @@ class Frontpage2 extends Component {
     }
   }
 
-  convertToEditor2 = (html) => {
-    const contentBlock = htmlToDraft(html);
-    if (contentBlock) {
-      const contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);
-      const editorState2 = EditorState.createWithContent(contentState);
+  convertToEditor2 = (html2) => {
+    const contentBlock2 = htmlToDraft(html2);
+    if (contentBlock2) {
+      const contentState2 = ContentState.createFromBlockArray(contentBlock2.contentBlocks);
+      const editorState2 = EditorState.createWithContent(contentState2);
       this.setState({
         editorState2
       });
     }
   }
 
-  convertToEditor3 = (html) => {
-    const contentBlock = htmlToDraft(html);
-    if (contentBlock) {
-      const contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);
-      const editorState3 = EditorState.createWithContent(contentState);
+  convertToEditor3 = (html3) => {
+    const contentBlock3 = htmlToDraft(html3);
+    if (contentBlock3) {
+      const contentState3 = ContentState.createFromBlockArray(contentBlock3.contentBlocks);
+      const editorState3 = EditorState.createWithContent(contentState3);
       this.setState({
         editorState3
       });
