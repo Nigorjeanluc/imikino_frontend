@@ -44,9 +44,9 @@ const CollapseMenu = (props) => {
       >
         <NavLinks>
           <li><Link to="/news" onClick={props.handleNavbar}>Amakuru</Link></li>
-          <li><Link to="/transfers" onClick={props.handleNavbar}>Transfers</Link></li>
+          <li><Link to="/transfers" onClick={props.handleNavbar}>Igura n'igurisha</Link></li>
           <li><Link to="/tables" onClick={props.handleNavbar}>Urutonde</Link></li>
-          <li><Link to="/teams" onClick={props.handleNavbar}>Igura n'igurisha</Link></li>
+          <li><Link to="/teams" onClick={props.handleNavbar}>Amakipe</Link></li>
           <li><Link to="/livescores" onClick={props.handleNavbar}>Livescores</Link></li>
         </NavLinks>
         <NavIcons>
