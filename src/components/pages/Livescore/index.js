@@ -17,6 +17,10 @@ export class Livescore extends Component {
   state = { navbarOpen: false };
 
   componentDidMount () {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "//s7.addthis.com/icons/official-addthis-angularjs/current/dist/official-addthis-angularjs.min.js";
+    this.div.appendChild(script);
     const { getAllMatchs } = this.props;
     getAllMatchs(1, 20);
   }
@@ -29,7 +33,7 @@ export class Livescore extends Component {
     const { listOfMatchs, loading } = this.props;
     return (
       <>
-        <Container fluid>
+        <Container fluid  ref={el => (this.div = el)}>
           <Scroll showBelow={250} />
           <Navbar
             navbarState={this.state.navbarOpen}
