@@ -43,7 +43,7 @@ const CollapseMenu = (props) => {
       }}
       >
         <NavLinks>
-          <li><Link to="/news" onClick={props.handleNavbar}>Amakuru</Link></li>
+          <li><Link to="/" onClick={props.handleNavbar}>Amakuru</Link></li>
           <li><Link to="/transfers" onClick={props.handleNavbar}>Igura n'igurisha</Link></li>
           <li><Link to="/tables" onClick={props.handleNavbar}>Urutonde</Link></li>
           <li><Link to="/teams" onClick={props.handleNavbar}>Amakipe</Link></li>
