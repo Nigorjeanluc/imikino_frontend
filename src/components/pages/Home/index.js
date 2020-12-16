@@ -8,6 +8,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 // import moment from 'moment';
 import { IMIKINO_URL_IMAGE, LOCAL_URL_IMAGE } from '../../../redux/helpers/backendURLs';
 import { getAllPosts, getHeaderPosts, getTrendingPosts } from '../../../redux/actions/posts';
+import { getAllPlayers } from '../../../redux/actions/players';
 import Navbar from '../../utils/navbar/Navbar';
 // import GlobalStyle from '../../../styles/Global';
 import Title from '../../utils/Title';
@@ -26,7 +27,7 @@ export class Home extends Component {
 
   componentDidMount() {
     // eslint-disable-next-line no-unused-vars
-    const { history, getAllPosts, getHeaderPosts, getTrendingPosts } = this.props;
+    const { history, getAllPosts, getHeaderPosts, getTrendingPosts, getAllPlayers } = this.props;
     // const { token } = localStorage;
     // if (!token) {
     //   history.push('/');
@@ -34,6 +35,7 @@ export class Home extends Component {
     getAllPosts();
     getHeaderPosts();
     getTrendingPosts();
+    getAllPlayers(1, 1000);
   }
 
   handleNavbar = () => {
@@ -56,7 +58,21 @@ export class Home extends Component {
   }
 
   render() {
-    const { listOfPosts, listOfHeader, listOfTrending, Next, Previous, loading, getHeader, getPosts, getTrending } = this.props;
+    const {
+      listOfPosts,
+      listOfHeader,
+      listOfTrending,
+      listOfPlayers,
+      Next,
+      Previous,
+      loading,
+      getHeader,
+      getPosts,
+      getTrending
+    } = this.props;
+
+    console.log(listOfPlayers, "Players");
+
     const imgs = listOfHeader && listOfHeader.map(post => {
       return {
         src: `${IMIKINO_URL_IMAGE}/news/${post.image}`,
@@ -190,6 +206,16 @@ export class Home extends Component {
                   <img style={{width: '100%', height: '100%'}} alt="banner" src={require('../../../assets/imgs/banner.png')} />
                 </MDBCol>
               </MDBRow>
+              {/* <MDBRow>
+                <MDBCol>
+                  <Title text="TOP SCORER" />
+                </MDBCol>
+              </MDBRow>
+              <MDBRow>
+                <MDBCol md="12">
+                  {listOfPlayers && listOfPlayers.sort((a, b) =>  a - b).map(player => player && player.goals ? player.goals.length : null)}
+                </MDBCol>
+              </MDBRow> */}
             </Col>
           </Row>
         </Container>
@@ -199,7 +225,7 @@ export class Home extends Component {
   }
 }
 
-const mapStateToProps = ({ posts }) => ({
+const mapStateToProps = ({ posts, players }) => ({
   Next: posts.Next,
   Previous: posts.Previous,
   errors: posts.errors,
@@ -209,13 +235,16 @@ const mapStateToProps = ({ posts }) => ({
   listOfTrending: posts.listOfTrending,
   getTrending: posts.getTrending,
   getHeader: posts.getHeader,
-  getPosts: posts.getPosts
+  getPosts: posts.getPosts,
+  listOfPlayers: players.listOfPlayers,
+  getPlayers: players.getPlayers
 });
 
 const mapDispatchToProps = (dispatch) => ({
   getAllPosts: (page, limit) => dispatch(getAllPosts(page, limit)),
   getHeaderPosts: (page, limit) => dispatch(getHeaderPosts(page, limit)),
-  getTrendingPosts: () => dispatch(getTrendingPosts())
+  getTrendingPosts: () => dispatch(getTrendingPosts()),
+  getAllPlayers: (page, limit) => dispatch(getAllPlayers(page, limit))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

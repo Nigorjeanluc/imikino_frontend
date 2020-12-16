@@ -17,6 +17,7 @@ import Dashboard from '../index';
 import BreadcrumSection from '../../../../utils/Sections/BreadcrumSection';
 import AdminCardSection1 from '../../../../utils/Sections/AdminCardSection1';
 import DeleteBtn from '../../../../utils/Dashboard/Buttons/DeleteBtn';
+import DeleteBtnMatch from '../../../../utils/Dashboard/Buttons/DeleteBtnMatch';
 import { getAllLeagues } from '../../../../../redux/actions/leagues';
 import { getAllTeams } from '../../../../../redux/actions/teams';
 import { getAllPlayers } from '../../../../../redux/actions/players';
@@ -157,7 +158,20 @@ class Livescore extends Component {
                     >
                       <span style={{fontSize: '14px'}}>Starting time: {match && moment(match.starting_time).format("ddd, MMM Do YYYY, h:mm:ss a")}</span>
                       <br /><span>Stadium: {match && match.stadium}</span>
-                      {match && match.started ? <><br /><Link to={`/reporter/livescores/addmatch/${match.id}`}><MDBBtn color="elegant" outline>Edit Stats</MDBBtn></Link></> : <><br /><Link to={`/reporter/livescores/addmatch/${match.id}`}><MDBBtn color="blue-grey" outline >Start Match</MDBBtn></Link></>}
+                      {match && match.started ? 
+                      <>
+                        <br />
+                        <Link to={`/reporter/livescores/addmatch/${match.id}`}>
+                          <MDBBtn color="elegant" outline>Edit Stats</MDBBtn>
+                        </Link>
+                        <br />
+                        <DeleteBtnMatch title="Match" delete={() => this.deleteMat(match.id)}/>
+                      </> : <>
+                        <br />
+                        <Link to={`/reporter/livescores/addmatch/${match.id}`}>
+                          <MDBBtn color="blue-grey" outline >Start Match</MDBBtn>
+                        </Link>
+                      </>}
                     </MDBCol>
                   </MDBRow>
                   <MDBRow style={{marginTop: '20px'}}>
@@ -172,8 +186,9 @@ class Livescore extends Component {
                       {match.goals && match.goals.length > 0 && match.goals.filter(goal => ((goal.team && goal.team.id) === match.team_one)).map(goal => (
                         <div key={goal.id}>
                           <p>
+                            <span>Scorer: </span>
                             <img style={{width: '20px', height: '20px'}} src={`${BACKEND_URL_IMAGE}/players/${goal.player && goal.player.image}`} alt={goal.player && goal.player.name} /> 
-                            <span>{goal.player && goal.player.name}  {goal.team && goal.team.id}</span>
+                            <span> {goal.player && goal.player.name}</span>
                           </p>
                           <p>
                             Minute: {goal.goal_time} <sup>'</sup>
@@ -193,8 +208,9 @@ class Livescore extends Component {
                       {match.goals && match.goals.length > 0 && match.goals.filter(goal => ((goal.team && goal.team.id) === match.team_two)).map(goal => (
                         <div key={goal.id}>
                           <p>
+                            <span>Scorer: </span>
                             <img style={{width: '20px', height: '20px'}} src={`${BACKEND_URL_IMAGE}/players/${goal.player && goal.player.image}`} alt={goal.player && goal.player.name} /> 
-                            <span>{goal.player && goal.player.name}  {goal.team && goal.team.id}</span>
+                            <span> {goal.player && goal.player.name}</span>
                           </p>
                           <p>
                             Minute: {goal.goal_time} <sup>'</sup>
