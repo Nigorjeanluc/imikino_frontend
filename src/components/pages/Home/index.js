@@ -166,10 +166,10 @@ export class Home extends Component {
                   <TwitterTimelineEmbed
                     sourceType="profile"
                     screenName="Imikino_rw"
-                    options={{height: 1100}}
+                    options={{height: 1100, tweetLimit: 2}}
                     noScrollbar={true}
-                    noFooter={true}
-                    noHeader={true}
+                    // noFooter={true}
+                    // noHeader={true}
                     theme="dark"
                   />
                 </Col>

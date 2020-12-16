@@ -58,6 +58,16 @@ class Livescore extends Component {
     });
   }
 
+  deleteGo = (id) => {
+    const { deleteGoal } = this.props;
+    deleteGoal(id)
+  }
+
+  deleteCa = (id) => {
+    const { deleteCard } = this.props;
+    deleteCard(id)
+  }
+
   deleteMat = (id) => {
     const { deleteMatch } = this.props;
     deleteMatch(id)

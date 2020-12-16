@@ -8,16 +8,21 @@ import './index.scss';
 
 class Dashboard extends Component {
 
-  componentDidMount() {
+  componentWillMount() {
     const { history } = this.props;
-    const { token } = localStorage;
-    if (!token) {
+    
+    const { token, user } = localStorage;
+    if (!token || !user) {
       history.push('/');
     }
   }
   
   render() {
-    const { user } = localStorage;
+    const { history } = this.props;
+    const { token, user } = localStorage;
+    if (!token || !user) {
+      history.push('/');
+    }
     const userData = JSON.parse(user);
     return (
       <div className="body">

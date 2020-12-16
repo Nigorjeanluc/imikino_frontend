@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink, MDBIcon, MDBBtn } from 'mdbreact';
+
+import { logout } from '../../../redux/actions/user';
 
 class TopNavigation extends Component {
     state = {
@@ -7,17 +10,20 @@ class TopNavigation extends Component {
     }
 
     onClick = () => {
-        const { toggler } = this.props;
         this.setState({
             collapse: !this.state.collapse,
         });
-        toggler();
     }
 
     toggle = () => {
         this.setState({
             dropdownOpen: !this.state.dropdownOpen
         });
+    }
+
+    handleLogout = () => {
+        const { logout } = this.props;
+        logout();
     }
 
     render() {
@@ -52,7 +58,7 @@ class TopNavigation extends Component {
                         {/* <MDBNavItem>
                             <a className="border border-light rounded mr-1 nav-link Ripple-parent" rel="noopener noreferrer" href="https://mdbootstrap.com/products/react-ui-kit/" target="_blank"><MDBIcon fab icon="github" className="mr-2"/>Go Pro</a>
                         </MDBNavItem> */}
-                        <MDBBtn color="info"><MDBIcon icon="sign-out-alt" className="mr-2"/>Logout</MDBBtn>
+                        <MDBBtn onClick={this.handleLogout} color="info"><MDBIcon icon="sign-out-alt" className="mr-2"/>Logout</MDBBtn>
                     </MDBNavbarNav>
                 </MDBCollapse>
             </MDBNavbar>
@@ -60,4 +66,17 @@ class TopNavigation extends Component {
     }
 }
 
-export default TopNavigation;
+const mapStateToProps = ({
+    user: {
+      token,
+      login: { profile, errors, message, loading }
+    }
+  }) => ({
+    token,
+    errors,
+    message,
+    loading,
+    profile
+  });
+  
+  export default connect(mapStateToProps, { logout })(TopNavigation);
