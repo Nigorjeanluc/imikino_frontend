@@ -27,16 +27,15 @@ const VideosPanel = () => {
     <MDBRow className="video-panel">
       <MDBCol size="12"><Title text="Videos" /></MDBCol>
       {
-        videoData && videoData.listOfVideos ? (
-          <MDBCol md="12" className="vid-wrapper">
-            <ReactPlayer url={
-              videoData.listOfVideos.length > 0 && videoData.listOfVideos.map(video => video.video_link)
-            }
-              width='100%'
-              height='100%'
-              controls
-            />
-          </MDBCol>
+        videoData && videoData.listOfVideos ? videoData.listOfVideos.length > 0 && videoData.listOfVideos.map(video => (
+        <MDBCol md="6" className="vid-wrapper">
+          <ReactPlayer url={video.video_link}
+            width='100%'
+            height='100%'
+            controls
+          />
+        </MDBCol>
+        )
         ) : null
       }
       {/* <MDBCol style={{padding: '15px 15px 15px 0'}} md="5">
