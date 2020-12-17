@@ -35,7 +35,12 @@ import moment from 'moment';
 import ClipLoader from 'react-spinners/ClipLoader';
 import parse from 'html-react-parser';
 
-import { IMIKINO_URL_IMAGE, LOCAL_URL_IMAGE } from '../../../redux/helpers/backendURLs';
+import {
+  IMIKINO_URL_IMAGE,
+  LOCAL_URL_IMAGE,
+  BACKEND_URL_IMAGE,
+  BASIC_URL
+} from '../../../redux/helpers/backendURLs';
 import { getSingle } from '../../../redux/actions/post';
 import { getTrendingPosts } from '../../../redux/actions/posts';
 import { getPostComments } from '../../../redux/actions/comments';
@@ -126,7 +131,7 @@ export class SinglePost extends Component {
       <>
       <HelmetMetaData
         title={post.title}
-        image={`${IMIKINO_URL_IMAGE}/news/${post.image}`}
+        image={`${BACKEND_URL_IMAGE}/news/${post.image}`}
         description={post.body}
       ></HelmetMetaData>
                         
@@ -135,7 +140,7 @@ export class SinglePost extends Component {
                           <MDBRow>
                             <MDBView className="img-container" hover cascade waves>
                               <img
-                                src={`${IMIKINO_URL_IMAGE}/news/${post.image}`}
+                                src={`${BACKEND_URL_IMAGE}/news/${post.image}`}
                                 alt={post.slug}
                                 className="img-fluid"
                               />
@@ -156,7 +161,7 @@ export class SinglePost extends Component {
                               <ul className="icons-list">
                                 <li>
                                   <FacebookShareButton
-                                    url={`${IMIKINO_URL_IMAGE}/${post.slug}`}
+                                    url={`${BASIC_URL}/${post.slug}`}
                                     quote={post.title}
                                     hashtag="imikino.rw"
                                   >
@@ -175,7 +180,7 @@ export class SinglePost extends Component {
                           {post.image1 ? (
                           <MDBView className="img-container" hover cascade waves>
                             <img
-                              src={`${IMIKINO_URL_IMAGE}/news/${post.image1}`}
+                              src={`${BACKEND_URL_IMAGE}/news/${post.image1}`}
                               alt={post.slug}
                               className="img-fluid"
                             />
@@ -185,7 +190,7 @@ export class SinglePost extends Component {
                           {post.image2 ? (
                           <MDBView className="img-container" hover cascade waves>
                             <img
-                              src={`${IMIKINO_URL_IMAGE}/news/${post.image2}`}
+                              src={`${BACKEND_URL_IMAGE}/news/${post.image2}`}
                               alt={post.slug}
                               className="img-fluid"
                             />
