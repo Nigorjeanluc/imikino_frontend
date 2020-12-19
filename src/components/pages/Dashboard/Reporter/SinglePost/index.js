@@ -89,8 +89,8 @@ class Frontpage2 extends Component {
     const { post } = this.props;
 
     if (post && post.id) this.convertToEditor(post.body);
-    if (post && post.id) this.convertToEditor2(post.body2);
-    if (post && post.id) this.convertToEditor3(post.body3);
+    if (post && post.id) this.convertToEditor2(post.body2 ? post.body2 : '');
+    if (post && post.id) this.convertToEditor3(post.body3 ? post.body3 : '');
 
     this.setState({
       title: post.title,
@@ -111,9 +111,10 @@ class Frontpage2 extends Component {
   }
 
   convertToEditor = (html) => {
-    const contentBlock = htmlToDraft(html);
-    if (contentBlock) {
-      const contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);
+    const blocksFromHtml = htmlToDraft(html);
+    if (blocksFromHtml) {
+      const { contentBlocks, entityMap } = blocksFromHtml;
+      const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);
       const editorState = EditorState.createWithContent(contentState);
       this.setState({
         editorState
@@ -122,9 +123,10 @@ class Frontpage2 extends Component {
   }
 
   convertToEditor2 = (html2) => {
-    const contentBlock2 = htmlToDraft(html2);
-    if (contentBlock2) {
-      const contentState2 = ContentState.createFromBlockArray(contentBlock2.contentBlocks);
+    const blocksFromHtml2 = htmlToDraft(html2);
+    if (blocksFromHtml2) {
+      const { contentBlocks, entityMap } = blocksFromHtml2;
+      const contentState2 = ContentState.createFromBlockArray(contentBlocks, entityMap);
       const editorState2 = EditorState.createWithContent(contentState2);
       this.setState({
         editorState2
@@ -133,9 +135,10 @@ class Frontpage2 extends Component {
   }
 
   convertToEditor3 = (html3) => {
-    const contentBlock3 = htmlToDraft(html3);
-    if (contentBlock3) {
-      const contentState3 = ContentState.createFromBlockArray(contentBlock3.contentBlocks);
+    const blocksFromHtml3 = htmlToDraft(html3);
+    if (blocksFromHtml3) {
+      const { contentBlocks, entityMap } = blocksFromHtml3;
+      const contentState3 = ContentState.createFromBlockArray(contentBlocks, entityMap);
       const editorState3 = EditorState.createWithContent(contentState3);
       this.setState({
         editorState3
@@ -353,7 +356,7 @@ class Frontpage2 extends Component {
                     width: '100%',
                     height: '350px',
                     marginBottom: '20px'
-                  }} src={`${LOCAL_URL_IMAGE}/news/${post.image}`} alt="News Image" />
+                  }} src={`${BACKEND_URL_IMAGE}/news/${post.image}`} alt="News Image" />
                 </div>
                 ) : null }
                 <MDBRow
@@ -469,7 +472,7 @@ class Frontpage2 extends Component {
                         width: '100%',
                         height: '350px',
                         marginBottom: '20px'
-                      }} src={`${LOCAL_URL_IMAGE}/news/${post.image1}`} alt="News Image" />
+                      }} src={`${BACKEND_URL_IMAGE}/news/${post.image1}`} alt="News Image" />
                     ) : null }
                   </MDBCol>
                 </MDBRow>
@@ -487,6 +490,47 @@ class Frontpage2 extends Component {
                   wrapperClassName="wrapperClassName"
                   editorClassName="editorClassName"
                   onEditorStateChange={this.onEditorStateChange2}
+                  wrapperStyle={{
+                    backgroundColor: 'white',
+                    marginBottom: '20px'
+                  }}
+                  toolbarStyle={{
+                    backgroundColor: 'black',
+                    marginBottom: 0
+                  }}
+                  editorStyle={{
+                    height: '400px',
+                    border: '2px solid black',
+                    backgroundColor: 'white',
+                    padding: '10px',
+                    marginTop: 0
+                  }}
+                />
+                <MDBRow>
+                  <MDBCol md="12">
+                    {post && post.id ? (
+                      <img style={{
+                        width: '100%',
+                        height: '350px',
+                        marginBottom: '20px'
+                      }} src={`${BACKEND_URL_IMAGE}/news/${post.image2}`} alt="News Image" />
+                    ) : null }
+                  </MDBCol>
+                </MDBRow>
+                <Editor
+                  // toolbarHidden
+                  // toolbar={{
+                  //   inline: { inDropdown: true },
+                  //   list: { inDropdown: true },
+                  //   textAlign: { inDropdown: true },
+                  //   link: { inDropdown: true },
+                  //   history: { inDropdown: true },
+                  // }}
+                  editorState={editorState3}
+                  toolbarClassName="toolbarClassName"
+                  wrapperClassName="wrapperClassName"
+                  editorClassName="editorClassName"
+                  onEditorStateChange={this.onEditorStateChange3}
                   wrapperStyle={{
                     backgroundColor: 'white',
                     marginBottom: '20px'
