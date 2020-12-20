@@ -15,18 +15,12 @@ import './Match.scss';
 
 const Match = (props) => {
   const {match} = props;
-  console.log(match, "Match");
   return (
   <MDBCol className="livescoreCard" md="12">
     <MDBCard>
       <MDBCardBody>
-        <div>
-          <MDBRow>
+          <MDBRow className="matchContainer">
             <MDBCol
-              md="5"
-              sm="5"
-              xs="5"
-              lg="5"
               className="text-center"
             >
               <img style={{width: '50px', height: '50px'}} src={`${BACKEND_URL_IMAGE}/teams/${match.team_1 && match.team_1.image}`} alt={match.team_1 && match.team_1.name} />
@@ -49,10 +43,6 @@ const Match = (props) => {
                 ) : null}
             </MDBCol>
             <MDBCol
-              md="2"
-              sm="2"
-              xs="2"
-              lg="2"
               className="text-center"
             >
               {match && match.started ? (
@@ -60,10 +50,6 @@ const Match = (props) => {
               ) : <span style={{fontSize: '22px'}}> vs </span>}
             </MDBCol>
             <MDBCol
-              md="5"
-              sm="5"
-              xs="5"
-              lg="5"
               className="text-center"
             >
               <img style={{width: '50px', height: '50px'}} src={`${BACKEND_URL_IMAGE}/teams/${match.team_2 && match.team_2.image}`} alt={match.team_2 && match.team_2.name} />
@@ -86,7 +72,6 @@ const Match = (props) => {
                 ) : null}
             </MDBCol>
           </MDBRow>
-        </div>
       </MDBCardBody>
     </MDBCard>
   </MDBCol>

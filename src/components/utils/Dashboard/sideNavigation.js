@@ -48,13 +48,13 @@ const SideNavigation = () => {
                 </NavLink>
                 <NavLink to="/admin/videos" activeClassName="activeClass">
                     <MDBListGroupItem>
-                        <MDBIcon icon="map-marker-alt" className="mr-3"/>
+                        <MDBIcon icon="photo-video" className="mr-3"/>
                         Videos
                     </MDBListGroupItem>
                 </NavLink>
                 <NavLink to="/admin/reporters" activeClassName="activeClass">
                     <MDBListGroupItem>
-                        <MDBIcon icon="map-marker-alt" className="mr-3"/>
+                        <MDBIcon icon="address-card" className="mr-3"/>
                         Reporters
                     </MDBListGroupItem>
                 </NavLink>

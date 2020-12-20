@@ -131,10 +131,9 @@ export class SinglePost extends Component {
       <>
       <HelmetMetaData
         title={post.title}
-        image={`${BACKEND_URL_IMAGE}/news/${post.image}`}
+        image={`og:${BACKEND_URL_IMAGE}/news/${post.image}`}
         description={post.body}
       ></HelmetMetaData>
-                        
                         <h2 className="main-title">{post.title}</h2>
                         <MDBCard className="img-card" reverse>
                           <MDBRow>
@@ -180,7 +179,7 @@ export class SinglePost extends Component {
                           {post.image1 ? (
                           <MDBView className="img-container" hover cascade waves>
                             <img
-                              src={`${BACKEND_URL_IMAGE}/news/${post.image1}`}
+                              src={`${BACKEND_URL_IMAGE}/news/image1${post.image1}`}
                               alt={post.slug}
                               className="img-fluid"
                             />
@@ -190,7 +189,7 @@ export class SinglePost extends Component {
                           {post.image2 ? (
                           <MDBView className="img-container" hover cascade waves>
                             <img
-                              src={`${BACKEND_URL_IMAGE}/news/${post.image2}`}
+                              src={`${BACKEND_URL_IMAGE}/news/image2${post.image2}`}
                               alt={post.slug}
                               className="img-fluid"
                             />
