@@ -22,6 +22,7 @@ export default (state, { type, payload }) => {
         errors: ''
       };
     case userActionTypes.FETCH_USER_FAILURE:
+      localStorage.clear();
       return {
         ...state,
         loading: false,
