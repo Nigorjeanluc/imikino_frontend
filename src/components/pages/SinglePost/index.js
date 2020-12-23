@@ -257,7 +257,7 @@ export class SinglePost extends Component {
                           </MDBCardBody>
                         </MDBCard>)}
                         <MDBCard>
-                          <MDBCardBody>
+                          <MDBCardBody style={{marginTop: 20}}>
                             <h2 className="text-center">Gira icyo ubivugaho</h2><hr />
                             <form onSubmit={this.handleSubmit}>
                             <MDBRow className="commentForm">
@@ -391,7 +391,8 @@ export class SinglePost extends Component {
                     <MDBCol md="4">
                       <MDBCard style={{
                           border: "none",
-                          boxShadow: "none"
+                          boxShadow: "none",
+                          background: 'none'
                       }}>
                         <Row style={{
                           // border: "none",
