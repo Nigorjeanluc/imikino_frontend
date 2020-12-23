@@ -162,7 +162,7 @@ export class SinglePost extends Component {
                               <ul className="icons-list">
                                 <li>
                                   <FacebookShareButton
-                                    url={`${BASIC_URL}/${post.slug}`}
+                                    url={`https://imikino.rw/${post.slug}`}
                                     quote={post.title}
                                     hashtag="imikino.rw"
                                   >
