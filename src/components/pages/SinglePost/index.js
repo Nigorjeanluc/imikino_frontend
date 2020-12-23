@@ -39,7 +39,8 @@ import {
   IMIKINO_URL_IMAGE,
   LOCAL_URL_IMAGE,
   BACKEND_URL_IMAGE,
-  BASIC_URL
+  BASIC_URL,
+  FRONTEND
 } from '../../../redux/helpers/backendURLs';
 import { getSingle } from '../../../redux/actions/post';
 import { getTrendingPosts } from '../../../redux/actions/posts';
@@ -162,7 +163,7 @@ export class SinglePost extends Component {
                               <ul className="icons-list">
                                 <li>
                                   <FacebookShareButton
-                                    url={`https://imikino.rw/${post.slug}`}
+                                    url={`${FRONTEND}/${post.slug}`}
                                     quote={post.title}
                                     hashtag="#imikino.rw"
                                   >
@@ -171,7 +172,7 @@ export class SinglePost extends Component {
                                   </li>
                                   <li>
                                     <TwitterShareButton
-                                        url={`https://imikino.rw/${post.slug}`}
+                                        url={`${FRONTEND}/${post.slug}`}
                                         title={post.title}
                                         hashtag="#imikino.rw"
                                       >
@@ -180,7 +181,7 @@ export class SinglePost extends Component {
                                   </li>
                                   <li>
                                     <WhatsappShareButton
-                                      url={`https://imikino.rw/${post.slug}`}
+                                      url={`${FRONTEND}/${post.slug}`}
                                       title={post.title}
                                     >
                                       <FontAwesomeIcon icon={faWhatsapp} size="3x"/>
@@ -256,8 +257,8 @@ export class SinglePost extends Component {
                             </MDBRow>
                           </MDBCardBody>
                         </MDBCard>)}
-                        <MDBCard>
-                          <MDBCardBody style={{marginTop: 20}}>
+                        <MDBCard style={{marginTop: 20}}>
+                          <MDBCardBody>
                             <h2 className="text-center">Gira icyo ubivugaho</h2><hr />
                             <form onSubmit={this.handleSubmit}>
                             <MDBRow className="commentForm">

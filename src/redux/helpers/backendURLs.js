@@ -5,6 +5,7 @@ const SOCKET_URL = 'http://localhost:4005';
 const LOCAL_URL_IMAGE = 'http://localhost:4005/uploads';
 const IMIKINO_URL_IMAGE = 'https://imikino.rw/images';
 const BACKEND_URL_IMAGE = 'https://imikino-fullstack-448u5.ondigitalocean.app/uploads';
+const FRONTEND = 'https://imikino-frontend-bnd75.ondigitalocean.app';
 
 // const LOCAL_URL = 'http://localhost:4000/api';
 // const HEROKU_URL = 'http://localhost:4000';
@@ -26,4 +27,5 @@ export {
   LOCAL_URL_IMAGE,
   IMIKINO_URL_IMAGE,
   BACKEND_URL_IMAGE,
+  FRONTEND
 };
