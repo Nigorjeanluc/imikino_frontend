@@ -13,6 +13,7 @@ import {
 import { connect } from 'react-redux';
 import moment from 'moment';
 import openSocket from 'socket.io-client';
+import Select from 'react-select';
 
 import {
   SOCKET_URL,
@@ -24,6 +25,7 @@ import {
 import Dashboard from '../index';
 import BreadcrumSection from '../../../../utils/Sections/BreadcrumSection';
 import { getAllTopScorers } from '../../../../../redux/actions/topScorers';
+import { getAllPlayers } from '../../../../../redux/actions/players';
 import {
   createTopScorer,
   editTopScorer,
@@ -36,14 +38,19 @@ import DeleteBtn from '../../../../utils/Dashboard/Buttons/DeleteBtn';
 class TopScoresPage extends Component {
   state = {
     name: '',
+    player_id: 0,
+    goals: 0,
+    matchs: 0,
     socket: openSocket(HEROKU_URL)
   }
 
   componentDidMount() {
     const {
       getAllTopScorers,
+      getAllPlayers
     } = this.props;
     getAllTopScorers(1, 10);
+    getAllPlayers(1, 2000);
 
     const { socket } = this.state;
     socket.on('refreshTopScorer', (data) => {
@@ -51,13 +58,36 @@ class TopScoresPage extends Component {
     });
   }
 
-  handleChange = (event) => {
-    this.setState({ name: event.target.value});
+  handleGoals = (event) => {
+    this.setState({
+      goals: event.value.target
+    })
+  }
+
+  handleMatchs = (event) => {
+    this.setState({
+      matchs: event.value.target
+    })
+  }
+
+  handlePlayer = (event) => {
+    this.setState({
+      player_id: event.value
+    })
   }
 
   handleSubmit = (event) => {
     const { createTopScorer } = this.props;
-    createTopScorer(this.state.name);
+    const {
+      player_id,
+      matchs,
+      goals
+    } = this.state;
+    createTopScorer({
+      player_id,
+      matchs,
+      goals
+    });
     event.preventDefault();
   }
 
@@ -83,6 +113,7 @@ class TopScoresPage extends Component {
   render() {
     const {
       listOfTopScorers,
+      listOfPlayers,
       getTopScorer,
       Next,
       Previous
@@ -97,6 +128,11 @@ class TopScoresPage extends Component {
         Next.page - 1
       )
     );
+
+    const seletablePlayer = listOfPlayers && listOfPlayers.map(player => ({
+      value: player.id,
+      label: player.name
+    }));
 
     return (
       <Dashboard {...this.props}>
@@ -160,16 +196,31 @@ class TopScoresPage extends Component {
               <MDBCardBody>
                 <form onSubmit={this.handleSubmit}>
                   <div className="form-group">
-                    <label htmlFor="location">TopScorer name</label>
+                    <label>Select Player</label>
+                    <Select
+                      className="basic-single"
+                      classNamePrefix="select"
+                      isDisabled={false}
+                      isClearable={false}
+                      isRtl={false}
+                      isSearchable={true}
+                      onChange={this.handlePlayer}
+                      name="color"
+                      options={seletablePlayer}
+                    />
+                    <label>Number of Goals</label>
                     <input
-                      style={{
-                        height: '30px'
-                      }}
-                      onChange={this.handleChange}
-                      value={this.state.name}
-                      type="text"
+                      type="number"
                       className="form-control"
-                      id="location"
+                      onChange={this.handleGoals}
+                      value={this.state.goals}
+                    />
+                    <label>Number of Matchs</label>
+                    <input
+                      type="number"
+                      className="form-control"
+                      onChange={this.handleMatchs}
+                      value={this.state.matchs}
                     />
                   </div>
                   <MDBBtn type="submit" flat color="indigo">Submit</MDBBtn>
@@ -183,19 +234,22 @@ class TopScoresPage extends Component {
   }
 }
 
-const mapStateToProps = ({ topScorers, topScorer }) => ({
+const mapStateToProps = ({ topScorers, topScorer, players }) => ({
   Next: topScorers.Next,
   Previous: topScorers.Previous,
   errors: topScorers.errors,
   loading: topScorers.loading,
   listOfTopScorers: topScorers.listOfTopScorers,
   getTopScorers: topScorers.getTopScorers,
+  listOfPlayers: players.listOfPlayers,
+  getPlayers: players.getPlayers,
   topScorer: topScorer.topScorer,
   getTopScorer: topScorer.getTopScorer
 });
 
 const mapDispatchToProps = (dispatch) => ({
   getAllTopScorers: (page, limit) => dispatch(getAllTopScorers(page, limit)),
+  getAllPlayers: (page, limit) => dispatch(getAllPlayers(page, limit)),
   createTopScorer: (name) => dispatch(createTopScorer(name)),
   editTopScorer: (id, data) => dispatch(editTopScorer(id, data)),
   deleteTopScorer: (id) => dispatch(deleteTopScorer(id)),
