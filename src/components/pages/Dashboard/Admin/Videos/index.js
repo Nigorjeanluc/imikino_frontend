@@ -12,6 +12,7 @@ import {
 } from 'mdbreact';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import ReactPlayer from 'react-player';
 import openSocket from 'socket.io-client';
 
 import {
@@ -32,6 +33,7 @@ import {
 import Pagination from '../../../../utils/Pagination';
 import DeleteBtn from '../../../../utils/Dashboard/Buttons/DeleteBtn';
 import EditBtnVideo from '../../../../utils/Dashboard/Buttons/EditBtn';
+import './Videos.scss';
 
 class VideosPage extends Component {
   state = {
@@ -137,7 +139,17 @@ class VideosPage extends Component {
                           listOfVideos && listOfVideos.map(video => (
                             <tr key={video.id}>
                               <td style={{fontSize: '16px'}}>{video.id}</td>
-                              <td style={{fontSize: '16px'}}>{video.video_link}</td>
+                              <td style={{fontSize: '16px'}}>
+                                <div className=".vid-wrapper">
+                                  <ReactPlayer
+                                    className=".vid-frame"
+                                    url={video.video_link}
+                                    width='100%'
+                                    height='50%'
+                                    controls
+                                  />
+                                </div>
+                              </td>
                               <td style={{fontSize: '16px'}}>{moment(video.updated_at).startOf('hour').fromNow()}</td>
                               <td>
                                 {/* <EditBtnVideo identify={video.id} videoData={video} /> */}

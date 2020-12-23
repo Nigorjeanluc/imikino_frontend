@@ -26,6 +26,8 @@ import match from './matchInitState';
 import matchs from './matchsInitState';
 import video from './videoInitState';
 import videos from './videosInitState';
+import topScorer from './topScorerInitState';
+import topScorers from './topScorersInitState';
 
 export default {
   user,
@@ -55,5 +57,7 @@ export default {
   match,
   matchs,
   video,
-  videos
+  videos,
+  topScorer,
+  topScorers
 };

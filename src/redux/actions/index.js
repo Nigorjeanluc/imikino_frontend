@@ -26,6 +26,8 @@ import * as cardAction from './card';
 import * as cardsAction from './cards';
 import * as videoAction from './video';
 import * as videosAction from './videos';
+import * as topScorerAction from './topScorer';
+import * as topScorersAction from './topScorers';
 
 export {
   userAction,
@@ -55,5 +57,7 @@ export {
   cardAction,
   cardsAction,
   videoAction,
-  videosAction
+  videosAction,
+  topScorerAction,
+  topScorersAction
 };

@@ -26,38 +26,41 @@ import ReportersPage from './pages/Dashboard/Admin/Reporters';
 import TablesPage from './pages/Dashboard/Admin/Tables';
 import AddMatch from './pages/Dashboard/Reporter/Livescores/addMatch';
 import AddGoalCard from './pages/Dashboard/Reporter/Livescores/addGoalCard';
+import HelmetMetaData from './utils/HelmetMetaData';
 
 function Routes() {
   return (
-    <Switch>
+    <>
+      <HelmetMetaData></HelmetMetaData>
+      <Switch>
+        <Route exact path="/admin/dashboard" component={Frontpage} />
+        <Route exact path="/admin/leagues" component={Leagues} />
+        <Route exact path="/admin/teams" component={TeamsPage} />
+        <Route exact path="/admin/players" component={PlayersPage} />
+        <Route exact path="/admin/sports" component={SportsPage} />
+        <Route exact path="/admin/locations" component={LocationsPage} />
+        <Route exact path="/admin/videos" component={VideosPage} />
+        <Route exact path="/admin/reporters" component={ReportersPage} />
+        <Route exact path="/admin/tables/:league_id" component={TablesPage} />
 
-      <Route exact path="/admin/dashboard" component={Frontpage} />
-      <Route exact path="/admin/leagues" component={Leagues} />
-      <Route exact path="/admin/teams" component={TeamsPage} />
-      <Route exact path="/admin/players" component={PlayersPage} />
-      <Route exact path="/admin/sports" component={SportsPage} />
-      <Route exact path="/admin/locations" component={LocationsPage} />
-      <Route exact path="/admin/videos" component={VideosPage} />
-      <Route exact path="/admin/reporters" component={ReportersPage} />
-      <Route exact path="/admin/tables/:league_id" component={TablesPage} />
+        <Route exact path="/reporter/dashboard" component={Frontpage2} />
+        <Route exact path="/reporter/posts" component={Posts} />
+        <Route exact path="/reporter/posts/addpost" component={AddPost} />
+        <Route exact path="/reporter/livescores" component={Livescores} />
+        <Route exact path="/reporter/livescores/addmatch" component={AddMatch} />
+        <Route exact path="/reporter/livescores/addmatch/:id" component={AddGoalCard} />
+        <Route exact path="/reporter/posts/:slug" component={ReporterSinglePost} />
 
-      <Route exact path="/reporter/dashboard" component={Frontpage2} />
-      <Route exact path="/reporter/posts" component={Posts} />
-      <Route exact path="/reporter/posts/addpost" component={AddPost} />
-      <Route exact path="/reporter/livescores" component={Livescores} />
-      <Route exact path="/reporter/livescores/addmatch" component={AddMatch} />
-      <Route exact path="/reporter/livescores/addmatch/:id" component={AddGoalCard} />
-      <Route exact path="/reporter/posts/:slug" component={ReporterSinglePost} />
-
-      
-      <Route exact path="/" component={Home} />
-      <Route exact path="/livescores" component={Livescore} />
-      <Route exact path="/transfers" component={Transfer} />
-      <Route exact path="/news" component={News} />
-      <Route exact path="/tables" component={Tables} />
-      <Route exact path="/teams" component={Teams} />
-      <Route exact path="/:slug" component={SinglePost} />
-    </Switch>
+        
+        <Route exact path="/" component={Home} />
+        <Route exact path="/livescores" component={Livescore} />
+        <Route exact path="/transfers" component={Transfer} />
+        <Route exact path="/news" component={News} />
+        <Route exact path="/tables" component={Tables} />
+        <Route exact path="/teams" component={Teams} />
+        <Route exact path="/:slug" component={SinglePost} />
+      </Switch>
+    </>
   );
 }
 

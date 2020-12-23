@@ -26,6 +26,8 @@ import card from './card';
 import cards from './cards';
 import video from './video';
 import videos from './videos';
+import topScorer from './topScorer';
+import topScorers from './topScorers';
 
 export default {
   user,
@@ -55,5 +57,7 @@ export default {
   card,
   cards,
   video,
-  videos
+  videos,
+  topScorer,
+  topScorers
 };

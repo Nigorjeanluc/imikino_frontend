@@ -27,6 +27,8 @@ import * as tagsActionTypes from './tagsActionTypes';
 import * as tagActionTypes from './tagActionTypes';
 import * as videosActionTypes from './videosActionTypes';
 import * as videoActionTypes from './videoActionTypes';
+import * as topScorersActionTypes from './topScorersActionTypes';
+import * as topScorerActionTypes from './topScorerActionTypes';
 
 export {
   apiActionTypes,
@@ -57,5 +59,7 @@ export {
   matchActionTypes,
   matchsActionTypes,
   videoActionTypes,
-  videosActionTypes
+  videosActionTypes,
+  topScorerActionTypes,
+  topScorersActionTypes
 };
