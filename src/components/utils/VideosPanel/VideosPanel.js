@@ -29,7 +29,9 @@ const VideosPanel = () => {
       {
         videoData && videoData.listOfVideos ? videoData.listOfVideos.length > 0 && videoData.listOfVideos.map(video => (
         <MDBCol md="6" className="vid-wrapper">
-          <ReactPlayer url={video.video_link}
+          <ReactPlayer
+            className="vid-frame"
+            url={video.video_link}
             width='100%'
             height='100%'
             controls

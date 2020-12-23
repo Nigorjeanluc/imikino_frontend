@@ -4,14 +4,21 @@
 }
 
 .vid-wrapper {
-  height: 400px;
-  padding: 15px;
+  height: 250px;
+  // padding: 15px;
+  position: relative;
+  // padding-top: 56.25%;
 
   @media (max-width: 768px) {
     height: none;
+    margin-top: 20px;
   }
   .vid-frame {
+    padding: 15px;
     display: block;
     width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }

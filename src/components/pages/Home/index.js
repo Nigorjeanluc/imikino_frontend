@@ -210,6 +210,16 @@ export class Home extends Component {
                   <img style={{width: '100%', height: '100%'}} alt="banner" src={require('../../../assets/imgs/banner.png')} />
                 </MDBCol>
               </MDBRow>
+              <MDBRow>
+                <MDBCol>
+                  <Title text="TOP SCORER" />
+                </MDBCol>
+              </MDBRow>
+              <MDBRow>
+                <MDBCol md="12">
+                  Scorers
+                </MDBCol>
+              </MDBRow>
               {/* <MDBRow>
                 <MDBCol>
                   <Title text="TOP SCORER" />
