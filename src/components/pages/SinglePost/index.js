@@ -182,7 +182,6 @@ export class SinglePost extends Component {
                                     <WhatsappShareButton
                                       url={`https://imikino.rw/${post.slug}`}
                                       title={post.title}
-                                      separator=":: "
                                     >
                                       <FontAwesomeIcon icon={faWhatsapp} size="3x"/>
                                     </WhatsappShareButton>
