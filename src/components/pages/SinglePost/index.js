@@ -131,8 +131,10 @@ export class SinglePost extends Component {
       <>
       <HelmetMetaData
         title={post.title}
-        image={`og:${BACKEND_URL_IMAGE}/news/${post.image}`}
+        quote={post.title}
+        image={`${BACKEND_URL_IMAGE}/news/${post.image}`}
         description={post.body}
+        hashtag="imikino.rw"
       ></HelmetMetaData>
                         <h2 className="main-title">{post.title}</h2>
                         <MDBCard className="img-card" reverse>
@@ -151,7 +153,7 @@ export class SinglePost extends Component {
                                 {post.title}
                               </h2>
                               <p>
-                                Written by 
+                                Yanditswe na 
                                 <a href="#!">
                                   <strong> {post.author}</strong>
                                 </a>
