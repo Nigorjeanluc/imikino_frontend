@@ -164,13 +164,29 @@ export class SinglePost extends Component {
                                   <FacebookShareButton
                                     url={`https://imikino.rw/${post.slug}`}
                                     quote={post.title}
-                                    hashtag="imikino.rw"
+                                    hashtag="#imikino.rw"
                                   >
                                     <FontAwesomeIcon icon={faFacebook} size="3x"/>
                                   </FacebookShareButton>
                                   </li>
-                                <li><a href="/"><FontAwesomeIcon icon={faTwitter} size="3x"/></a></li>
-                                <li><a href="/"><FontAwesomeIcon icon={faWhatsapp} size="3x"/></a></li>
+                                  <li>
+                                    <TwitterShareButton
+                                        url={`https://imikino.rw/${post.slug}`}
+                                        title={post.title}
+                                        hashtag="#imikino.rw"
+                                      >
+                                        <FontAwesomeIcon icon={faTwitter} size="3x"/>
+                                    </TwitterShareButton>
+                                  </li>
+                                  <li>
+                                    <WhatsappShareButton
+                                      url={`https://imikino.rw/${post.slug}`}
+                                      title={post.title}
+                                      separator=":: "
+                                    >
+                                      <FontAwesomeIcon icon={faWhatsapp} size="3x"/>
+                                    </WhatsappShareButton>
+                                  </li>
                               </ul>
                         </div>
                         <MDBContainer style={{
