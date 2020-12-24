@@ -121,10 +121,10 @@ $information-phone: "only screen and (min-width : 768px)";
 }
 
 .postImg {
+  height: none !important;
   text-align: center !important;
   width: 100% !important;
-  height: 400px !important;
-  @media (max-width: 576px) {
-    height: none;
+  @media #{$information-phone} {
+    height: 400px !important;
   }
 }
