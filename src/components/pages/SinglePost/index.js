@@ -272,7 +272,7 @@ export class SinglePost extends Component {
                                   value={this.state.amazina}
                                 />
                               </MDBCol>
-                              <MDBCol md="6">
+                              {/* <MDBCol md="6">
                                 <label>Email</label>
                                 <input
                                   type="text"
@@ -281,8 +281,8 @@ export class SinglePost extends Component {
                                   onChange={this.handleEmail}
                                   value={this.state.email}
                                 />
-                              </MDBCol>
-                              <MDBCol md="6">
+                              </MDBCol> */}
+                              <MDBCol md="12">
                                 <label>Telephone</label>
                                 <input
                                   type="text"
