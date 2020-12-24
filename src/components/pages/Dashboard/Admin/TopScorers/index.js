@@ -58,6 +58,7 @@ class TopScoresPage extends Component {
 
     const { socket } = this.state;
     socket.on('refreshTopScorer', (data) => {
+      console.log(data);
       getAllTopScorers(1, 10);
     });
   }

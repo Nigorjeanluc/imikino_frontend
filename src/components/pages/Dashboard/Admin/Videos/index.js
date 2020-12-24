@@ -49,6 +49,7 @@ class VideosPage extends Component {
 
     const { socket } = this.state;
     socket.on('refreshVideo', (data) => {
+      console.log(data);
       getAllVideos(1, 10);
     });
   }
