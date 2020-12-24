@@ -153,7 +153,7 @@ export class SinglePost extends Component {
                               {/* <h2 style={{fontSize: '12px'}} className="font-weight-bold">
                                 {post.title}
                               </h2> */}
-                              <p>
+                              <p style={{marginTop: '20px'}}>
                                 Yanditswe na 
                                 <a href="#!">
                                   <strong> {post.author}</strong>
