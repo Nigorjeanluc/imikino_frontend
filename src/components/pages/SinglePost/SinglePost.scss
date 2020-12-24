@@ -119,3 +119,12 @@ $information-phone: "only screen and (min-width : 768px)";
   background-color: rgba(128, 128, 128, 0.623);
   padding: 8px;
 }
+
+.postImg {
+  text-align: center !important;
+  width: 100% !important;
+  height: 400px !important;
+  @media (max-width: 576px) {
+    height: none;
+  }
+}

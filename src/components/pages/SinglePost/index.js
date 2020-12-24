@@ -144,15 +144,15 @@ export class SinglePost extends Component {
                               <img
                                 src={`${BACKEND_URL_IMAGE}/news/${post.image}`}
                                 alt={post.slug}
-                                className="img-fluid"
+                                className="img-fluid postImg"
                               />
                             </MDBView>
                           </MDBRow>
                         </MDBCard>
                         <div className="text-center">
-                              <h2 style={{fontSize: '12px'}} className="font-weight-bold">
+                              {/* <h2 style={{fontSize: '12px'}} className="font-weight-bold">
                                 {post.title}
-                              </h2>
+                              </h2> */}
                               <p>
                                 Yanditswe na 
                                 <a href="#!">

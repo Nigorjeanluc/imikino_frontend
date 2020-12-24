@@ -249,7 +249,7 @@ export class Home extends Component {
                             padding: '25px'
                           }}>
                             <span>
-                              IImikino: {topScorer.matchs}
+                              Imikino: {topScorer.matchs}
                             </span>
                           </td>
                         </tr>

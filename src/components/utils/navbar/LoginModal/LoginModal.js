@@ -149,7 +149,7 @@ const LoginModal = (props) =>{
                 />
                </div>
               <div className="text-center mt-6">
-                <GoogleLogin
+                {/* <GoogleLogin
                   clientId="395730639240-m60eqhlsb07qf6daevrmnpsj3d1pd74o.apps.googleusercontent.com"
                   render={(renderProps) => (
                     <GoogleSocialBtn onClick={renderProps.onClick} disabled={renderProps.disabled}>
@@ -160,7 +160,7 @@ const LoginModal = (props) =>{
                   onSuccess={responseGoogle}
                   onFailure={responseGoogle}
                   cookiePolicy={'single_host_origin'}
-                />
+                /> */}
               </div>
             </MDBCol>
           </MDBRow>
