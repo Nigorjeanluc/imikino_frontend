@@ -182,8 +182,10 @@ class TopScoresPage extends Component {
                       <MDBTableHead color="blue-grey lighten-4">
                         <tr>
                           <th>#</th>
-                          <th>Name</th>
-                          <th>Time</th>
+                          <th>Player</th>
+                          <th>Team</th>
+                          <th>No Goals</th>
+                          <th>No Matchs</th>
                           <th>Control</th>
                         </tr>
                       </MDBTableHead>
@@ -192,8 +194,20 @@ class TopScoresPage extends Component {
                           listOfTopScorers && listOfTopScorers.map(topScorer => (
                             <tr key={topScorer.id}>
                               <td style={{fontSize: '16px'}}>{topScorer.id}</td>
-                              <td style={{fontSize: '16px'}}>{topScorer.player.name}</td>
-                              <td style={{fontSize: '16px'}}>{moment(topScorer.updated_at).startOf('hour').fromNow()}</td>
+                              <td style={{fontSize: '16px'}}>
+                                <img className='img-responsive' src={`${BACKEND_URL_IMAGE}/players/${topScorer.player.image}`} />
+                                <span> {topScorer.player.name}</span>
+                              </td>
+                              <td style={{fontSize: '16px'}}>
+                                <img className='img-responsive' src={`${BACKEND_URL_IMAGE}/teams/${topScorer.team.image}`} />
+                                <span>{topScorer.team.name}</span>
+                              </td>
+                              <td style={{fontSize: '16px'}}>
+                                {topScorer.goals}
+                              </td>
+                              <td style={{fontSize: '16px'}}>
+                                {topScorer.matchs}
+                              </td>
                               <td>
                                 <EditBtnTopScorer identify={topScorer.id} topScorerData={topScorer} />
                                 <DeleteBtn title="topScorer" delete={() => this.deleteTop(topScorer.id)} />

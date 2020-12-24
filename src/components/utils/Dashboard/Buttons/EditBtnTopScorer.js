@@ -45,6 +45,7 @@ export class EditBtnTopScorer extends Component {
         value: topScorerData.team.id
       },
       player_id: topScorerData.player_id,
+      team_id: topScorerData.team_id,
       goals: topScorerData.goals,
       matchs: topScorerData.matchs
     });

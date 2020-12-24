@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { MDBRow, MDBCol } from 'mdbreact';
+import { MDBRow, MDBCol, MDBTable, MDBTableBody } from 'mdbreact';
 import { connect } from 'react-redux';
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import ClipLoader from 'react-spinners/ClipLoader';
@@ -12,7 +12,7 @@ import {
   BACKEND_URL_IMAGE
 } from '../../../redux/helpers/backendURLs';
 import { getAllPosts, getHeaderPosts, getTrendingPosts } from '../../../redux/actions/posts';
-import { getAllPlayers } from '../../../redux/actions/players';
+import { getAllTopScorers } from '../../../redux/actions/topScorers';
 import Navbar from '../../utils/navbar/Navbar';
 // import GlobalStyle from '../../../styles/Global';
 import Title from '../../utils/Title';
@@ -31,7 +31,7 @@ export class Home extends Component {
 
   componentDidMount() {
     // eslint-disable-next-line no-unused-vars
-    const { history, getAllPosts, getHeaderPosts, getTrendingPosts, getAllPlayers } = this.props;
+    const { history, getAllPosts, getHeaderPosts, getTrendingPosts, getAllTopScorers } = this.props;
     // const { token } = localStorage;
     // if (!token) {
     //   history.push('/');
@@ -39,7 +39,7 @@ export class Home extends Component {
     getAllPosts();
     getHeaderPosts();
     getTrendingPosts();
-    getAllPlayers(1, 1000);
+    getAllTopScorers(1, 1000);
   }
 
   handleNavbar = () => {
@@ -66,7 +66,7 @@ export class Home extends Component {
       listOfPosts,
       listOfHeader,
       listOfTrending,
-      listOfPlayers,
+      listOfTopScorers,
       Next,
       Previous,
       loading,
@@ -75,7 +75,7 @@ export class Home extends Component {
       getTrending
     } = this.props;
 
-    console.log(listOfPlayers, "Players");
+    console.log(listOfTopScorers, "TopScorers");
 
     const imgs = listOfHeader && listOfHeader.map(post => {
       return {
@@ -217,7 +217,58 @@ export class Home extends Component {
               </MDBRow>
               <MDBRow>
                 <MDBCol md="12">
-                  Scorers
+                  <MDBTable hover>
+                    <MDBTableBody>
+                  {listOfTopScorers && listOfTopScorers.map((topScorer, index) =>
+                        <tr key={index}>
+                          <td style={{
+                            padding: '20px'
+                          }}>
+                            <h5 className="card-title">{index + 1}</h5>
+                          </td>
+                          <td>
+                            <span>
+                              <img className='img-responsive' src={`${BACKEND_URL_IMAGE}/players/${topScorer.player.image}`} />
+                              <span> {topScorer.player.name}</span>
+                            </span>
+                          </td>
+                          <td>
+                            <span>
+                              <img className='img-responsive' style={{width: '40px'}} src={`${BACKEND_URL_IMAGE}/teams/${topScorer.team.image}`} />
+                              <span> {topScorer.team.name}</span>
+                            </span>
+                          </td>
+                          <td style={{
+                            padding: '25px'
+                          }}>
+                            <span>
+                              Goals: {topScorer.goals}
+                            </span>
+                          </td>
+                          <td style={{
+                            padding: '25px'
+                          }}>
+                            <span>
+                              Matchs: {topScorer.matchs}
+                            </span>
+                          </td>
+                        </tr>
+                    // <div className="card" key={index}>
+                    //   <div className="card-body text-center">
+                    //     <span><img style={{
+                    //       width: "150px",
+                    //       height: "200px"
+                    //     }} className='img-responsive' src={`${BACKEND_URL_IMAGE}/players/${topScorer.player.image}`} /></span>
+                    //     <h5 className="card-title">{index + 1} {topScorer.player.name}</h5>
+                    //     <span><img className='img-responsive' src={`${BACKEND_URL_IMAGE}/teams/${topScorer.team.image}`} /></span>
+                    //     <h5 className="card-title">{index + 1} {topScorer.team.name}</h5>
+                    //     <h6 className="card-subtitle mb-2 text-muted">Goals: {topScorer.goals}</h6>
+                    //     <h6 className="card-subtitle mb-2 text-muted">Matchs: {topScorer.matchs}</h6>
+                    //   </div>
+                    // </div>
+                  )}
+                    </MDBTableBody>
+                  </MDBTable>
                 </MDBCol>
               </MDBRow>
               {/* <MDBRow>
@@ -227,7 +278,7 @@ export class Home extends Component {
               </MDBRow>
               <MDBRow>
                 <MDBCol md="12">
-                  {listOfPlayers && listOfPlayers.sort((a, b) =>  a - b).map(player => player && player.goals ? player.goals.length : null)}
+                  {listOfTopScorers && listOfTopScorers.sort((a, b) =>  a - b).map(player => player && player.goals ? player.goals.length : null)}
                 </MDBCol>
               </MDBRow> */}
             </Col>
@@ -239,7 +290,7 @@ export class Home extends Component {
   }
 }
 
-const mapStateToProps = ({ posts, players }) => ({
+const mapStateToProps = ({ posts, topScorers }) => ({
   Next: posts.Next,
   Previous: posts.Previous,
   errors: posts.errors,
@@ -250,15 +301,15 @@ const mapStateToProps = ({ posts, players }) => ({
   getTrending: posts.getTrending,
   getHeader: posts.getHeader,
   getPosts: posts.getPosts,
-  listOfPlayers: players.listOfPlayers,
-  getPlayers: players.getPlayers
+  listOfTopScorers: topScorers.listOfTopScorers,
+  getTopScorers: topScorers.getTopScorers
 });
 
 const mapDispatchToProps = (dispatch) => ({
   getAllPosts: (page, limit) => dispatch(getAllPosts(page, limit)),
   getHeaderPosts: (page, limit) => dispatch(getHeaderPosts(page, limit)),
   getTrendingPosts: () => dispatch(getTrendingPosts()),
-  getAllPlayers: (page, limit) => dispatch(getAllPlayers(page, limit))
+  getAllTopScorers: (page, limit) => dispatch(getAllTopScorers(page, limit))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
