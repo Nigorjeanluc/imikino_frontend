@@ -307,7 +307,7 @@ export class SinglePost extends Component {
                                   size="lg"
                                   style={{width: '100%', marginBottom: '20px'}}
                                   type="submit"
-                                  color="dark-green"
+                                  color="deep-purple"
                                 >
                                   Ohereza ubutumwa bwawe
                                 </MDBBtn>
