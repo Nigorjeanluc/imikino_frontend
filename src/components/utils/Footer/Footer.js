@@ -30,7 +30,8 @@ const FooterPage = () => (
       <div className="footer-copyright text-center py-3 copyright-bottom">
         <MDBContainer fluid>
           &copy; {new Date().getFullYear()} Copyright: <a href="https://imikino.rw"> imikino.rw </a>
-           All Rights reserved. Developped by <a href="/">Igor J.L. Ndiramiye</a>
+           All Rights reserved. 
+           {/* Developped by <a href="/">Igor J.L. Ndiramiye</a> */}
         </MDBContainer>
       </div>
     </MDBFooter>
