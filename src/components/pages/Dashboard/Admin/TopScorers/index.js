@@ -26,6 +26,7 @@ import Dashboard from '../index';
 import BreadcrumSection from '../../../../utils/Sections/BreadcrumSection';
 import { getAllTopScorers } from '../../../../../redux/actions/topScorers';
 import { getAllPlayers } from '../../../../../redux/actions/players';
+import { getAllTeams } from '../../../../../redux/actions/teams';
 import {
   createTopScorer,
   editTopScorer,
@@ -33,12 +34,13 @@ import {
 } from '../../../../../redux/actions/topScorer';
 import Pagination from '../../../../utils/Pagination';
 import DeleteBtn from '../../../../utils/Dashboard/Buttons/DeleteBtn';
-// import EditBtnTopScorer from '../../../../utils/Dashboard/Buttons/EditBtn';
+import EditBtnTopScorer from '../../../../utils/Dashboard/Buttons/EditBtnTopScorer';
 
 class TopScoresPage extends Component {
   state = {
     name: '',
     player_id: 0,
+    team_id: 0,
     goals: 0,
     matchs: 0,
     socket: openSocket(HEROKU_URL)
@@ -47,10 +49,12 @@ class TopScoresPage extends Component {
   componentDidMount() {
     const {
       getAllTopScorers,
-      getAllPlayers
+      getAllPlayers,
+      getAllTeams
     } = this.props;
     getAllTopScorers(1, 10);
     getAllPlayers(1, 2000);
+    getAllTeams(1, 2000);
 
     const { socket } = this.state;
     socket.on('refreshTopScorer', (data) => {
@@ -60,13 +64,13 @@ class TopScoresPage extends Component {
 
   handleGoals = (event) => {
     this.setState({
-      goals: event.value.target
+      goals: event.target.value
     })
   }
 
   handleMatchs = (event) => {
     this.setState({
-      matchs: event.value.target
+      matchs: event.target.value
     })
   }
 
@@ -76,15 +80,23 @@ class TopScoresPage extends Component {
     })
   }
 
+  handleTeam = (event) => {
+    this.setState({
+      team_id: event.value
+    })
+  }
+
   handleSubmit = (event) => {
     const { createTopScorer } = this.props;
     const {
       player_id,
+      team_id,
       matchs,
       goals
     } = this.state;
     createTopScorer({
       player_id,
+      team_id,
       matchs,
       goals
     });
@@ -114,6 +126,7 @@ class TopScoresPage extends Component {
     const {
       listOfTopScorers,
       listOfPlayers,
+      listOfTeams,
       getTopScorer,
       Next,
       Previous
@@ -132,6 +145,11 @@ class TopScoresPage extends Component {
     const seletablePlayer = listOfPlayers && listOfPlayers.map(player => ({
       value: player.id,
       label: player.name
+    }));
+
+    const seletableTeam = listOfTeams && listOfTeams.map(team => ({
+      value: team.id,
+      label: team.name
     }));
 
     return (
@@ -176,7 +194,7 @@ class TopScoresPage extends Component {
                               <td style={{fontSize: '16px'}}>{topScorer.player.name}</td>
                               <td style={{fontSize: '16px'}}>{moment(topScorer.updated_at).startOf('hour').fromNow()}</td>
                               <td>
-                                {/* <EditBtnTopScorer identify={topScorer.id} topScorerData={topScorer} /> */}
+                                <EditBtnTopScorer identify={topScorer.id} topScorerData={topScorer} />
                                 <DeleteBtn title="topScorer" delete={() => this.deleteTop(topScorer.id)} />
                               </td>
                             </tr>
@@ -208,6 +226,18 @@ class TopScoresPage extends Component {
                       name="color"
                       options={seletablePlayer}
                     />
+                    <label>Select Team</label>
+                    <Select
+                      className="basic-single"
+                      classNamePrefix="select"
+                      isDisabled={false}
+                      isClearable={false}
+                      isRtl={false}
+                      isSearchable={true}
+                      onChange={this.handleTeam}
+                      name="color"
+                      options={seletableTeam}
+                    />
                     <label>Number of Goals</label>
                     <input
                       type="number"
@@ -234,7 +264,7 @@ class TopScoresPage extends Component {
   }
 }
 
-const mapStateToProps = ({ topScorers, topScorer, players }) => ({
+const mapStateToProps = ({ topScorers, topScorer, players, teams }) => ({
   Next: topScorers.Next,
   Previous: topScorers.Previous,
   errors: topScorers.errors,
@@ -243,6 +273,8 @@ const mapStateToProps = ({ topScorers, topScorer, players }) => ({
   getTopScorers: topScorers.getTopScorers,
   listOfPlayers: players.listOfPlayers,
   getPlayers: players.getPlayers,
+  listOfTeams: teams.listOfTeams,
+  getTeams: teams.getTeams,
   topScorer: topScorer.topScorer,
   getTopScorer: topScorer.getTopScorer
 });
@@ -250,6 +282,7 @@ const mapStateToProps = ({ topScorers, topScorer, players }) => ({
 const mapDispatchToProps = (dispatch) => ({
   getAllTopScorers: (page, limit) => dispatch(getAllTopScorers(page, limit)),
   getAllPlayers: (page, limit) => dispatch(getAllPlayers(page, limit)),
+  getAllTeams: (page, limit) => dispatch(getAllTeams(page, limit)),
   createTopScorer: (name) => dispatch(createTopScorer(name)),
   editTopScorer: (id, data) => dispatch(editTopScorer(id, data)),
   deleteTopScorer: (id) => dispatch(deleteTopScorer(id)),
