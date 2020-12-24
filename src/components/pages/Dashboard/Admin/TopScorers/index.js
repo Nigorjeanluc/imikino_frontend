@@ -260,7 +260,7 @@ class TopScoresPage extends Component {
                       onChange={this.handleGoals}
                       value={this.state.goals}
                     />
-                    <label>Number of Matchs</label>
+                    <label>Number of Matches</label>
                     <input
                       type="number"
                       className="form-control"

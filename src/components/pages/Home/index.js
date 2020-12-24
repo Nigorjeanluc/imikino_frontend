@@ -212,7 +212,7 @@ export class Home extends Component {
               </MDBRow>
               <MDBRow>
                 <MDBCol>
-                  <Title text="TOP SCORER" />
+                  <Title text="TOP SCORERS" />
                 </MDBCol>
               </MDBRow>
               <MDBRow>
@@ -242,14 +242,14 @@ export class Home extends Component {
                             padding: '25px'
                           }}>
                             <span>
-                              Goals: {topScorer.goals}
+                              Ibitego: {topScorer.goals}
                             </span>
                           </td>
                           <td style={{
                             padding: '25px'
                           }}>
                             <span>
-                              Matchs: {topScorer.matchs}
+                              IImikino: {topScorer.matchs}
                             </span>
                           </td>
                         </tr>
