@@ -20,7 +20,7 @@ const VideosPanel = () => {
   }));
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllVideos(1, 10));
+    dispatch(getAllVideos(1, 2));
   }, [dispatch]);
 
   return (
@@ -28,7 +28,7 @@ const VideosPanel = () => {
       <MDBCol size="12"><Title text="Videos" /></MDBCol>
       {
         videoData && videoData.listOfVideos ? videoData.listOfVideos.length > 0 && videoData.listOfVideos.map(video => (
-        <MDBCol md="6" className="vid-wrapper">
+        <MDBCol key={video.id} md="6" className="vid-wrapper">
           <ReactPlayer
             className="vid-frame"
             url={video.video_link}
