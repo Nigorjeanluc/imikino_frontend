@@ -27,10 +27,10 @@ import {
 
 import Dashboard from '../index';
 import BreadcrumSection from '../../../../utils/Sections/BreadcrumSection';
-import { getAuthorPosts } from '../../../../../redux/actions/posts';
-import { fetchPost, deletePost, createPost, editPost } from '../../../../../redux/actions/post';
+import { getUnapprovedPosts } from '../../../../../redux/actions/posts';
+import { fetchPost, approvePost, createPost, editPost } from '../../../../../redux/actions/post';
 import Pagination from '../../../../utils/Pagination';
-import DeleteBtn from '../../../../utils/Dashboard/Buttons/DeleteBtn';
+import ApproveBtn from '../../../../utils/Dashboard/Buttons/ApproveBtn';
 import EditBtnLeague from '../../../../utils/Dashboard/Buttons/EditBtnLeague';
 
 class PostsPage extends Component {
@@ -45,14 +45,14 @@ class PostsPage extends Component {
 
   componentDidMount() {
     const {
-      getAuthorPosts
+      getUnapprovedPosts
     } = this.props;
-    getAuthorPosts(1, 10);
+    getUnapprovedPosts(1, 10);
 
     const { socket } = this.state;
     socket.on('refreshPost', (data) => {
       console.log('Yes III');
-      getAuthorPosts(1, 10);
+      getUnapprovedPosts(1, 10);
     });
   }
 
@@ -90,27 +90,27 @@ class PostsPage extends Component {
   }
 
   nextPagination = (e) => {
-    const { getAuthorPosts, Next } = this.props;
+    const { getUnapprovedPosts, Next } = this.props;
     if(e) {
-      getAuthorPosts(Next.page, 10);
+      getUnapprovedPosts(Next.page, 10);
     }
   };
 
   prevPagination = (e) => {
-    const { getAuthorPosts, Previous } = this.props;
+    const { getUnapprovedPosts, Previous } = this.props;
     if(e) {
-      getAuthorPosts(Previous.page, 10);
+      getUnapprovedPosts(Previous.page, 10);
     };
   }
 
-  deletePos = (id) => {
-    const { deletePost } = this.props;
-    deletePost(id);
+  approvePos = (slug) => {
+    const { approvePost } = this.props;
+    approvePost(slug);
   }
 
   render() {
     const {
-      listOfPosts,
+      listOfUnapproved,
       Next,
       Previous,
       getPost
@@ -128,13 +128,23 @@ class PostsPage extends Component {
 
     return (
       <Dashboard {...this.props}>
-        <BreadcrumSection pageTitle="All Posts" />
+        <BreadcrumSection pageTitle="All Unapproved Posts" />
         <MDBRow>
           <MDBCol md="12">
-            <Link to="/reporter/posts/addpost">
-              <MDBBtn color="amber" size="lg">Add a new Post</MDBBtn>
-            </Link>
-            <hr />
+            {
+              getPost && getPost.errors !== '' ? (
+                <div className="alert alert-danger" role="alert">
+                  <strong>{`${getPost.errors}`}</strong>
+                </div>
+              ) : null
+            }
+            {
+              getPost && getPost.message ? (
+                <div className="alert alert-success" role="alert">
+                  <strong>{`${getPost.message}`}</strong>
+                </div>
+              ) : null
+            }
           </MDBCol>
         </MDBRow>
         <MDBRow className="mb-4">
@@ -147,14 +157,13 @@ class PostsPage extends Component {
                           <th>#</th>
                           <th>Image</th>
                           <th>Title</th>
-                          <th>Status</th>
                           <th>Updated</th>
                           <th>Control</th>
                         </tr>
                       </MDBTableHead>
                       <MDBTableBody>
                         {
-                          listOfPosts && listOfPosts.map(post => (
+                          listOfUnapproved && listOfUnapproved.map(post => (
                             <tr key={post.id}>
                               <td style={{fontSize: '16px'}}>{post.id}</td>
                               <td style={{fontSize: '16px'}}>
@@ -163,19 +172,17 @@ class PostsPage extends Component {
                                 </span>
                               </td>
                               <td style={{fontSize: '16px'}}>
-                                {post.title}
-                              </td>
-                              <td style={{fontSize: '16px'}}>
-                                {post.approved ? <MDBBtn color="light-green">Approved</MDBBtn> : <MDBBtn color="red">Not Approved</MDBBtn>}
+                                <span>
+                                  <span>{post.title}</span>
+                                </span>
                               </td>
                               <td width='150px' style={{fontSize: '16px'}}>{moment(post.updated_at).startOf('hour').fromNow()}</td>
                               <td
                                 width='150px'
                               >
                                 <MDBRow className="text-center">
-                                  {/* <EditBtnLeague identify={post.id} {...this.props} /> */}
-                                  <DeleteBtn title="post" delete={() => this.deletePos(post.slug)} />
-                                  <Link to={`/reporter/posts/${post.slug}`}>
+                                  <ApproveBtn title={post.title} approve={() => this.approvePos(post.slug)} />
+                                  <Link to={`/admin/posts/${post.slug}`}>
                                     <MDBBtn
                                       color="success"
                                     >
@@ -254,17 +261,17 @@ const mapStateToProps = ({ posts, post }) => ({
   Previous: posts.Previous,
   errors: posts.errors,
   loading: posts.loading,
-  listOfPosts: posts.listOfPosts,
-  getPosts: posts.getPosts,
+  listOfUnapproved: posts.listOfUnapproved,
+  getUnapproved: posts.getUnapproved,
   post: post.post,
   getPost: post.getPost,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getAuthorPosts: (page, limit) => dispatch(getAuthorPosts(page, limit)),
+  getUnapprovedPosts: (page, limit) => dispatch(getUnapprovedPosts(page, limit)),
   createPost: (name, options) => dispatch(createPost(name, options)),
   editPost: (id, data) => dispatch(editPost(id, data)),
-  deletePost: (id) => dispatch(deletePost(id)),
+  approvePost: (id) => dispatch(approvePost(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostsPage);

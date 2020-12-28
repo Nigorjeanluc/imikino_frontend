@@ -5,6 +5,7 @@ const initState = {
   listOfHeader: [],
   listOfTrending: [],
   listOfTransfer: [],
+  listOfUnapproved: [],
   Next: {},
   Previous: {},
   errors: {},
@@ -24,6 +25,11 @@ const initState = {
     errors: {}
   },
   getTransfer: {
+    loading: false,
+    message: '',
+    errors: {}
+  },
+  getUnapproved: {
     loading: false,
     message: '',
     errors: {}

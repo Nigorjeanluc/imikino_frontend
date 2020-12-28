@@ -3,13 +3,13 @@ import post from '../../initialStates';
 
 export default (state = post, { type, payload }) => {
   switch (type) {
-    case postTypes.FETCH_POST_START:
+    case postTypes.DELETE_POST_START:
       return {
         ...state,
         loading: true,
         getPost: { ...state.getPost, message: '', loading: true, errors: {} }
       };
-    case postTypes.FETCH_POST_SUCCESS:
+    case postTypes.DELETE_POST_SUCCESS:
       return {
         ...state,
         post: {...payload.data},
@@ -21,12 +21,12 @@ export default (state = post, { type, payload }) => {
           errors: ''
         }
       };
-    case postTypes.FETCH_POST_END:
+    case postTypes.DELETE_POST_END:
       return {
         ...state,
         getPost: { ...state.getPost }
       };
-    case postTypes.FETCH_POST_FAILURE:
+    case postTypes.DELETE_POST_FAILURE:
       return {
         ...state,
         loading: false,

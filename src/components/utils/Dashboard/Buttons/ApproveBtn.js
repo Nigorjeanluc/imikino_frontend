@@ -8,7 +8,7 @@ import {
   MDBModalFooter
 } from 'mdbreact';
 
-export class DeleteBtn extends Component {
+export class ApproveBtn extends Component {
   state = {
     modal: false
   }
@@ -23,26 +23,21 @@ export class DeleteBtn extends Component {
     return (
     <>
       <MDBBtn
-        style={{
-          borderRadius: '50%',
-          paddingLeft: '10px',
-          paddingRight: '10px'
-        }}
         outline
-        color="danger"
+        color="light-blue"
         onClick={this.toggle}
         className="livescoreBtn"
       >
-        <MDBIcon size="2x" icon="trash"/>
+        <MDBIcon size="2x" icon="check"/>
       </MDBBtn>
       <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
-        <MDBModalHeader toggle={this.toggle}>Delete {this.props.title}</MDBModalHeader>
+        <MDBModalHeader toggle={this.toggle}>Approve this post</MDBModalHeader>
         <MDBModalBody className="text-center">
-          <h3>Do you really want to delete this {this.props.title}?</h3>
+          <h3>Do you really want to approve this post? <br/> <i><b>{this.props.title}</b></i></h3>
         </MDBModalBody>
         <MDBModalFooter>
           <MDBBtn color="danger" onClick={this.toggle}>Cancel</MDBBtn>
-          <MDBBtn color="info" onClick={this.props.delete}>Yes</MDBBtn>
+          <MDBBtn color="info" onClick={this.props.approve}>Yes</MDBBtn>
         </MDBModalFooter>
       </MDBModal>
     </>
@@ -50,4 +45,4 @@ export class DeleteBtn extends Component {
   }
 }
 
-export default DeleteBtn;
+export default ApproveBtn;

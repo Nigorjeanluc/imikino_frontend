@@ -130,13 +130,6 @@ export class SinglePost extends Component {
 
     const jsx = post && (
       <>
-      <HelmetMetaData
-        title={post.title}
-        quote={post.title}
-        image={`${BACKEND_URL_IMAGE}/news/${post.image}`}
-        description={post.body}
-        hashtag="imikino.rw"
-      ></HelmetMetaData>
                         <h2 className="main-title">{post.title}</h2>
                         <MDBCard className="img-card" reverse>
                           <MDBRow>
@@ -367,6 +360,15 @@ export class SinglePost extends Component {
     ));
     return (
       <>
+        {post && (
+          <HelmetMetaData
+            title={post.title}
+            quote={post.title}
+            image={`${BACKEND_URL_IMAGE}/news/${post.image}`}
+            description={post.body}
+            hashtag="imikino.rw"
+          ></HelmetMetaData>
+        )}
         <Container fluid>
           <Scroll showBelow={250} />
           <Navbar

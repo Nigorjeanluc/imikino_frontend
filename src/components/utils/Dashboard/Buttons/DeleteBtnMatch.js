@@ -30,7 +30,7 @@ export class DeleteBtnMatch extends Component {
         Delete Match
       </MDBBtn>
       <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
-        <MDBModalHeader toggle={this.toggle}>Delete Location</MDBModalHeader>
+        <MDBModalHeader toggle={this.toggle}>Delete {this.props.title}</MDBModalHeader>
         <MDBModalBody className="text-center">
           <h3>Do you really want to delete this {this.props.title}?</h3>
         </MDBModalBody>

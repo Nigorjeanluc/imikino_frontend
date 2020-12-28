@@ -64,6 +64,12 @@ const SideNavigation = () => {
                         Top Scorer
                     </MDBListGroupItem>
                 </NavLink>
+                <NavLink to="/admin/posts" activeClassName="activeClass">
+                    <MDBListGroupItem>
+                        <MDBIcon icon="futbol" className="mr-3"/>
+                        Approve Posts
+                    </MDBListGroupItem>
+                </NavLink>
             </MDBListGroup>
         </div>
     );
