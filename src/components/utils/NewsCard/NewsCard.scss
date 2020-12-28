@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Eczar:wght@600&display=swap');
 $information-phone: "only screen and (min-width : 768px)";
 
 .panel {
@@ -23,11 +23,10 @@ $information-phone: "only screen and (min-width : 768px)";
       }
       .titleCard {
         @media #{$information-phone} {
-          font-size: 14px;
+          font-size: 13px;
         }
-        font-size: 14px;
-        font-weight: 300;
-        font-family: 'Bangers', cursive;
+        font-size: 13px;
+        font-family: 'Eczar', serif;
         justify-content: left;
       }
     }
