@@ -102,7 +102,7 @@ export class SinglePost extends Component {
       email,
       phone,
       message
-    } =this.state;
+    } = this.state;
 
     createComment(match.params.slug, {
       name: amazina,
