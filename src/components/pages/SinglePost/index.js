@@ -151,7 +151,7 @@ export class SinglePost extends Component {
                                 <a href="#!">
                                   <strong> {post.author}</strong>
                                 </a>
-                                , {moment(post.updated_at).format('MMMM Do YYYY, h:mm a')}
+                                , {moment(post.updated_at).format('MMM Do YYYY, h:mm a')}
                               </p>
                               <ul className="icons-list">
                                 <li>
