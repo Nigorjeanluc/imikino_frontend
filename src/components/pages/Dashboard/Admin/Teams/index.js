@@ -166,7 +166,7 @@ class TeamsPage extends Component {
                               <td style={{fontSize: '16px'}}>
                                 <img className='img-responsive' src={`${BACKEND_URL_IMAGE}/teams/${team.image}`}  alt="teamImg"/> {team.name}
                               </td>
-                              <td style={{fontSize: '16px'}}>{moment(team.updated_at).startOf('hour').fromNow()}</td>
+                              <td style={{fontSize: '16px'}}>{moment(team.updated_at).fromNow()}</td>
                               <td>
                                 <EditBtnTeam identify={team.id} teamData={team} {...this.props} />
                                 <DeleteBtn title="team" delete={() => this.deleteLeag(team.id)} />

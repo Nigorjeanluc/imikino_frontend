@@ -125,6 +125,96 @@ const AdminCardSection1 = (props) => {
             </MDBCard>
           </Link>
         </MDBCol>
+        <MDBCol xl="3" md="6" className="mb-r">
+          <Link to="/admin/videos">
+            <MDBCard className="cascading-admin-card">
+              <div className="admin-up">
+              <MDBIcon icon="photo-video" className="blue accent-2"/>
+                <div className="data">
+                  <p>VIDEOS</p>
+                  <h4>
+                    <strong>{countVideos}</strong>
+                  </h4>
+                </div>
+              </div>
+              <MDBCardBody>
+                <div className="progress">
+                  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="25" className="progress-bar bg-primary" role="progressbar"
+                    style={{width: '100%'}}></div>
+                </div>
+                {/* <MDBCardText>Better than last week (25%)</MDBCardText> */}
+              </MDBCardBody>
+            </MDBCard>
+          </Link>
+        </MDBCol>
+        <MDBCol xl="3" md="6" className="mb-r">
+          <Link to="/admin/reporters">
+            <MDBCard className="cascading-admin-card">
+              <div className="admin-up">
+              <MDBIcon icon="address-card" className="blue accent-2"/>
+                <div className="data">
+                  <p>REPORTERS</p>
+                  <h4>
+                    <strong>{countReporters}</strong>
+                  </h4>
+                </div>
+              </div>
+              <MDBCardBody>
+                <div className="progress">
+                  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="25" className="progress-bar bg-primary" role="progressbar"
+                    style={{width: '100%'}}></div>
+                </div>
+                {/* <MDBCardText>Better than last week (25%)</MDBCardText> */}
+              </MDBCardBody>
+            </MDBCard>
+          </Link>
+        </MDBCol>
+        <MDBCol xl="3" md="6" className="mb-r">
+          <Link to="/admin/top_scorers">
+            <MDBCard className="cascading-admin-card">
+              <div className="admin-up">
+              <MDBIcon icon="futbol" className="blue accent-2"/>
+                <div className="data">
+                  <p>TOP SCORERS</p>
+                  <h4>
+                    <strong>{countTopScorers}</strong>
+                  </h4>
+                </div>
+              </div>
+              <MDBCardBody>
+                <div className="progress">
+                  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="25" className="progress-bar bg-primary" role="progressbar"
+                    style={{width: '100%'}}></div>
+                </div>
+                {/* <MDBCardText>Better than last week (25%)</MDBCardText> */}
+              </MDBCardBody>
+            </MDBCard>
+          </Link>
+        </MDBCol>
+      </MDBRow>
+      <MDBRow style={{paddingTop: '20px'}}>
+        <MDBCol xl="3" md="6" className="mb-r">
+          <Link to="/admin/top_scorers">
+            <MDBCard className="cascading-admin-card">
+              <div className="admin-up">
+              <MDBIcon icon="futbol" className="blue accent-2"/>
+                <div className="data">
+                  <p>APPROVE POSTS</p>
+                  <h4>
+                    <strong>{countUnpproved}</strong>
+                  </h4>
+                </div>
+              </div>
+              <MDBCardBody>
+                <div className="progress">
+                  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="25" className="progress-bar bg-primary" role="progressbar"
+                    style={{width: '100%'}}></div>
+                </div>
+                {/* <MDBCardText>Better than last week (25%)</MDBCardText> */}
+              </MDBCardBody>
+            </MDBCard>
+          </Link>
+        </MDBCol>
       </MDBRow>
     </>
   )

@@ -151,7 +151,7 @@ class VideosPage extends Component {
                                   />
                                 </div>
                               </td>
-                              <td style={{fontSize: '16px'}}>{moment(video.updated_at).startOf('hour').fromNow()}</td>
+                              <td style={{fontSize: '16px'}}>{moment(video.updated_at).fromNow()}</td>
                               <td>
                                 {/* <EditBtnVideo identify={video.id} videoData={video} /> */}
                                 <DeleteBtn title="video" delete={() => this.deleteLoc(video.id)} />

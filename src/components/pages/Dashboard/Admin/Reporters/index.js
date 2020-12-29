@@ -174,7 +174,7 @@ class UsersPage extends Component {
                               <td>{reporter.name}</td>
                               <td>{reporter.email}</td>
                               <td>{reporter.role}</td>
-                              <td>{moment(reporter.updated_at).startOf('hour').fromNow()}</td>
+                              <td>{moment(reporter.updated_at).fromNow()}</td>
                               <td>
                                 {/* <EditBtnUser identify={reporter.id} reporterData={reporter} /> */}
                                 <DeleteBtn title="reporter" delete={() => this.deleteLoc(reporter.id)} />

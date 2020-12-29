@@ -180,7 +180,7 @@ class PlayersPage extends Component {
                                 <img className='img-responsive' src={`${BACKEND_URL_IMAGE}/players/${player.image}`}  alt="playerImg"/> {player.name}
                               </td>
                               <td style={{fontSize: '16px'}}>{player.team.name}</td>
-                              <td style={{fontSize: '16px'}}>{moment(player.updated_at).startOf('hour').fromNow()}</td>
+                              <td style={{fontSize: '16px'}}>{moment(player.updated_at).fromNow()}</td>
                               <td>
                                 <EditBtnPlayer identify={player.id} playerData={player} {...this.props} />
                                 <DeleteBtn title="player" delete={() => this.deletePlay(player.id)} />

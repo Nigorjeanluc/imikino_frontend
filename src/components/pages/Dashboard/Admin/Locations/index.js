@@ -138,7 +138,7 @@ class LocationsPage extends Component {
                             <tr key={location.id}>
                               <td style={{fontSize: '16px'}}>{location.id}</td>
                               <td style={{fontSize: '16px'}}>{location.name}</td>
-                              <td style={{fontSize: '16px'}}>{moment(location.updated_at).startOf('hour').fromNow()}</td>
+                              <td style={{fontSize: '16px'}}>{moment(location.updated_at).fromNow()}</td>
                               <td>
                                 <EditBtnLocation identify={location.id} locationData={location} />
                                 <DeleteBtn title="location" delete={() => this.deleteLoc(location.id)} />

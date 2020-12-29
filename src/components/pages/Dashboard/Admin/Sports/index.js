@@ -134,7 +134,7 @@ class SportsPage extends Component {
                             <tr key={sport.id}>
                               <td style={{fontSize: '16px'}}>{sport.id}</td>
                               <td style={{fontSize: '16px'}}>{sport.name}</td>
-                              <td style={{fontSize: '16px'}}>{moment(sport.updated_at).startOf('hour').fromNow()}</td>
+                              <td style={{fontSize: '16px'}}>{moment(sport.updated_at).fromNow()}</td>
                               <td>
                                 <EditBtnSport identify={sport.id} sportData={sport} />
                                 <DeleteBtn title="sport" delete={() => this.deleteSpo(sport.id)} />

@@ -176,7 +176,7 @@ class PostsPage extends Component {
                                   <span>{post.title}</span>
                                 </span>
                               </td>
-                              <td width='150px' style={{fontSize: '16px'}}>{moment(post.updated_at).startOf('hour').fromNow()}</td>
+                              <td width='150px' style={{fontSize: '16px'}}>{moment(post.updated_at).fromNow()}</td>
                               <td
                                 width='150px'
                               >

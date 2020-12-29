@@ -223,7 +223,7 @@ class TablesPage extends Component {
                               <td style={{fontSize: '16px'}}>{table.GA}</td>
                               <td style={{fontSize: '16px'}}>{table.GD}</td>
                               <td style={{fontSize: '16px'}}>{table.PTS}</td>
-                              <td style={{fontSize: '16px'}}>{moment(table.updated_at).startOf('hour').fromNow()}</td>
+                              <td style={{fontSize: '16px'}}>{moment(table.updated_at).fromNow()}</td>
                               <td>
                                 <EditBtnTable identify={table.id} tableData={table} {...this.props} />
                                 <DeleteBtn title="table" delete={() => this.deleteLeag(table.id)} />

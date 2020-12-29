@@ -168,7 +168,7 @@ class PostsPage extends Component {
                               <td style={{fontSize: '16px'}}>
                                 {post.approved ? <MDBBtn color="light-green">Approved</MDBBtn> : <MDBBtn color="red">Not Approved</MDBBtn>}
                               </td>
-                              <td width='150px' style={{fontSize: '16px'}}>{moment(post.updated_at).startOf('hour').fromNow()}</td>
+                              <td width='150px' style={{fontSize: '16px'}}>{moment(post.updated_at).fromNow()}</td>
                               <td
                                 width='150px'
                               >

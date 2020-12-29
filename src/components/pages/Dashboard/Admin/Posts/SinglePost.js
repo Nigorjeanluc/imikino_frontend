@@ -75,7 +75,7 @@ class Frontpage2 extends Component {
                                 <a href="#!">
                                   <strong> {post.author}</strong>
                                 </a>
-                                , {moment(post.updated_at).startOf('hour').fromNow()}
+                                , {moment(post.updated_at).fromNow()}
                               </p>
                               {/* <ul className="icons-list">
                                 <li>

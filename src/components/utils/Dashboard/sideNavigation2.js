@@ -18,7 +18,7 @@ const SideNavigation = () => {
                 </NavLink>
                 <NavLink to="/reporter/posts" activeClassName="activeClass">
                     <MDBListGroupItem>
-                        <MDBIcon icon="trophy" className="mr-3"/>
+                        <MDBIcon icon="newspaper" className="mr-3"/>
                         Posts
                     </MDBListGroupItem>
                 </NavLink>

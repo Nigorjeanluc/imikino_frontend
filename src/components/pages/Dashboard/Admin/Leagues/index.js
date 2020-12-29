@@ -167,7 +167,7 @@ class LeaguesPage extends Component {
                               <td style={{fontSize: '16px'}}>
                                 <img className='img-responsive' src={`${BACKEND_URL_IMAGE}/leagues/${league.image}`}  alt="leagueImg"/> {league.name}
                               </td>
-                              <td style={{fontSize: '16px'}}>{moment(league.updated_at).startOf('hour').fromNow()}</td>
+                              <td style={{fontSize: '16px'}}>{moment(league.updated_at).fromNow()}</td>
                               <td>
                                 <EditBtnLeague identify={league.id} leagueData={league} {...this.props} />
                                 <DeleteBtn title="league" delete={() => this.deleteLeag(league.id)} />
