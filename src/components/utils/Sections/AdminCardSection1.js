@@ -8,7 +8,11 @@ const AdminCardSection1 = (props) => {
     countLocations,
     countTeams,
     countPlayers,
-    countSports
+    countSports,
+    countVideos,
+    countReporters,
+    countTopScorers,
+    countUnpproved
   } = props;
   return (
   <>
