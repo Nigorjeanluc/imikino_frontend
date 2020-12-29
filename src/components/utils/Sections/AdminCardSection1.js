@@ -12,7 +12,7 @@ const AdminCardSection1 = (props) => {
     countVideos,
     countReporters,
     countTopScorers,
-    countUnpproved
+    countUnapproved
   } = props;
   return (
   <>
@@ -205,7 +205,7 @@ const AdminCardSection1 = (props) => {
                 <div className="data">
                   <p>APPROVE POSTS</p>
                   <h4>
-                    <strong>{countUnpproved}</strong>
+                    <strong>{countUnapproved}</strong>
                   </h4>
                 </div>
               </div>
