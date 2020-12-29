@@ -198,10 +198,10 @@ const AdminCardSection1 = (props) => {
       </MDBRow>
       <MDBRow style={{paddingTop: '20px'}}>
         <MDBCol xl="3" md="6" className="mb-r">
-          <Link to="/admin/top_scorers">
+          <Link to="/admin/posts">
             <MDBCard className="cascading-admin-card">
               <div className="admin-up">
-              <MDBIcon icon="futbol" className="blue accent-2"/>
+              <MDBIcon icon="newspaper" className="blue accent-2"/>
                 <div className="data">
                   <p>APPROVE POSTS</p>
                   <h4>
