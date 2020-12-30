@@ -106,7 +106,7 @@ const AdminCardSection1 = (props) => {
           </Link>
         </MDBCol>
       </MDBRow>
-      <MDBRow style={{paddingTop: '20px'}}>
+      <MDBRow className="mb-4" style={{paddingTop: '20px'}}>
         <MDBCol xl="3" md="6" className="mb-r">
           <Link to="/admin/locations">
             <MDBCard className="cascading-admin-card">

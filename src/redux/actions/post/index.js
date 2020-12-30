@@ -1,7 +1,16 @@
 import getSingle from './fetchPostActions';
-import { createPost } from './createPostActions';
-import { deletePost } from './deletePostActions';
-import { editPost } from './editPostActions';
+import { createPost, createPostAdmin } from './createPostActions';
+import { deletePost, deletePostAdmin } from './deletePostActions';
+import { editPost, editPostAdmin } from './editPostActions';
 import approvePost from './approvePostActions';
 
-export { getSingle, createPost, deletePost, editPost, approvePost };
+export {
+  getSingle,
+  createPost,
+  createPostAdmin,
+  deletePost,
+  deletePostAdmin,
+  editPost,
+  editPostAdmin,
+  approvePost
+};

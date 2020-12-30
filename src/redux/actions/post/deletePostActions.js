@@ -19,3 +19,20 @@ export const deletePost = (slug) => (dispatch) => {
     onFailure: postTypes.DELETE_POST_FAILURE
   }));
 };
+
+export const deletePostAdmin = (slug) => (dispatch) => {
+  const connectIO = openSocket(HEROKU_URL);
+  connectIO.emit('createPost');
+  return dispatch(apiAction({
+    method: 'delete',
+    httpOptions: {
+      token: localStorage.token,
+      header: 'multipart/form-data'
+    },
+    url: `${BASIC_URL}/admin/posts/${slug}`,
+    onStart: postTypes.DELETE_POST_START,
+    onEnd: postTypes.DELETE_POST_END,
+    onSuccess: postTypes.DELETE_POST_SUCCESS,
+    onFailure: postTypes.DELETE_POST_FAILURE
+  }));
+};

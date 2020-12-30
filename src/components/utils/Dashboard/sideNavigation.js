@@ -70,6 +70,12 @@ const SideNavigation = () => {
                         Approve Posts
                     </MDBListGroupItem>
                 </NavLink>
+                <NavLink to="/admin/editor/posts" activeClassName="activeClass">
+                    <MDBListGroupItem>
+                        <MDBIcon icon="newspaper" className="mr-3"/>
+                        Posts
+                    </MDBListGroupItem>
+                </NavLink>
             </MDBListGroup>
         </div>
     );

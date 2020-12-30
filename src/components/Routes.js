@@ -15,6 +15,9 @@ import Frontpage2 from './pages/Dashboard/Reporter/Frontpage';
 import Livescores from './pages/Dashboard/Reporter/Livescores';
 import Posts from './pages/Dashboard/Reporter/Posts';
 import AdminPosts from './pages/Dashboard/Admin/Posts';
+import AdminEditorPosts from './pages/Dashboard/Admin/AdminPosts';
+import AdminAddPost from './pages/Dashboard/Admin/AdminPosts/addPost';
+import AdminEditorSinglePost from './pages/Dashboard/Admin/AdminPosts/EditSinglePost';
 import AdminSinglePost from './pages/Dashboard/Admin/Posts/SinglePost';
 import AddPost from './pages/Dashboard/Reporter/Posts/addPost';
 import ReporterSinglePost from './pages/Dashboard/Reporter/SinglePost';
@@ -45,6 +48,9 @@ function Routes() {
         <Route exact path="/admin/videos" component={VideosPage} />
         <Route exact path="/admin/reporters" component={ReportersPage} />
         <Route exact path="/admin/posts" component={AdminPosts} />
+        <Route exact path="/admin/editor/posts" component={AdminEditorPosts} />
+        <Route exact path="/admin/editor/posts/addpost" component={AdminAddPost} />
+        <Route exact path="/admin/editor/posts/:slug" component={AdminEditorSinglePost} />
         <Route exact path="/admin/top_scorers" component={TopScorersPage} />
         <Route exact path="/admin/tables/:league_id" component={TablesPage} />
         <Route exact path="/admin/posts/:slug" component={AdminSinglePost} />

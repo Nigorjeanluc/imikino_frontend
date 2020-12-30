@@ -21,3 +21,22 @@ export const createPost = (data, options) => (dispatch) => {
     onFailure: postTypes.CREATE_POST_FAILURE
   }));
 };
+
+export const createPostAdmin = (data, options) => (dispatch) => {
+  const connectIO = openSocket(HEROKU_URL);
+  connectIO.emit('createPost');
+  return dispatch(apiAction({
+    method: 'post',
+    data,
+    httpOptions: {
+      token: localStorage.token,
+      header: 'multipart/form-data',
+      options
+    },
+    url: `${BASIC_URL}/admin/posts`,
+    onStart: postTypes.CREATE_POST_START,
+    onEnd: postTypes.CREATE_POST_END,
+    onSuccess: postTypes.CREATE_POST_SUCCESS,
+    onFailure: postTypes.CREATE_POST_FAILURE
+  }));
+};
