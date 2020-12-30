@@ -237,7 +237,7 @@ class AddPost extends Component {
         <MDBRow>
           <MDBCol md="12">
             {
-              getPost && getPost.errors !== '' ? (
+              getPost && getPost.errors ? (
                 <div className="alert alert-danger" role="alert">
                   <strong>{`${getPost.error}`}</strong>
                 </div>

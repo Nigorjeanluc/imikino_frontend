@@ -131,7 +131,7 @@ class PostsPage extends Component {
         <BreadcrumSection pageTitle="All Posts" />
         <MDBRow>
           <MDBCol md="12">
-            <Link to="/reporter/posts/addpost">
+            <Link to="/admin/editor/posts/addpost">
               <MDBBtn color="amber" size="lg">Add a new Post</MDBBtn>
             </Link>
             <hr />
