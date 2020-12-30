@@ -53,7 +53,7 @@ function Routes() {
         <Route exact path="/admin/editor/posts/:slug" component={AdminEditorSinglePost} />
         <Route exact path="/admin/top_scorers" component={TopScorersPage} />
         <Route exact path="/admin/tables/:league_id" component={TablesPage} />
-        <Route exact path="/admin/posts/:slug" component={AdminSinglePost} />
+        <Route exact path="/admin/posts/:slug" component={AdminEditorSinglePost} />
 
         <Route exact path="/reporter/dashboard" component={Frontpage2} />
         <Route exact path="/reporter/posts" component={Posts} />

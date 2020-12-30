@@ -28,10 +28,10 @@ import {
 import Dashboard from '../index';
 import BreadcrumSection from '../../../../utils/Sections/BreadcrumSection';
 import { getUnapprovedPosts } from '../../../../../redux/actions/posts';
-import { fetchPost, approvePost, createPost, editPost } from '../../../../../redux/actions/post';
+import { fetchPost, approvePost, createPost, editPost, deletePostAdmin } from '../../../../../redux/actions/post';
 import Pagination from '../../../../utils/Pagination';
 import ApproveBtn from '../../../../utils/Dashboard/Buttons/ApproveBtn';
-import EditBtnLeague from '../../../../utils/Dashboard/Buttons/EditBtnLeague';
+import DeleteBtn from '../../../../utils/Dashboard/Buttons/DeleteBtn';
 
 class PostsPage extends Component {
   state = {
@@ -108,6 +108,12 @@ class PostsPage extends Component {
     approvePost(slug);
   }
 
+  
+  deletePos = (id) => {
+    const { deletePostAdmin } = this.props;
+    deletePostAdmin(id);
+  }
+
   render() {
     const {
       listOfUnapproved,
@@ -132,7 +138,7 @@ class PostsPage extends Component {
         <MDBRow>
           <MDBCol md="12">
             {
-              getPost && getPost.errors ? (
+              getPost && getPost.errors === true ? (
                 <div className="alert alert-danger" role="alert">
                   <strong>{`${getPost.errors}`}</strong>
                 </div>
@@ -182,6 +188,7 @@ class PostsPage extends Component {
                               >
                                 <MDBRow className="text-center">
                                   <ApproveBtn title={post.title} approve={() => this.approvePos(post.slug)} />
+                                  <DeleteBtn title="post" delete={() => this.deletePos(post.slug)} />
                                   <Link to={`/admin/posts/${post.slug}`}>
                                     <MDBBtn
                                       color="success"
@@ -272,6 +279,7 @@ const mapDispatchToProps = (dispatch) => ({
   createPost: (name, options) => dispatch(createPost(name, options)),
   editPost: (id, data) => dispatch(editPost(id, data)),
   approvePost: (id) => dispatch(approvePost(id)),
+  deletePostAdmin: (id) => dispatch(deletePostAdmin(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostsPage);
