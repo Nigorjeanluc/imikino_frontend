@@ -25,12 +25,15 @@ import './Home.scss';
 import VideosPanel from '../../utils/VideosPanel';
 import Gallery from '../../utils/Gallery';
 import Pagination from '../../utils/Pagination';
+import {PageView, initGA} from '../../utils/Tracking';
 
 export class Home extends Component {
   state = { navbarOpen: false };
 
   componentDidMount() {
     // eslint-disable-next-line no-unused-vars
+    initGA('UA-105882306-1');
+    PageView();
     const { history, getAllPosts, getHeaderPosts, getTrendingPosts, getAllTopScorers } = this.props;
     // const { token } = localStorage;
     // if (!token) {

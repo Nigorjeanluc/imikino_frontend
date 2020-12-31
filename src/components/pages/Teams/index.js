@@ -12,12 +12,15 @@ import Title from '../../utils/Title';
 import Team from '../../utils/Team';
 import Footer from '../../utils/Footer';
 import Scroll from '../../utils/BackToTop';
+import {PageView, initGA} from '../../utils/Tracking';
 import './Teams.scss';
 
 export class Teams extends Component {
   state = { navbarOpen: false };
 
   componentDidMount () {
+    initGA('UA-105882306-1');
+    PageView();
     const { getAllTeams } = this.props;
     getAllTeams(1, 20);
   }

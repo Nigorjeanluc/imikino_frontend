@@ -11,12 +11,15 @@ import Footer from '../../utils/Footer';
 import Scroll from '../../utils/BackToTop';
 // import { getFrontPageAllTables } from '../../../redux/actions/tables';
 import { getAllLeagues2 } from '../../../redux/actions/leagues';
+import {PageView, initGA} from '../../utils/Tracking';
 import './Tables.scss';
 
 export class Tables extends Component {
   state = { navbarOpen: false };
 
   componentDidMount() {
+    initGA('UA-105882306-1');
+    PageView();
     // eslint-disable-next-line no-unused-vars
     const { getAllLeagues2 } = this.props;
     // const { token } = localStorage;

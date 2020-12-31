@@ -55,6 +55,7 @@ import './SinglePost.scss';
 import Title from '../../utils/Title';
 import NewsCard from '../../utils/NewsCard';
 import HelmetMetaData from '../../utils/HelmetMetaData';
+import {PageView, initGA} from '../../utils/Tracking';
 
 export class SinglePost extends Component {
   state = {
@@ -66,6 +67,8 @@ export class SinglePost extends Component {
   };
 
   componentDidMount () {
+    initGA('UA-105882306-1');
+    PageView();
     const { getSingle, getTrendingPosts, getPostComments, post, listOfComments, match } = this.props;
     getSingle(match.params.slug);
     getTrendingPosts();

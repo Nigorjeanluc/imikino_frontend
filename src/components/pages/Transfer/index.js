@@ -15,6 +15,7 @@ import Footer from '../../utils/Footer';
 import NewsCard from '../../utils/NewsCard';
 import Pagination from '../../utils/Pagination';
 import Scroll from '../../utils/BackToTop';
+import {PageView, initGA} from '../../utils/Tracking';
 import './Transfer.scss';
 
 export class Transfer extends Component {
@@ -22,6 +23,8 @@ export class Transfer extends Component {
 
 
   componentDidMount () {
+    initGA('UA-105882306-1');
+    PageView();
     const { getTransferPosts } = this.props;
     getTransferPosts(1, 10);
   }

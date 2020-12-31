@@ -11,12 +11,15 @@ import Title from '../../utils/Title';
 import Match from '../../utils/Match';
 import Footer from '../../utils/Footer';
 import Scroll from '../../utils/BackToTop';
+import {PageView, initGA} from '../../utils/Tracking';
 import './Livescore.scss';
 
 export class Livescore extends Component {
   state = { navbarOpen: false };
 
   componentDidMount () {
+    initGA('UA-105882306-1');
+    PageView();
     const script = document.createElement("script");
     script.async = true;
     script.src = "//s7.addthis.com/icons/official-addthis-angularjs/current/dist/official-addthis-angularjs.min.js";
