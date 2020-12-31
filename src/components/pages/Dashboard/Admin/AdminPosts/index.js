@@ -175,7 +175,7 @@ class PostsPage extends Component {
                                 <MDBRow className="text-center">
                                   {/* <EditBtnLeague identify={post.id} {...this.props} /> */}
                                   <DeleteBtn title="post" delete={() => this.deletePos(post.slug)} />
-                                  <Link to={`/reporter/posts/${post.slug}`}>
+                                  <Link to={`/admin/posts/${post.slug}`}>
                                     <MDBBtn
                                       color="success"
                                     >

@@ -12,7 +12,8 @@ const AdminCardSection1 = (props) => {
     countVideos,
     countReporters,
     countTopScorers,
-    countUnapproved
+    countUnapproved,
+    countPosts
   } = props;
   return (
   <>
@@ -206,6 +207,28 @@ const AdminCardSection1 = (props) => {
                   <p>APPROVE POSTS</p>
                   <h4>
                     <strong>{countUnapproved}</strong>
+                  </h4>
+                </div>
+              </div>
+              <MDBCardBody>
+                <div className="progress">
+                  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="25" className="progress-bar bg-primary" role="progressbar"
+                    style={{width: '100%'}}></div>
+                </div>
+                {/* <MDBCardText>Better than last week (25%)</MDBCardText> */}
+              </MDBCardBody>
+            </MDBCard>
+          </Link>
+        </MDBCol>
+        <MDBCol xl="3" md="6" className="mb-r">
+          <Link to="/admin/editor/posts">
+            <MDBCard className="cascading-admin-card">
+              <div className="admin-up">
+              <MDBIcon icon="newspaper" className="blue accent-2"/>
+                <div className="data">
+                  <p>YOUR POSTS</p>
+                  <h4>
+                    <strong>{countPosts}</strong>
                   </h4>
                 </div>
               </div>

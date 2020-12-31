@@ -13,7 +13,7 @@ import { getAllLocations } from '../../../../../redux/actions/locations';
 import { getAllVideos } from '../../../../../redux/actions/videos';
 import { getAllReporters } from '../../../../../redux/actions/users';
 import { getAllTopScorers } from '../../../../../redux/actions/topScorers';
-import { getUnapprovedPosts } from '../../../../../redux/actions/posts';
+import { getUnapprovedPosts, getAuthorPosts } from '../../../../../redux/actions/posts';
 import ChartSection1 from '../../../../utils/Sections/ChartSection1';
 import TableSection from '../../../../utils/Sections/TableSection';
 import ChartSection2 from '../../../../utils/Sections/ChartSection2';
@@ -32,7 +32,8 @@ class Frontpage extends Component {
       getAllVideos,
       getAllReporters,
       getAllTopScorers,
-      getUnapprovedPosts
+      getUnapprovedPosts,
+      getAuthorPosts
     } = this.props;
     getAllLeagues(1, 2000);
     getAllTeams(1, 2000);
@@ -43,6 +44,7 @@ class Frontpage extends Component {
     getAllReporters(1, 2000);
     getAllTopScorers(1, 2000);
     getUnapprovedPosts(1, 2000);
+    getAuthorPosts(1, 2000);
   }
 
   render() {
@@ -55,7 +57,8 @@ class Frontpage extends Component {
       listOfVideos,
       listOfReporters,
       listOfTopScorers,
-      listOfUnapproved
+      listOfUnapproved,
+      listOfPosts
     } = this.props;
     const totalLeagues = listOfLeagues && listOfLeagues.length ? listOfLeagues.length : 0;
     const totalLocations = listOfLocations && listOfLocations.length ? listOfLocations.length : 0;
@@ -66,6 +69,7 @@ class Frontpage extends Component {
     const totalReporters = listOfReporters && listOfReporters.length ? listOfReporters.length : 0;
     const totalTopScorers = listOfTopScorers && listOfTopScorers.length ? listOfTopScorers.length : 0;
     const totalUnapproved = listOfUnapproved && listOfUnapproved.length ? listOfUnapproved.length : 0;
+    const totalPosts = listOfPosts && listOfPosts.length ? listOfPosts.length : 0;
     return (
       <Dashboard {...this.props}>
         <BreadcrumSection pageTitle="Dashboard" />
@@ -79,6 +83,7 @@ class Frontpage extends Component {
           countReporters={totalReporters}
           countTopScorers={totalTopScorers}
           countUnapproved={totalUnapproved}
+          countPosts={totalPosts}
         />
         {/* <ChartSection1 /> */}
         {/* <TableSection />
@@ -126,6 +131,8 @@ const mapStateToProps = ({
   listOfReporters: users.listOfReporters,
   listOfUnapproved: posts.listOfUnapproved,
   getUnapproved: posts.getUnapproved,
+  listOfPosts: posts.listOfPosts,
+  getPosts: posts.getPosts,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -138,6 +145,7 @@ const mapDispatchToProps = (dispatch) => ({
   getAllReporters: (page, limit) => dispatch(getAllReporters(page, limit)),
   getAllTopScorers: (page, limit) => dispatch(getAllTopScorers(page, limit)),
   getUnapprovedPosts: (page, limit) => dispatch(getUnapprovedPosts(page, limit)),
+  getAuthorPosts: (page, limit) => dispatch(getAuthorPosts(page, limit)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Frontpage);
