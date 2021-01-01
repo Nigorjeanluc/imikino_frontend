@@ -23,7 +23,7 @@ export class Transfer extends Component {
 
 
   componentDidMount () {
-    initGA('UA-105882306-1');
+    initGA('UA-105882306');
     PageView();
     const { getTransferPosts } = this.props;
     getTransferPosts(1, 10);

@@ -18,7 +18,7 @@ export class Tables extends Component {
   state = { navbarOpen: false };
 
   componentDidMount() {
-    initGA('UA-105882306-1');
+    initGA('UA-105882306');
     PageView();
     // eslint-disable-next-line no-unused-vars
     const { getAllLeagues2 } = this.props;

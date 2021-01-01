@@ -19,7 +19,7 @@ export class Teams extends Component {
   state = { navbarOpen: false };
 
   componentDidMount () {
-    initGA('UA-105882306-1');
+    initGA('UA-105882306');
     PageView();
     const { getAllTeams } = this.props;
     getAllTeams(1, 20);

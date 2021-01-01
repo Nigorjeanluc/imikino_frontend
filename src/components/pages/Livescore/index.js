@@ -18,7 +18,7 @@ export class Livescore extends Component {
   state = { navbarOpen: false };
 
   componentDidMount () {
-    initGA('UA-105882306-1');
+    initGA('UA-105882306');
     PageView();
     const script = document.createElement("script");
     script.async = true;
