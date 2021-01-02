@@ -67,7 +67,7 @@ export class SinglePost extends Component {
   };
 
   componentDidMount () {
-    initGA('UA-105882306');
+    initGA('UA-105882306-1');
     PageView();
     const { getSingle, getTrendingPosts, getPostComments, post, listOfComments, match } = this.props;
     getSingle(match.params.slug);
