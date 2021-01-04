@@ -1,5 +1,5 @@
-const BASIC_URL = 'https://imikino-fullstack-448u5.ondigitalocean.app/api';
-const HEROKU_URL = 'https://imikino-fullstack-448u5.ondigitalocean.app';
+const BASIC_URL = 'http://159.89.171.3:5000/api';
+const HEROKU_URL = 'http://159.89.171.3:5000';
 const LOCAL_URL = 'http://localhost:4005/api';
 const SOCKET_URL = 'http://localhost:4005';
 const LOCAL_URL_IMAGE = 'http://localhost:4005/uploads';
