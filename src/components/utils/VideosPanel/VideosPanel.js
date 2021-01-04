@@ -3,6 +3,7 @@ import { MDBRow, MDBCol } from 'mdbreact';
 import ReactPlayer from 'react-player';
 import { useDispatch, useSelector } from "react-redux";
 import { Embed } from 'semantic-ui-react';
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 import './VideosPanel.scss';
 import Title from '../Title';
@@ -40,6 +41,18 @@ const VideosPanel = () => {
         )
         ) : null
       }
+      
+      <MDBCol className="d-md-none d-xs-block" size="12" xs="12">
+                  <TwitterTimelineEmbed
+                    sourceType="profile"
+                    screenName="Imikino_rw"
+                    options={{height: 1100, tweetLimit: 2}}
+                    noScrollbar={true}
+                    // noFooter={true}
+                    // noHeader={true}
+                    theme="dark"
+                  />
+      </MDBCol>
       {/* <MDBCol style={{padding: '15px 15px 15px 0'}} md="5">
         {videoData.listOfVideos.length > 0 ? videoData.listOfVideos.map(video => (
           <div key={video.id}>
