@@ -367,6 +367,7 @@ export class SinglePost extends Component {
           <HelmetMetaData
             title={post.title}
             quote={post.title}
+            slug={post.slug}
             image={`${BACKEND_URL_IMAGE}/news/${post.image}`}
             description={post.body}
             hashtag="imikino.rw"

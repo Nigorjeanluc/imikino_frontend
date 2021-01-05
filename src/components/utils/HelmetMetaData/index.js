@@ -4,14 +4,14 @@ import { useLocation } from "react-router-dom";
 import {IMIKINO_URL_IMAGE, BACKEND_URL_IMAGE} from '../../../redux/helpers/backendURLs';
 
 export default function HelmetMetaData(props) {
-  let location = useLocation();
-  let currentUrl = "https://imikino.rw" + location.pathname;
+  const location = useLocation();
+  const currentUrl = "https://imikino.rw" + props.slug;
   console.log(props.image);
-  let quote = props.quote !== undefined ? props.quote : "";
-  let title = props.title !== undefined ? `Imikino.rw | ${props.title}` : "Imikino.rw - The Sport World is yours to explore";
-  let image = props.image !== undefined ? props.image : "imikino";
-  let description = props.description !== undefined ? props.description  : "Kurikirana amakuru y'imikino agezweho kuri imikino.rw";
-  let hashtag = props.hashtag !== undefined ? props.hashtag : "";
+  const quote = props.quote !== undefined ? props.quote : "";
+  const title = props.title !== undefined ? `Imikino.rw | ${props.title}` : "Imikino.rw - The Sport World is yours to explore";
+  const image = props.image !== undefined ? props.image : "imikino";
+  const description = props.description !== undefined ? props.description  : "Kurikirana amakuru y'imikino agezweho kuri imikino.rw";
+  const hashtag = props.hashtag !== undefined ? props.hashtag : "";
   return (
     <Helmet>
       <title>{title}</title>
