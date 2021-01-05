@@ -30,7 +30,7 @@ export default function HelmetMetaData(props) {
       <meta property="og:title" content={title} />
       <meta property="og:quote" content={quote} />
       <meta property="og:hashtag" content={hashtag} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={image || require('../../../assets/logo.png')} />
       <meta content="image/*" property="og:image:type" />
       <meta property="og:url" content={currentUrl} />
       <meta property="og:site_name" content="Imikino" />

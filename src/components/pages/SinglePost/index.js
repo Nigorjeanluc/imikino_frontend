@@ -363,7 +363,7 @@ export class SinglePost extends Component {
     ));
     return (
       <>
-        {post && (
+        {post && post.image && (
           <HelmetMetaData
             title={post.title}
             quote={post.title}
