@@ -103,7 +103,7 @@ export class Home extends Component {
           title={post.title}
           image={post.image}
           slug={post.slug}
-          views={post.views}
+          allViews={post.allViews}
           updated_at={post.updated_at}
           size={"6"}
         />) : (
@@ -126,7 +126,7 @@ export class Home extends Component {
           title={post.title}
           image={post.image}
           slug={post.slug}
-          views={post.views}
+          allViews={post.allViews}
           updated_at={post.updated_at}
           size={"6"}
         />) : (

@@ -42,7 +42,7 @@ import {
   BASIC_URL,
   FRONTEND
 } from '../../../redux/helpers/backendURLs';
-import { getSingle } from '../../../redux/actions/post';
+import { getSingle, incrementPost } from '../../../redux/actions/post';
 import { getTrendingPosts } from '../../../redux/actions/posts';
 import { getPostComments } from '../../../redux/actions/comments';
 import { createComment } from '../../../redux/actions/comment';
@@ -69,7 +69,8 @@ export class SinglePost extends Component {
   componentDidMount () {
     initGA('UA-105882306-1');
     PageView();
-    const { getSingle, getTrendingPosts, getPostComments, post, listOfComments, match } = this.props;
+    const { getSingle, getTrendingPosts, incrementPost, getPostComments, post, listOfComments, match } = this.props;
+    incrementPost(match.params.slug);
     getSingle(match.params.slug);
     getTrendingPosts();
     getPostComments(match.params.slug);
@@ -435,7 +436,8 @@ const mapDispatchToProps = (dispatch) => ({
   getSingle: (slug) => dispatch(getSingle(slug)),
   getTrendingPosts: () => dispatch(getTrendingPosts()),
   getPostComments: (slug) => dispatch(getPostComments(slug)),
-  createComment: (slug, data) => dispatch(createComment(slug, data))
+  createComment: (slug, data) => dispatch(createComment(slug, data)),
+  incrementPost: (slug) => dispatch(incrementPost(slug))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SinglePost);

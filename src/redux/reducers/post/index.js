@@ -4,6 +4,7 @@ import approveReducer from './approvePostReducer';
 import editReducer from './editPostReducer';
 import deleteReducer from './deletePostReducer';
 import createReducer from './createPostReducer';
+import incrementReducer from './incrementPostReducer';
 
 export default (state = initialState, action) => {
   const post = postReducer(state, action);
@@ -11,6 +12,7 @@ export default (state = initialState, action) => {
   const edit = editReducer(state, action);
   const destroy = deleteReducer(state, action);
   const create = createReducer(state, action);
+  const increment = incrementReducer(state, action);
 
 
   return (
@@ -19,6 +21,7 @@ export default (state = initialState, action) => {
     || edit
     || destroy
     || create
+    || increment
     || state
   );
 };

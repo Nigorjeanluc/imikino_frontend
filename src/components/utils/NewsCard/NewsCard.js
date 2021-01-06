@@ -13,7 +13,7 @@ import {
 
 import './NewsCard.scss';
 
-function NewsCard({ title, image, slug, size, updated_at }) {
+function NewsCard({ title, image, slug, size, allViews, updated_at }) {
   return (
       <MDBCol className="panel" sm="12" md={`${size}`}>
         <MDBCard className="panel-card" cascade>
@@ -85,21 +85,21 @@ function NewsCard({ title, image, slug, size, updated_at }) {
             </ul> */}
             <ul className='list-unstyled list-inline font-small'>
               <li className='list-inline-item pr-2 white-text'>
-                <MDBIcon far icon='clock' /> { moment(updated_at, "YYYYMMDD").fromNow() }
+                <MDBIcon far icon='clock' /> { moment(updated_at, "YYYYMMDD").startOf('weeks').fromNow() }
               </li>
               {/* <li className='list-inline-item pr-2'>
                 <a href='#!' className='white-text'>
                   <MDBIcon far icon='comments' className='mr-1' />
                   12
                 </a>
-              </li>
+              </li> */}
               <li className='list-inline-item pr-2'>
                 <a href='#!' className='white-text'>
-                  <MDBIcon fab icon='facebook-f' className='mr-1' />
-                  21
+                  <MDBIcon icon='eye' className='mr-1' />
+                  {allViews} views
                 </a>
               </li>
-              <li className='list-inline-item'>
+              {/* <li className='list-inline-item'>
                 <a href='#!' className='white-text'>
                   <MDBIcon fab icon='twitter' className='mr-1' />5
                 </a>

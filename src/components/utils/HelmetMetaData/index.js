@@ -24,14 +24,14 @@ export default function HelmetMetaData(props) {
       <meta property="title" content={title} />
       <meta property="quote" content={quote} />
       <meta name="description" content={description} />
-      <meta property="image" content={image} />
+      {/* <meta property="image" content={image} /> */}
       <meta property="og:locale" content="en_US" />
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="og:quote" content={quote} />
       <meta property="og:hashtag" content={hashtag} />
       <meta property="og:image" content={image || require('../../../assets/logo.png')} />
-      <meta content="image/*" property="og:image:type" />
+      {/* <meta content="image/*" property="og:image:type" /> */}
       <meta property="og:url" content={currentUrl} />
       <meta property="og:site_name" content="Imikino" />
       <meta property="og:description" content={description} />

@@ -66,7 +66,7 @@ export class Transfer extends Component {
           title={post.title}
           image={post.image}
           slug={post.slug}
-          views={post.views}
+          allViews={post.allViews}
           updated_at={post.updated_at}
           size={"6"}
         />) : (
