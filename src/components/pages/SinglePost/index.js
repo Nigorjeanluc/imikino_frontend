@@ -200,6 +200,11 @@ export class SinglePost extends Component {
                             />
                           </MDBView>
                           ) : null}
+                          {post.image1_txt ? (
+                            <div className="body-font padding-photo">
+                              <b>{post.image1_txt}</b>
+                            </div>
+                          ) : null}
                           {post.body2 ? parse(`<div class="body-font">${post.body2}</div>`) : null}
                           {post.image2 ? (
                           <MDBView className="img-container" hover cascade waves>
@@ -210,7 +215,17 @@ export class SinglePost extends Component {
                             />
                           </MDBView>
                           ) : null}
+                          {post.image2_txt ? (
+                            <div className="body-font padding-photo">
+                              <b>{post.image2_txt}</b>
+                            </div>
+                          ) : null}
                           {post.body3 ? parse(`<div class="body-font">${post.body3}</div>`) : null}
+                          {post.image3_txt ? (
+                            <div className="body-font padding-photo">
+                              <b>{post.image3_txt}</b>
+                            </div>
+                          ) : null}
                         </MDBContainer>
                         { listOfComments && listOfComments.length > 0 && (
                         <MDBCard
