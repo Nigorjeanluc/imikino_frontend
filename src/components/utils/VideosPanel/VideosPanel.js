@@ -45,7 +45,7 @@ const VideosPanel = () => {
       <MDBCol className="d-md-none d-xs-block" size="12" xs="12">
                   <TwitterTimelineEmbed
                     sourceType="profile"
-                    screenName="Imikino_rw"
+                    screenName="ImikinoRw"
                     options={{height: 1100, tweetLimit: 2}}
                     noScrollbar={true}
                     // noFooter={true}
