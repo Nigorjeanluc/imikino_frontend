@@ -85,7 +85,7 @@ function NewsCard({ title, image, slug, size, allViews, updated_at }) {
             </ul> */}
             <ul className='list-unstyled list-inline font-small'>
               <li className='list-inline-item pr-2 white-text'>
-                <MDBIcon far icon='clock' /> { moment(updated_at, "YYYYMMDD").fromNow() }
+                <MDBIcon far icon='clock' /> { moment(updated_at).format('MMM Do YYYY, h:mm a') }
               </li>
               {/* <li className='list-inline-item pr-2'>
                 <a href='#!' className='white-text'>
