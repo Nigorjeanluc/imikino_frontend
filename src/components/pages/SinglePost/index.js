@@ -34,6 +34,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import ClipLoader from 'react-spinners/ClipLoader';
 import parse from 'html-react-parser';
+import { Helmet } from "react-helmet";
 
 import {
   IMIKINO_URL_IMAGE,
@@ -134,6 +135,37 @@ export class SinglePost extends Component {
 
     const jsx = post && (
       <>
+        <Helmet>
+          <title>{post.title}</title>
+          <meta charset="utf-8" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta property="type" content="website" />
+          <meta property="url" content={`https://imikino.rw/${post.slug}`} />
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+          <meta name="robots" content="noodp" />
+          <meta property="title" content={post.title} />
+          <meta property="quote" content={post.title} />
+          <meta name="description" content={post.body} />
+          <meta property="image" content={post.image} />
+          <meta property="og:locale" content="en_US" />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content={post.title} />
+          <meta property="og:quote" content={post.title} />
+          <meta property="og:hashtag" content="imikino.rw" />
+          <meta property="og:image" content={post.image} />
+          <meta content="image/*" property="og:image:type" />
+          <meta property="og:url" content={`https://imikino.rw/${post.slug}`} />
+          <meta property="og:site_name" content="Imikino" />
+          <meta property="og:description" content={post.body} />
+        </Helmet>
+        {/* <HelmetMetaData
+            title={post.title}
+            quote={post.title}
+            slug={post.slug}
+            image={`${BACKEND_URL_IMAGE}/news/${post.image}`}
+            description={post.body}
+            hashtag="imikino.rw"
+        ></HelmetMetaData> */}
                         <h2 className="main-title">{post.title}</h2>
                         <MDBCard className="img-card" reverse>
                           <MDBRow>
@@ -379,16 +411,6 @@ export class SinglePost extends Component {
     ));
     return (
       <>
-        {post && post.image && (
-          <HelmetMetaData
-            title={post.title}
-            quote={post.title}
-            slug={post.slug}
-            image={`${BACKEND_URL_IMAGE}/news/${post.image}`}
-            description={post.body}
-            hashtag="imikino.rw"
-          ></HelmetMetaData>
-        )}
         <Container fluid>
           <Scroll showBelow={250} />
           <Navbar

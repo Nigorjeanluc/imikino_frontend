@@ -6,7 +6,7 @@ import {IMIKINO_URL_IMAGE, BACKEND_URL_IMAGE} from '../../../redux/helpers/backe
 export default function HelmetMetaData(props) {
   const location = useLocation();
   const currentUrl = "https://imikino.rw" + props.slug;
-  console.log(props.image);
+  console.log(props.image, "Images");
   const quote = props.quote !== undefined ? props.quote : "";
   const title = props.title !== undefined ? `Imikino.rw | ${props.title}` : "Imikino.rw - The Sport World is yours to explore";
   const image = props.image !== undefined ? props.image : "imikino";
